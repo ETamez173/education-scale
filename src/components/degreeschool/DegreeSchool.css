@@ -116,7 +116,10 @@ background-color: orange;
 
 
  .degreeSchool__totalCost,
-.degreeSchool__loanPayment, .degreeSchool__nameCareer {
+.degreeSchool__loanPayment,
+.degreeSchool__nameSchool
+
+ {
 
     display: flex;
     flex-wrap: wrap;
