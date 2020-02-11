@@ -1,0 +1,211 @@
+.degreeSchoolx, .tableMyCBAx {
+
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    flex-basis: 20%;
+    padding: 1%;
+    /* background-color: goldenrod; */
+    margin:1%;
+    border: 1px solid black;
+    font-family:  Arial, Helvetica, sans-serif;
+    /* padding: 20px 10px 20px 10px; */
+    border-radius: 3px; 
+    justify-content: space-around;
+
+}
+
+.degree__nameEarnings, .degree__earningsAvg,
+.degree__earningsHigh, .degree__earningsLow {
+
+    margin:1%;
+    /* border: 1px solid black; */
+    font-family:  Arial, Helvetica, sans-serif;
+    /* padding: 20px 10px 20px 10px; */
+    border-radius: 3px; 
+    word-wrap: break-word;
+}
+
+
+
+
+
+.tableMyCBA__sectionx {
+
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    /* flex-basis: 20%; */
+    padding: 1%;
+    /* background-color: goldenrod; */
+    margin:1%;
+    border: 1px solid black;
+    font-family:  Arial, Helvetica, sans-serif;
+    /* padding: 20px 10px 20px 10px; */
+    border-radius: 3px; 
+    /* justify-content: space-around; */
+
+}
+/* .tableMyCBA { */
+    .tableMyCBA__section {
+
+    
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        /* flex-basis: 20%; */
+        padding: 1%;
+        /* background-color: goldenrod; */
+        margin:1%;
+        border: 1px solid black;
+        font-family:  Arial, Helvetica, sans-serif;
+        /* padding: 20px 10px 20px 10px; */
+        border-radius: 3px; 
+        /* justify-content: space-around; */
+        justify-content: space-around;
+
+background-color: mediumpurple;
+
+
+
+    }
+
+.tableMyCBA {
+
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    /* flex-basis: 20%; */
+    padding: 1%;
+    /* background-color: goldenrod; */
+    margin:1%;
+    border: 1px solid black;
+    font-family:  Arial, Helvetica, sans-serif;
+    /* padding: 20px 10px 20px 10px; */
+    border-radius: 3px; 
+    /* justify-content: space-around; */
+    justify-content: space-around;
+}
+
+
+
+.finWorkBench__buttons {
+
+    margin:1%;
+    /* border: 1px solid black; */
+    font-family:  Arial, Helvetica, sans-serif;
+    font-size: 1.25em;
+    /* padding: 20px 10px 20px 10px; */
+    border-radius: 3px; 
+
+    max-width: 120px;
+    word-wrap: break-word;
+
+
+}
+
+
+.degreeSchool__loanAmountInput, .degreeSchool__loanYrsInput, 
+.degreeSchool__loanRateInput, .degreeSchool__spaceholder  {
+
+background-color: orange;
+
+}
+
+
+
+
+ .degreeSchool__totalCost,
+.degreeSchool__loanPayment, .degreeSchool__nameCareer {
+
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin:1%;
+    border: 1px solid black;
+    font-family:  Arial, Helvetica, sans-serif;
+    font-size: 1.25em;
+    /* padding: 20px 10px 20px 10px; */
+    border-radius: 3px; 
+
+    max-width: 120px;
+    word-wrap: break-word;
+    align-content: center;
+
+}
+
+
+
+.tableMyCBA__nameCareer, .tableMyCBA__earningsAvg,
+.tableMyCBA__earningsHigh, .tableMyCBA__earningsLow, 
+.tableMyCBA__addButtonTitle,.tableMyCBA__earningsTotal {
+
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+
+    margin:1%;
+    /* border: 1px solid black; */
+    font-family:  Arial, Helvetica, sans-serif;
+    font-size: 1.25em;
+    /* padding: 20px 10px 20px 10px; */
+    border-radius: 3px; 
+
+    max-width: 120px;
+    word-wrap: break-word;
+    align-content: center;
+
+
+}
+
+
+.tableBCA__section {
+
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    /* flex-basis: 20%; */
+    padding: 1%;
+    /* background-color: goldenrod; */
+    margin:1%;
+    border: 1px solid black;
+    font-family:  Arial, Helvetica, sans-serif;
+    /* padding: 20px 10px 20px 10px; */
+    border-radius: 3px; 
+    justify-content: space-around;
+
+    background-color: pink;
+
+}
+
+.tableBCA__nameEarnings, .tableBCA__earningsAvg,
+.tableBCA__earningsHigh, .tableBCA__earningsLow,
+.tableBCA__earningsTotal {
+
+
+    /* flex-basis: 20%; */
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+
+    margin:1%;
+    /* border: 1px solid black; */
+    font-family:  Arial, Helvetica, sans-serif;
+    font-size: 1.25em;
+    /* padding: 20px 10px 20px 10px; */
+    border-radius: 3px; 
+    text-align: center;
+    justify-content: space-around;
+    /* width: fit-content; */
+
+    max-width: 110px;
+    word-wrap: break-word;
+}
+
+
+
+.degreeSchool__button {
+max-width: 100px;
+word-wrap: break-word;
+
+}

@@ -1,0 +1,25 @@
+.navbar {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: left;
+    flex-basis: 20%;
+    justify-content: space-evenly;
+}
+
+.navbar__item {
+    flex-basis: 20%;
+    list-style-type: none;
+    /* border: 1px solid black; */
+    border-radius: 3px; 
+    font-style: oblique;
+    font-size: 1.5em;
+    font-weight: 700;
+    text-align: center;
+}
+
+.navbar__item {
+font-family:  Arial, Helvetica, sans-serif;
+
+
+}
+
