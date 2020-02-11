@@ -48,7 +48,7 @@
 }
 
 
-.tableSchool__section {
+.tableSearchSchool__section {
 
     display: flex;
     flex-wrap: wrap;
@@ -70,7 +70,12 @@
 
 .tableSchool__nameEarnings, .tableSchool__earningsAvg,
 .tableSchool__earningsHigh, .tableSchool__earningsLow, 
-.tableSchool__addButtonTitle,.tableSchool__earningsTotal {
+.tableSchool__addButtonTitle,.tableSchool__earningsTotal,
+.tableSearchSchool__nameEarnings,
+.tableSearchSchool__earningsAvg, .tableSearchSchool__earningsHigh,
+.tableSearchSchool__earningsTotal, .tableSearchSchool__addButtonTitle
+
+{
 
     display: flex;
     flex-wrap: wrap;

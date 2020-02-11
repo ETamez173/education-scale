@@ -2,7 +2,21 @@ import React from "react"
 import "./Loans.css"
 // import { Link } from "react-router-dom"
 
+
+// const twentyYearEarnings = () =>
+// { (loan.degreeAnnualEarnings * 20 )
+// }
+// const twentyYearEarnings =  (loan.degreeAnnualEarnings * 20 )
+
+
+
+
+
 export default ({ loan }) => (
+
+
+
+    
     <section className="loan">
         <h3 className="loan__name">  </h3>
 
@@ -12,7 +26,7 @@ export default ({ loan }) => (
 
             <div className="loan__educationName">{loan.educationName}</div>
             <div className="loan__degreeAnnualEarnings">${loan.degreeAnnualEarnings}</div>
-            <div className="loan__twentyYearEarnings">${loan.twentyYearEarnings}</div>
+            <div className="loan__twentyYearEarnings">${loan.degreeAnnualEarnings * 20}</div>
             <div className="loan__schoolName">{loan.schoolName}</div>
             <div className="loan__totalAmountPaid">${loan.totalAmountPaid}</div>
             <div className="loan__cashPaid">${loan.cashPaid}</div>

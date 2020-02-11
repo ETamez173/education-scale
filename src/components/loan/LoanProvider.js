@@ -11,6 +11,8 @@ export const LoanProvider = (props) => {
             .then(setLoans)
     }
 
+    console.log(loans)
+
     const addLoan = loan => {
         return fetch("http://localhost:8088/loans", {
             method: "POST",

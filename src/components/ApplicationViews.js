@@ -80,16 +80,17 @@ export default (props) => {
 
             <SchoolProvider>
                 <DegreeSchoolProvider>
+                    <LoanProvider>
 
-                    <Route path="/mycareerOptions/:degreeId(\d+)" render={
-                        props => <SchoolList {...props} />
-                    } />
+                        <Route path="/mycareerOptions/:degreeId(\d+)" render={
+                            props => <SchoolList {...props} />
+                        } />
 
 
-                    <Route path="/mycareerOptions/:degreeId(\d+)" render={
-                        props => <SchoolOptionList {...props} />
-                    } />
-{/* 
+                        <Route path="/mycareerOptions/:degreeId(\d+)" render={
+                            props => <SchoolOptionList {...props} />
+                        } />
+                        {/* 
 
 
                     <Route exact path="/schools">
@@ -105,7 +106,7 @@ export default (props) => {
 
 
 
-
+                    </LoanProvider>
                 </DegreeSchoolProvider>
             </SchoolProvider>
 
@@ -135,8 +136,12 @@ export default (props) => {
             <SchoolProvider>
                 <DegreeSchoolProvider>
                     <LoanProvider>
-                        <Route exact path="/analysis" render={
+                        {/* <Route exact path="/analysis" render={
                             props => <DegreeSchoolList {...props} />
+                        } /> */}
+
+                        <Route exact path="/analysis" render={
+                            props => <LoanList {...props} />
                         } />
                     </LoanProvider>
                 </DegreeSchoolProvider>

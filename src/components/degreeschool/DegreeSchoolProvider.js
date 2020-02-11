@@ -10,21 +10,15 @@ export const DegreeSchoolProvider = (props) => {
 
     const getDegreeSchools = () => {
         // return fetch("http://localhost:8088/degreeSchools")
-        return fetch("http://localhost:8088/degreeSchools?_expand=degree")
-          // return fetch("http://localhost:8088/degreeSchools?_expand=school")
-        .then(res => res.json())
-
-        // .then(parsedDegrees => {
-        //     // console.table(parsedNotes);
-        //     // degreeSchools = parsedDegrees.slice()
-        // })
-        
-           
+        return fetch("http://localhost:8088/degreeSchools?_expand=degree&_expand=school")
+            //   return fetch("http://localhost:8088/degreeSchools?_expand=school")
+            .then(res => res.json())
             .then(setDegreeSchools)
     }
+
     console.log(degreeSchools)
-    // console.log(degreeSchools)
-    
+
+
     const addDegreeSchool = degreeSchool => {
         return fetch("http://localhost:8088/degreeSchools", {
             method: "POST",
@@ -40,7 +34,7 @@ export const DegreeSchoolProvider = (props) => {
         return fetch(`http://localhost:8088/degreeSchools/${degreeSchool.id}`, {
             method: "DELETE"
         })
-        .then(getDegreeSchools)
+            .then(getDegreeSchools)
     }
 
     const updateDegreeSchool = degreeSchool => {
