@@ -2,7 +2,7 @@ import React, { useContext } from "react"
 import { SchoolContext } from "./SchoolProvider"
 import { DegreeSchoolContext } from "../degreeschool/DegreeSchoolProvider"
 import { DegreeContext } from "../degree/DegreeProvider"
-
+import { MyCareerOptionContext } from "../mycareeroption/MyCareerOptionProvider"
 import Degree from "../degree/Degree"
 import School from "./School"
 import DegreeSchool from "../degreeschool/DegreeSchool"
@@ -11,8 +11,9 @@ import MyCareerOption from "../mycareeroption/MyCareerOption"
 
 export default (props) => {
     const { schools } = useContext(SchoolContext)
-    // const { degrees } = useContext(DegreeContext)
+    const { degrees } = useContext(DegreeContext)
     const { degreeSchools } = useContext(DegreeSchoolContext)
+    const { mycareeroptions } = useContext(MyCareerOptionContext)
 
     return (
         <>
@@ -36,34 +37,31 @@ export default (props) => {
 
             <div className="degreeSchools">
 
-                {
+         
+{
+    degreeSchools.map(ds => {
+        const findSchoolByDegree = schools.filter(
+            (school) => {
+                return ds.schoolId === school.id
+            }
+        )
+        return <DegreeSchool key={ds.id}
+                         schools={findSchoolByDegree}
+                         degreeSchool={ds} />
+    })
+}
 
-                    degreeSchools.map(degreeSchool => {
-                        // Find the school that offers the selected degree
-                        // if the search finds an object that is marked for school search
-                        
-///// STOPPED HERE at 6pm on 2-11-20 - need to find way to search by true search value!!!!!!!!
-
-                        //  if( mycareeroption.schoolSearch  === true ) {  
-
-                        const foundedSchool = schools.find(
-                            (school) => {
-                                return school.id === degreeSchool.schoolId
-                            }
-                        )
-
-                        // Pass the matching location to Employee component
-                        return <DegreeSchool key={degreeSchool.id}
-                            school={foundedSchool}
-                            degreeSchool={degreeSchool} />
-
-                        // }
-                    }
-                 )
-               }
 
 
             </div>
+
+{/* ERROR IDEA!!!!!!!!!!!!!!!!!!!12;18pm 2-12-20
+I think the error is with the appviews not having a provider */}
+
+
+
+
+
 
         </>
     )

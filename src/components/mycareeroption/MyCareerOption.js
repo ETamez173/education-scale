@@ -8,7 +8,7 @@ import { MyCareerOptionContext } from "../mycareeroption/MyCareerOptionProvider"
 
 export default ({ degree, mycareeroption, history }) => {
     const { addDegree } = useContext(DegreeContext)
-    const { searchMarkedTrueForCareerOption, addMyCareerOption, getMyCareerOption } = useContext(MyCareerOptionContext)
+    const { searchMarkedTrueForCareerOption, addMyCareerOption, getMyCareerOption, deleteMyCareerOption } = useContext(MyCareerOptionContext)
 
 
     const moveToSearch = () => {
@@ -96,9 +96,26 @@ export default ({ degree, mycareeroption, history }) => {
                             //   });
                         }}> Move To School Search </button>
                 </div>
+
+
                 <div>
-                    <button className="deleteMCO__button">Delete</button>
+                    <button className="saveToMyCareerOptions__button"
+                        onClick={() => {                           
+
+                            deleteMyCareerOption(mycareeroption)
+
+                        }}> Delete </button>
                 </div>
+
+
+
+
+
+
+
+                {/* <div>
+                    <button className="deleteMCO__button">Delete</button>
+                </div> */}
             </div>
 
 
