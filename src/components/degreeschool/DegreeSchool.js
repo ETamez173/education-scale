@@ -16,7 +16,7 @@ export default ({ degreeSchool, loans, degree, school }) => (
 
         <section className="tableMyCBA">
 
-            <div className="degreeSchool__nameCareer">{degreeSchool.degree.educationName}</div>
+            {/* <div className="degreeSchool__nameCareer">{degreeSchool.degree.educationName}</div> */}
            
            {/* Need to get the School Name here.  Maybe a find on school object   */}
            
@@ -26,8 +26,8 @@ export default ({ degreeSchool, loans, degree, school }) => (
                }
                 PLACE HOLDER</div>
 
-           <div className="degreeSchool__nameCareer">${degreeSchool.annualCost}</div> 
-            <div className="degreeSchool__nameCareer">${degreeSchool.totalCost}</div> 
+           {/* <div className="degreeSchool__nameCareer">${degreeSchool.annualCost}</div> 
+            <div className="degreeSchool__nameCareer">${degreeSchool.totalCost}</div>  */}
             {/* <div className="degreeSchool__totalCost">${degreeschool.degree.totalCost}</div> */}
            
 

@@ -70,13 +70,13 @@ export default (props) => {
                         <SchoolList {...props} />
                     </Route> */}
 
-
                         </DegreeSchoolProvider>
                     </MyCareerOptionProvider>
-
-
                 </DegreeProvider>
             </SchoolProvider>
+
+
+
 
             <SchoolProvider>
                 <DegreeSchoolProvider>
