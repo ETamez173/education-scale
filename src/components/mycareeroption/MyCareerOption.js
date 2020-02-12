@@ -23,17 +23,17 @@ export default ({ degree, mycareeroption, history }) => {
         console.log(mycareeroption.educationName)
 
         const searchSchool = "true";
-     
 
-            addMyCareerOption({
 
-        
+        addMyCareerOption({
+
+
             educationName: mycareeroption.educationName,
             searchSchool: "true",
             earningsAvg: mycareeroption.earningsAvg,
             userId: parseInt(ActiveUser),
             degreeId: mycareeroption.degreeId,
-        
+
         })
 
         // .then(() => props.history.push("/degrees"));
@@ -50,21 +50,37 @@ export default ({ degree, mycareeroption, history }) => {
             <div className="degree__nameEarnings">{mycareeroption.educationName}</div>
             <div className="degree__earningsAvg">${mycareeroption.earningsAvg}</div>
             {/* <div className="degree__earningsAvg">TEST TEXT</div> */}
-           
-            <button className="saveToMyCareerOptions__button"
-                onClick={() => {
-                    // const mycareeroption = mycareeroption 
-             
-                        moveToSearch()
-
-                        history.push(`/mycareeroptions/${mycareeroption.id}`);
-                 
-                    //     history.push("/mycareeroptions");
-                    //   });
-                }}> Move To School Search </button>
 
 
-{/* 
+            <div>
+                <div>
+                    <button className="saveToMyCareerOptions__button"
+                        onClick={() => {
+                            // const mycareeroption = mycareeroption 
+
+                            //// TODO HERE
+                            // check for  mycareeroption.id being in the json file if YES then dont construct but 
+                            // make ALRT to say "Already added to list!"
+                            // if NO then go ahead and make a new career option
+
+
+
+
+                            moveToSearch()
+
+                            history.push(`/mycareeroptions/${mycareeroption.id}`);
+
+                            //     history.push("/mycareeroptions");
+                            //   });
+                        }}> Move To School Search </button>
+                </div>
+                <div>
+                    <button className="deleteMCO__button">Delete</button>
+                </div>
+            </div>
+
+
+            {/* 
             <button className="saveToMyCareerOptions__button"
                 onClick={() => {
                     // const mycareeroption = mycareeroption 
