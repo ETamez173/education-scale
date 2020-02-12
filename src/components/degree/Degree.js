@@ -33,7 +33,8 @@ export default ({ degree, mycareeroption }) => {
             searchSchool: "False",
             earningsAvg: degree.earningsAvg,
             userId: parseInt(ActiveUser),
-            degreeId: degree.id
+            degreeId: degree.id,
+            schoolsearch: true
 
         })
 

@@ -4,18 +4,34 @@ import "./DegreeSchool.css"
 import { DegreeContext } from "../degree/DegreeProvider";
 import { SchoolContext } from "../school/SchoolProvider"
 import { LoanContext } from "../loan/LoanProvider"
+import { DegreeSchoolContext} from "../degreeschool/DegreeSchoolProvider"
 
 import School from "../school/School"
 import Loan from "../loan/Loan"
-
+import Degree from "../degree/Degree"
 ////aka SchoolList.js   
 
 
-// export default ({ degreeSchool, loans, degree, school }) => (
+
 export default ({ degreeSchool, loan, degree, school }) => {
 
-
+    {/* Commented out after git resolution issues */ }
     const { addLoan } = useContext(LoanContext)
+    const { deleteDegreeSchool } = useContext(DegreeSchoolContext)
+
+    {/* <div className="degreeSchool__nameCareer">{degreeSchool.degree.educationName}</div> */ }
+
+    {/* Need to get the School Name here.  Maybe a find on school object   */ }
+
+    // <div className="place__holder">
+    //    { 
+    //     // school.find(school.id === degreeSchool.schoolId)
+    //    }
+    //     PLACE HOLDER</div>
+
+    {/* <div className="degreeSchool__nameCareer">${degreeSchool.annualCost}</div> 
+            <div className="degreeSchool__nameCareer">${degreeSchool.totalCost}</div>  */}
+    {/* <div className="degreeSchool__totalCost">${degreeschool.degree.totalCost}</div> */ }
 
 
     const constructNewSchoolOption = () => {
@@ -97,6 +113,10 @@ export default ({ degreeSchool, loan, degree, school }) => {
 
                 <div className="degreeSchool__nameCareer">{degreeSchool.degree.educationName}</div>
                 <div className="degreeSchool__nameSchool">{degreeSchool.school.schoolName}</div>
+                {/* 
+                <div className="degreeSchool__nameCareer">{degreeSchool.degree.educationName}</div>
+                <div className="degreeSchool__nameSchool">{degreeSchool.school.schoolName}</div> */}
+
 
                 <div className="degreeSchool__nameCareer">${degreeSchool.annualCost}</div>
                 <div className="degreeSchool__nameCareer">${degreeSchool.totalCost}</div>
@@ -126,18 +146,27 @@ export default ({ degreeSchool, loan, degree, school }) => {
                             Add to School Shortlist
                 </button>
                     </div>
+
+
                     <div className="finWorkBench__buttons">
                         <div>
                             {/* <button className="saveSchoolListItem__button">Save </button> */}
 
-                            <button className="deleteSchoolListItem__button">Delete</button>
+                            {/* <button className="deleteSchoolListItem__button">Delete</button> */}
                         </div>
                     </div>
                     {/* use this button to create the loan object that will be used fore rest of analysis */}
                     {/* <div>
                     <button className="moveToBenefitAnalysis__button">Add to School Shortlist</button>
                 </div> */}
+                    <div>
+                        <button className="deleteSchoolListItem__button"
+                            onClick={() => {
 
+                                deleteDegreeSchool(degreeSchool)
+
+                            }}> Delete </button>
+                    </div>
 
 
 

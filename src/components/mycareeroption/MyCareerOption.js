@@ -8,7 +8,7 @@ import { MyCareerOptionContext } from "../mycareeroption/MyCareerOptionProvider"
 
 export default ({ degree, mycareeroption, history }) => {
     const { addDegree } = useContext(DegreeContext)
-    const { searchMarkedTrueForCareerOption, addMyCareerOption, getMyCareerOption } = useContext(MyCareerOptionContext)
+    const { searchMarkedTrueForCareerOption, addMyCareerOption, getMyCareerOption, deleteMyCareerOption } = useContext(MyCareerOptionContext)
 
 
     const moveToSearch = () => {
@@ -51,6 +51,28 @@ export default ({ degree, mycareeroption, history }) => {
             <div className="degree__earningsAvg">${mycareeroption.earningsAvg}</div>
             {/* <div className="degree__earningsAvg">TEST TEXT</div> */}
 
+{/* Commented out after git resolution issues */}
+{/* 
+            <div>
+                <div>
+                    <button className="saveToMyCareerOptions__button"
+                        onClick={() => {
+                            // const mycareeroption = mycareeroption 
+
+                            moveToSearch()
+
+                            history.push(`/mycareeroptions/${mycareeroption.id}`);
+
+                            //     history.push("/mycareeroptions");
+                            //   });
+                        }}> Move To School Search </button>
+                </div>
+                <div>
+                    <button className="deleteMCOShortlistItem__button">Delete</button>
+                </div>
+            </div>
+ */}
+
 
             <div>
                 <div>
@@ -74,9 +96,26 @@ export default ({ degree, mycareeroption, history }) => {
                             //   });
                         }}> Move To School Search </button>
                 </div>
+
+
                 <div>
-                    <button className="deleteMCO__button">Delete</button>
+                    <button className="saveToMyCareerOptions__button"
+                        onClick={() => {                           
+
+                            deleteMyCareerOption(mycareeroption)
+
+                        }}> Delete </button>
                 </div>
+
+
+
+
+
+
+
+                {/* <div>
+                    <button className="deleteMCO__button">Delete</button>
+                </div> */}
             </div>
 
 
