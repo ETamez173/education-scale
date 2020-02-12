@@ -51,8 +51,8 @@ export default ({ degree, mycareeroption, history }) => {
             <div className="degree__earningsAvg">${mycareeroption.earningsAvg}</div>
             {/* <div className="degree__earningsAvg">TEST TEXT</div> */}
 
-
-
+{/* Commented out after git resolution issues */}
+{/* 
             <div>
                 <div>
                     <button className="saveToMyCareerOptions__button"
@@ -69,6 +69,35 @@ export default ({ degree, mycareeroption, history }) => {
                 </div>
                 <div>
                     <button className="deleteMCOShortlistItem__button">Delete</button>
+                </div>
+            </div>
+ */}
+
+
+            <div>
+                <div>
+                    <button className="saveToMyCareerOptions__button"
+                        onClick={() => {
+                            // const mycareeroption = mycareeroption 
+
+                            //// TODO HERE
+                            // check for  mycareeroption.id being in the json file if YES then dont construct but 
+                            // make ALRT to say "Already added to list!"
+                            // if NO then go ahead and make a new career option
+
+
+
+
+                            moveToSearch()
+
+                            history.push(`/mycareeroptions/${mycareeroption.id}`);
+
+                            //     history.push("/mycareeroptions");
+                            //   });
+                        }}> Move To School Search </button>
+                </div>
+                <div>
+                    <button className="deleteMCO__button">Delete</button>
                 </div>
             </div>
 
