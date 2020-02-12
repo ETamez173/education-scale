@@ -16,7 +16,7 @@ export const DegreeSchoolProvider = (props) => {
             .then(setDegreeSchools)
     }
 
-    console.log(degreeSchools)
+    // console.log(degreeSchools)
 
 
     const addDegreeSchool = degreeSchool => {

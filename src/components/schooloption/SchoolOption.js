@@ -27,6 +27,13 @@ export default ({ school }) => (
                 <div className="degree__address">{degree.totalCost}</div> */}
 
             <div>
+
+            {/* TODO HERE
+                      check for  duplicate benefit item?? in the json file if YES then dont construct but 
+                      make ALRT to say "Already added to list!"
+                      if NO then go ahead and make a new BCA item */}
+
+
                 <button className="tableSchool__button">Move To Benefit Analysis</button>
                 <div>
                     <button className="deleteMSO__button">Delete </button>

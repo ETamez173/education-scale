@@ -20,8 +20,8 @@ export default (props) => {
 
             <div className="tableMyCBA__List">
                 <section className="tableMyCBA__section">
-                    <div className="tableMyCBA__nameCareer">Occupation / Skill</div>
-                    <div className="tableMyCBA__earningsAvg"> School</div>
+                    <div className="tableMyCBA__nameCareer">Degree</div>
+                    <div className="tableMyCBA__earningsAvg"> School / Program</div>
                     <div className="tableMyCBA__earningsAvg"> Average Total Costs</div>
                     <div className="tableMyCBA__earningsAvg"> Loans Taken All Years</div>
                     <div className="tableMyCBA__earningsAvg"> Repayment Years</div>
@@ -47,10 +47,10 @@ export default (props) => {
 
             <div className="tableBCA">
             <section className="tableBCA__section">
-                <div className="tableBCA__nameEarnings">Occupation / Skill</div>
+                <div className="tableBCA__nameEarnings">Degree</div>
                 <div className="tableBCA__earningsAvg"> Average Yearly Earnings</div>
                 <div className="tableBCA__earningsAvg"> (B) Benefits Over 20 Years</div>
-                <div className="tableBCA__nameEarnings">School</div>
+                <div className="tableBCA__nameEarnings">School / Program </div>
                 <div className="tableBCA__nameEarnings">(C) Total Costs</div>
                 <div className="tableBCA__nameEarnings">Total Cash Paid</div>
                 <div className="tableBCA__nameEarnings">Total Loan Amounts Paid</div>

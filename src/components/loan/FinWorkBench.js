@@ -30,16 +30,19 @@ export default ({ finWorkBench }) => (
 
               {/* these below are inputs items for calculatint the loan payments etc */}
             <div className="loan__loanAmount">${finWorkBench.loanAmount}</div>
+                 {/* schoolTotalCost - (Cash paid + grantsOther) = loanAmount */}
+            <div className="loan__loanAmount">${finWorkBench.cashPaid}</div>    
+            <div className="loan__loanAmount">${finWorkBench.grantsAndOther}</div>
 
             <div className="loan__totalLoanPmts">{finWorkBench.loanLengthMonths} Months</div>
             <div className="loan__totalLoanPmts">{finWorkBench.loanRate}%</div>
             <div className="loan__totalLoanPmts">${finWorkBench.loanPmt}</div>
             {/* <div className="loan__twentyYearEarnings">${finWorkBench.degreeAnnualEarnings * 20}</div> */}
           
-            {/* <div className="loan__totalAmountPaid">${finWorkBench.totalAmountPaid}</div> */}
+            {/* <div className="loan__totalAmountPaid">${finWorkBench.totalAmountPaid}</div>
 
 
-            {/* <div className="loan__cashPaid">${finWorkBench.cashPaid}</div> */}
+            <div className="loan__cashPaid">$cash{finWorkBench.cashPaid}</div> */}
           
          
      
@@ -49,13 +52,28 @@ export default ({ finWorkBench }) => (
                 {/* <div className="BCA__ratio">{loan.benefitCostRatio}</div> */}
 
                 <div>
-                    <div>
+
+                <button className="runBenefitCostAnalysis__button"
+                        onClick={() => {
+
+                            // constructNewBenefitObject()
+                            // this creates the loan object
+
+                            // see code for degree
+
+                        }}
+                    >
+                        Run Benefit Analysis 
+                </button>
+
+
+                    {/* <div>
                         <button className="saveBCA__button">Save Analysis</button>
-                    </div>
+                    </div> */}
 
 
                     <div>
-                        <button className="deleteBCA__button">Delete Analysis</button>
+                        <button className="deleteBCA__button">Delete </button>
                     </div>
                 </div>
             </div>

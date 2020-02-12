@@ -44,8 +44,8 @@ export default ({ degreeSchool, loan, degree, school }) => {
         const totalAmountPaid = null;
         const degreeAnnualEarnings = null;
         const twentyYearEarnings = null;
-        const benefitCostRatio = null
-
+        const benefitCostRatio = null;
+        const benefitCostAnalysis = null;
 
         addLoan({
 
@@ -65,7 +65,9 @@ export default ({ degreeSchool, loan, degree, school }) => {
             totalAmountPaid: "",
             degreeAnnualEarnings: "",
             twentyYearEarnings: "",
-            benefitCostRatio: ""
+            benefitCostRatio: "",
+            benefitCostAnalysis: "false"
+
 
             // educationName: degree.educationName,
             // searchSchool: "False",
@@ -88,44 +90,56 @@ export default ({ degreeSchool, loan, degree, school }) => {
 
             <section className="tableMyCBA">
 
-                
+
                 {/* <div className="degreeSchool__nameCareer">{degreeSchool.degree.educationName}</div> */}
                 {/* used a fetch with 2 expands  */}
                 {/* return fetch("http://localhost:8088/degreeSchools?_expand=degree&_expand=school") */}
-                
-                                <div className="degreeSchool__nameCareer">{degreeSchool.degree.educationName}</div>
-                                <div className="degreeSchool__nameSchool">{degreeSchool.school.schoolName}</div>
 
-                                <div className="degreeSchool__nameCareer">${degreeSchool.annualCost}</div>
-                                <div className="degreeSchool__nameCareer">${degreeSchool.totalCost}</div>
+                <div className="degreeSchool__nameCareer">{degreeSchool.degree.educationName}</div>
+                <div className="degreeSchool__nameSchool">{degreeSchool.school.schoolName}</div>
+
+                <div className="degreeSchool__nameCareer">${degreeSchool.annualCost}</div>
+                <div className="degreeSchool__nameCareer">${degreeSchool.totalCost}</div>
                 {/* <div className="degreeSchool__totalCost">${degreeschool.degree.totalCost}</div> */}
 
 
-                <div className="finWorkBench__buttons">
+                <div>
                     <div>
-                        <button className="saveSchoolListItem__button">Save </button>
+                        <button className="addToSchoolOptionShortlist_button"
+                            onClick={() => {
 
-                        <button className="deleteSchoolListItem__button">Delete</button>
+
+                                //// TODO HERE
+                                // check for  duplicate schoolOption ?? in the json file if YES then dont construct but 
+                                // make ALRT to say "Already added to list!"
+                                // if NO then go ahead and make a new shortlist item
+
+
+
+                                constructNewSchoolOption()
+                                // this create the loan object
+
+                                // see code for degree
+
+                            }}
+                        >
+                            Add to School Shortlist
+                </button>
                     </div>
+                    <div className="finWorkBench__buttons">
+                        <div>
+                            {/* <button className="saveSchoolListItem__button">Save </button> */}
 
+                            <button className="deleteSchoolListItem__button">Delete</button>
+                        </div>
+                    </div>
                     {/* use this button to create the loan object that will be used fore rest of analysis */}
                     {/* <div>
                     <button className="moveToBenefitAnalysis__button">Add to School Shortlist</button>
                 </div> */}
 
 
-                    <button className="addToSchoolOptionShortlist_button"
-                        onClick={() => {
 
-                            constructNewSchoolOption()
-                            // this create the loan object
-
-                            // see code for degree
-
-                        }}
-                    >
-                        Add to School Shortlist
-                </button>
 
 
 
