@@ -24,6 +24,12 @@ import LoanList from "./loan/LoanList"
 import DegreeSchoolList from "./degreeschool/DegreeSchoolList"
 import { DegreeSchoolProvider } from "./degreeschool/DegreeSchoolProvider"
 
+
+
+import { MySchoolOptionProvider } from "./myschooloption/MySchoolOptionProvider"
+
+import { FinWorkBenchProvider } from "./loan/FinWorkBenchProvider"
+import FinWorkBenchList from "./loan/FinWorkBenchList"
 // import MyCareerOptionList from "./mycareeroption/MyCareerOptionList"
 // import { MyCareerOptionPovider } from "./mycareeroption/MyCareerOptionProvider";
 
@@ -40,36 +46,38 @@ export default (props) => {
                 <DegreeProvider>
                     <MyCareerOptionProvider>
                         <DegreeSchoolProvider>
-                            <Route exact path="/">
-                                <DegreeList />
-                            </Route>
 
-                            {/* <Route exact path="/">
+                            < FinWorkBenchProvider>
+                                <Route exact path="/">
+                                    <DegreeList />
+                                </Route>
+
+                                {/* <Route exact path="/">
                         <CareerOptionList />
                     </Route> */}
-                            {/* <Route
+                                {/* <Route
                             path="/tasks/editTasks/:taskId(\d+)"
                             render={props => <TaskForm {...props} />}
                         /> */}
 
-                            {/* <Route
+                                {/* <Route
                             path="/search/:mycareeroption.id(\d+)"
                             render={props => <MyCareerOptionList {...props} />}
                         /> */}
 
-                            {/* <Route exact path="/">
+                                {/* <Route exact path="/">
                             <SchoolList {...props} />
                         </Route> */}
 
 
-                            <Route exact path="/">
-                                <MyCareerOptionList {...props} />
-                            </Route>
-                            {/* 
+                                <Route exact path="/">
+                                    <MyCareerOptionList {...props} />
+                                </Route>
+                                {/* 
                         <Route exact path="/">
                         <SchoolList {...props} />
                     </Route> */}
-
+                            </FinWorkBenchProvider>
                         </DegreeSchoolProvider>
                     </MyCareerOptionProvider>
                 </DegreeProvider>
@@ -83,16 +91,19 @@ export default (props) => {
                     <LoanProvider>
                         <DegreeProvider>
                             <MyCareerOptionProvider>
-
-                                <Route path="/mycareerOptions/:degreeId(\d+)" render={
-                                    props => <SchoolList {...props} />
-                                } />
+                                <MySchoolOptionProvider>
+                                    < FinWorkBenchProvider>
 
 
-                                <Route path="/mycareerOptions/:degreeId(\d+)" render={
-                                    props => <SchoolOptionList {...props} />
-                                } />
-                                {/* 
+                                        <Route path="/mycareerOptions/:degreeId(\d+)" render={
+                                            props => <SchoolList {...props} />
+                                        } />
+
+
+                                        <Route path="/mycareerOptions/:degreeId(\d+)" render={
+                                            props => <SchoolOptionList {...props} />
+                                        } />
+                                        {/* 
 
 
                     <Route exact path="/schools">
@@ -105,8 +116,8 @@ export default (props) => {
 
 
 
-
-
+                                    </FinWorkBenchProvider>
+                                </MySchoolOptionProvider>
                             </MyCareerOptionProvider>
                         </DegreeProvider>
                     </LoanProvider>
@@ -139,13 +150,24 @@ export default (props) => {
             <SchoolProvider>
                 <DegreeSchoolProvider>
                     <LoanProvider>
-                        {/* <Route exact path="/analysis" render={
+                        < FinWorkBenchProvider>
+                            {/* <Route exact path="/analysis" render={
                             props => <DegreeSchoolList {...props} />
                         } /> */}
 
-                        <Route exact path="/analysis" render={
-                            props => <LoanList {...props} />
-                        } />
+                            <Route exact path="/analysis" render={
+                                props => <FinWorkBenchList {...props} />
+                            } />
+
+
+                            <Route exact path="/analysis" render={
+                                props => <LoanList {...props} />
+                            } />
+
+
+
+
+                        </FinWorkBenchProvider>
                     </LoanProvider>
                 </DegreeSchoolProvider>
             </SchoolProvider>

@@ -7,8 +7,8 @@ import "./Degrees.css"
 
 
 export default ({ degree, mycareeroption }) => {
-    const { addDegree } = useContext(DegreeContext)
-    const { addMyCareerOption } = useContext(MyCareerOptionContext)
+    const { degrees, addDegree } = useContext(DegreeContext)
+    const { mycareeroptions, addMyCareerOption } = useContext(MyCareerOptionContext)
 
 
 
@@ -17,24 +17,23 @@ export default ({ degree, mycareeroption }) => {
 
         /// Creating the object right here >>>>>
 
-
-
         const ActiveUser = localStorage.getItem("education_customer")
         // const id =                      ;
         const educationName = degree.educationName;
         const earningsAvg = degree.earningsAvg;
-        const searchSchool = "False";
+        const searchSchool = "false";
         const userId = parseInt(localStorage.getItem("educationScale_user"));
 
 
         addMyCareerOption({
 
             educationName: degree.educationName,
-            searchSchool: "False",
+            searchSchool: "false",
+            shortList: "true",
             earningsAvg: degree.earningsAvg,
             userId: parseInt(ActiveUser),
             degreeId: degree.id,
-            schoolsearch: true
+
 
         })
 
@@ -55,8 +54,8 @@ export default ({ degree, mycareeroption }) => {
             <div className="degree__earningsLow">${degree.earningsLow}</div>
 
             <div className="degree__id">{degree.id}</div>
-           
-            
+
+
             <button className="saveToMyCareerOptions__button"
                 onClick={() => {
 
@@ -64,10 +63,20 @@ export default ({ degree, mycareeroption }) => {
                     // check for degree.id being in the json file if YES then dont construct but 
                     // make ALRT to say "Already added to options!"
                     // if NO then go ahead and make a new career option
-                    constructNewDegree()
+                    if    (mycareeroptions.degreeId === degrees.id)  
+                        constructNewDegree()  
 
-                }}
-            >
+
+                    // if (mycareeroptions.educationName !== degree.educationName) {
+                    // // if (mycareeroptions.degreeId !== degree.id) {
+                    //     alert("Already Added To Career Options");
+                    // }
+                    // else {
+                    // if    (mycareeroptions.degreeId !== degrees.id)  {
+                    //         constructNewDegree()  }
+                    // }
+
+                }}>
                 Add To Career Options
                 </button>
 

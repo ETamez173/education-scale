@@ -20,6 +20,10 @@ export default (props) => {
 
             <h1>Search Schools By Degree And Cost</h1>
             <h1>aka SchoolList.js</h1>
+            <p>renders the list and Onclick creates loan object with search===false</p>
+            
+            <p>need to filter degreeschools by shoolId in mycareeroptions </p>
+
             {/* <div>TESTING THE RENDER</div> */}
 
             <div className="tableSearchSchool">
@@ -42,9 +46,15 @@ export default (props) => {
     degreeSchools.map(ds => {
         const findSchoolByDegree = schools.filter(
             (school) => {
-                return ds.schoolId === school.id
+                // const mycareeroption = mycareeroption
+                // if(ds.degreeId === mycareeroption.degreeId) 
+console.log(ds.degreeId)
+// console.log(mycareeroption.degreeId)
+
+                return ds.schoolId !== school.id
             }
         )
+        if(ds.schoolSearch === false ) 
         return <DegreeSchool key={ds.id}
                          schools={findSchoolByDegree}
                          degreeSchool={ds} />

@@ -34,7 +34,7 @@ export default (props) => {
 
                 {
                     mycareeroptions.map(mycareeroption => {
-                        if(mycareeroption.searchSchool !== "true")
+                        if(mycareeroption.shortList === "true")
                         return <MyCareerOption key={mycareeroption.id} {...props} mycareeroption={mycareeroption} />
                     })
                 }

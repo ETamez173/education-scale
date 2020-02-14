@@ -12,14 +12,14 @@ export default (props) => {
         <>
 
             {/* <h1>NOT USING THIS CODE </h1> */}
-             <h1>My Benefit Cost Analysis</h1> 
-            <h1>aka LoanList.js</h1> 
+            <h1>My Benefit Cost Analysis</h1>
+            <h1>aka FinWorkBenchList.js</h1>
             {/* <div>TESTING THE RENDER</div> */}
 
-            {/* <h2>Finance Workbench</h2> */}
+            <h2>Finance Workbench</h2>
 
 
-           <div className="tableMyCBA__List">
+            <div className="tableMyCBA__List">
                 <section className="tableMyCBA__section">
                     <div className="tableMyCBA__nameCareer">Degree</div>
                     <div className="tableMyCBA__earningsAvg"> School / Program</div>
@@ -33,31 +33,34 @@ export default (props) => {
                 <div className="tableMyCBA__earningsLow">Earnings Low</div> */}
 
                 </section>
-            </div> 
+            </div>
 
 
-            <div className="finworkbenchs"> 
+            <div className="finworkbenchs">
                 {
                     // loans.map(finWorkBench => {
-                        // loans.map(finworkbench => {
-                            loans.map(loan => {
+                        finworkbenchs.map(finworkbench => {
+                        console.log(finworkbench)
+                        // if(loan.benefitCostAnalysis === false ) {
 
-                        if(loan.benefitCostAnalysis === false ) 
-                        // if(finworkbench.benefitCostAnalysis === false ) 
-                        //  return <FinWorkBench key={finworkbench.id} finworkbench={finworkbench} />
-                         return <FinWorkBench key={loan.id} loan={loan} />
-                    }
-                    
-                      )
-}
-           </div>
-
-
+                            // if(mycareeroption.searchSchool !== "true")
+                        if (finworkbench.benefitCostAnalysis === "false") 
+                        console.log(finworkbench)
+                            return <FinWorkBench key={finworkbench.id} finworkbench={finworkbench} />
+                        
+                    })
+                }
+            </div>
 
 
-            <h2>Benefit Cost Analysis</h2>
-            <h2>Lower part of LoanList.js</h2>
+            {/* {
+                    mycareeroptions.map(mycareeroption => {
+                        if(mycareeroption.searchSchool !== "true")
+                        return <MyCareerOption key={mycareeroption.id} {...props} mycareeroption={mycareeroption} />
+                    })
+                } */}
 
+            {/* <h2>Benefit Cost Analysis</h2>
 
             <div className="tableBCA">
             <section className="tableBCA__section">
@@ -73,8 +76,8 @@ export default (props) => {
                 {/* <div className="tableMCO__earningsHigh">Earnings High</div>
                 <div className="tableMCO__earningsLow">Earnings Low</div> */}
 
-            </section>
-            </div> 
+            {/* </section> */}
+            {/* </div> 
 
 
 
@@ -84,7 +87,7 @@ export default (props) => {
                         return <Loan key={loan.id} loan={loan} />
                     })
                 }
-            </div>
+            </div> */}
 
 
 
