@@ -56,7 +56,7 @@ const Login = props => {
         <main className="container--login">
             <section>
                 <form className="form--login" onSubmit={handleLogin}>
-                    <h1>EducationScale Test Branch</h1>
+                    <h1>SchoolScale </h1>
                     <h2>Please sign in</h2>
                     <fieldset className="email__prompt">
                         <label htmlFor="inputEmail"> Enter Your Email Address </label>

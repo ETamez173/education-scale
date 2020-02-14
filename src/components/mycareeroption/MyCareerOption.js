@@ -79,7 +79,7 @@ export default ({ degree, mycareeroption, history }) => {
                             history.push(`/mycareeroptions/${mycareeroption.id}`);
 
 
-                        }}> Move To School Search </button>
+                        }}> Add To School Search </button>
                 </div>
                 <br></br>
                 <br></br>

@@ -127,7 +127,7 @@ export default ({ finworkbench, degreeSchool, loan }) => {
                                     // see code for degree
 
                                 }}>
-                                Enter Savings, Scholarships information
+                                Enter Savings, Scholarships, and Grant Information
                         </button>
                             <br></br>
                             <br></br>

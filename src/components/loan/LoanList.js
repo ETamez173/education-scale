@@ -19,7 +19,7 @@ export default (props) => {
             {/* <h2>Finance Workbench</h2> */}
 
 
-           <div className="tableMyCBA__List">
+           {/* <div className="tableMyCBA__List">
                 <section className="tableMyCBA__section">
                     <div className="tableMyCBA__nameCareer">Degree</div>
                     <div className="tableMyCBA__earningsAvg"> School / Program</div>
@@ -28,12 +28,12 @@ export default (props) => {
                     <div className="tableMyCBA__earningsAvg"> Repayment Years</div>
                     <div className="tableMyCBA__earningsAvg"> Interest Rate %</div>
                     <div className="tableMyCBA__earningsAvg"> Monthly Payment</div>
-                    <div className="tableMyCBA__earningsAvg"> Actions</div>
+                    <div className="tableMyCBA__earningsAvg"> Actions</div> */}
                     {/* <div className="tableMyCBA__earningsHigh">Earnings High</div>
                 <div className="tableMyCBA__earningsLow">Earnings Low</div> */}
 
-                </section>
-            </div> 
+                {/* </section> */}
+            {/* </div>  */}
 
 
             <div className="finworkbenchs"> 
