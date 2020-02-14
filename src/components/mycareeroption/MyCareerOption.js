@@ -8,7 +8,7 @@ import { MyCareerOptionContext } from "../mycareeroption/MyCareerOptionProvider"
 
 export default ({ degree, mycareeroption, history }) => {
     const { addDegree } = useContext(DegreeContext)
-    const { searchMarkedTrueForCareerOption, addMyCareerOption, getMyCareerOption, deleteMyCareerOption } = useContext(MyCareerOptionContext)
+    const { mycareeroptions, moveToSearchMyCareerOption ,addMyCareerOption, getMyCareerOption, deleteMyCareerOption } = useContext(MyCareerOptionContext)
 
 
     const moveToSearch = () => {
@@ -24,20 +24,28 @@ export default ({ degree, mycareeroption, history }) => {
 
         const searchSchool = "true";
 
+        // completeTask({taskCompletion: true,},task.id)
+        
+        // .then(() => {
+              
+        //     history.push("/tasks");
+        //   });
+
+//         moveToSearchMyCareerOption({searchSchool:"true",},parseInt(mycareeroption.id))
+// console.log(mycareeroption.id)
+
 
         addMyCareerOption({
 
 
             educationName: mycareeroption.educationName,
             searchSchool: "true",
+            shortList: "false",
             earningsAvg: mycareeroption.earningsAvg,
             userId: parseInt(ActiveUser),
             degreeId: mycareeroption.degreeId,
 
         })
-
-        // .then(() => props.history.push("/degrees"));
-
 
     }
 
@@ -51,27 +59,6 @@ export default ({ degree, mycareeroption, history }) => {
             <div className="degree__earningsAvg">${mycareeroption.earningsAvg}</div>
             {/* <div className="degree__earningsAvg">TEST TEXT</div> */}
 
-{/* Commented out after git resolution issues */}
-{/* 
-            <div>
-                <div>
-                    <button className="saveToMyCareerOptions__button"
-                        onClick={() => {
-                            // const mycareeroption = mycareeroption 
-
-                            moveToSearch()
-
-                            history.push(`/mycareeroptions/${mycareeroption.id}`);
-
-                            //     history.push("/mycareeroptions");
-                            //   });
-                        }}> Move To School Search </button>
-                </div>
-                <div>
-                    <button className="deleteMCOShortlistItem__button">Delete</button>
-                </div>
-            </div>
- */}
 
 
             <div>
@@ -85,26 +72,26 @@ export default ({ degree, mycareeroption, history }) => {
                             // make ALRT to say "Already added to list!"
                             // if NO then go ahead and make a new career option
 
-
-
-
                             moveToSearch()
+
+                            // console.log(mycareeroption.id)
 
                             history.push(`/mycareeroptions/${mycareeroption.id}`);
 
-                            //     history.push("/mycareeroptions");
-                            //   });
+
                         }}> Move To School Search </button>
                 </div>
-
+                <br></br>
+                <br></br>
+                <br></br>
 
                 <div>
-                    <button className="saveToMyCareerOptions__button"
-                        onClick={() => {                           
+                    <button className="deleteMyCareerOption__button"
+                        onClick={() => {
 
                             deleteMyCareerOption(mycareeroption)
 
-                        }}> Delete </button>
+                        }}> Delete  </button>
                 </div>
 
 

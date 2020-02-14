@@ -36,6 +36,20 @@ export const DegreeSchoolProvider = (props) => {
             .then(getDegreeSchools)
     }
 
+
+    const patchDegreeSchool = (degreeSchool, id) => {
+        return fetch(`http://localhost:8088/degreeSchools/${id}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(degreeSchool)
+        })
+        .then(getDegreeSchools)
+    }
+
+
+
     const updateDegreeSchool = degreeSchool => {
         return fetch(`http://localhost:8088/degreeSchools/${degreeSchool.id}`, {
             method: "PUT",
@@ -53,7 +67,7 @@ export const DegreeSchoolProvider = (props) => {
 
     return (
         <DegreeSchoolContext.Provider value={{
-            degreeSchools, addDegreeSchool, deleteDegreeSchool, updateDegreeSchool
+            degreeSchools, addDegreeSchool, deleteDegreeSchool, updateDegreeSchool, patchDegreeSchool
         }}>
             {props.children}
         </DegreeSchoolContext.Provider>

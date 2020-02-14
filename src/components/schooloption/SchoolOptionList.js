@@ -1,11 +1,17 @@
 import React, { useContext } from "react"
 import { SchoolContext } from "../school/SchoolProvider"
-import SchoolOption from "./SchoolOption"
+import { LoanContext, MySchoolOptionContext } from "../loan/LoanProvider"
+// import { MySchoolOptionContext } from "../loan/LoanProvider"
+// import MySchoolOption from "./MySchoolOption"
+import FinWorkBench from "../loan/FinWorkBench"
+import MySchoolOption from "../myschooloption/MySchoolOption.js"
+import Loan from "../loan/Loan"
 import "./SchoolOption.css"
 
 export default (props) => {
     const { schools } = useContext(SchoolContext)
-
+    const { loans, myschooloptions } = useContext(LoanContext)
+    // const { myschooloptions } = useContext(MySchoolOptionContext)
     return (
         <>
 
@@ -25,31 +31,21 @@ export default (props) => {
             </div>
 
             <div className="schools">
-                {
+                {/* {
                     schools.map(school => {
                         return <SchoolOption key={school.id} school={school} />
                     })
-                }
-
-{/* 
-left off her around 930pm on 2-10-20.  Tommorow is a new day */}
-
-                {/* {
-                    schools.map(school => {
-                        // Find this employee's matching location object
-                        const foundedSchool = schools.find(
-                            (school) => {
-                                // return school.id === degreeSchool.schoolId
-                            }
-                        )
-
-                        // Pass the matching location to Employee component
-                        // return <School key={school.id}
-                        //     school={foundedSchool}
-                            // school={school} 
-                            />
-                    })
                 } */}
+
+
+                <div className="MySchoolOptions">
+                    {
+                        loans.map(myschooloption => {
+                            return <MySchoolOption key={myschooloption.id} myschooloption={myschooloption} />
+                        })
+                    }
+                </div>
+
 
 
             </div>

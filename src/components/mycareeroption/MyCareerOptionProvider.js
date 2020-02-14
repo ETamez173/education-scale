@@ -23,7 +23,7 @@ export const MyCareerOptionProvider = (props) => {
     }
 
 
-    const searchMarkedTrueForCareerOption = (mycareeroption, id) => {
+    const moveToSearchMyCareerOption = (mycareeroption, id) => {
         // return fetch(`http://localhost:8088/tasks/${id}`, {
             console.log(mycareeroption, id)
         // console.log(id)
@@ -67,7 +67,7 @@ export const MyCareerOptionProvider = (props) => {
     return (
         <MyCareerOptionContext.Provider value={{
             mycareeroptions, addMyCareerOption, deleteMyCareerOption, updateMyCareerOption,
-            searchMarkedTrueForCareerOption
+            moveToSearchMyCareerOption
         }}>
             {props.children}
         </MyCareerOptionContext.Provider>
