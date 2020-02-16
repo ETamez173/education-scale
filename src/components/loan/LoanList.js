@@ -17,7 +17,7 @@ export default (props) => {
             <h2>render of FinWorkBenchs</h2>
             {/* <div>TESTING THE RENDER</div> */}
 
-            {/* <h2>Finance Workbench</h2> */}
+            <h2>Finance Workbench</h2>
 
 
             <div className="tableMyCBA__List">
@@ -78,8 +78,8 @@ export default (props) => {
 
 
             <h2>Benefit Cost Analysis</h2>
-            <h2>Lower part of LoanList.js</h2>
-            <h2>render of Loans</h2>
+            {/* <h2>Lower part of LoanList.js</h2>
+            <h2>render of Loans</h2> */}
 
             <div className="tableBCA">
                 <section className="tableBCA__section">

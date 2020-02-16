@@ -4,6 +4,7 @@ import { LoanContext } from "../loan/LoanProvider"
 import { DegreeContext } from "../degree/DegreeProvider"
 import { FinWorkBenchContext } from "../loan/FinWorkBenchProvider"
 import { DegreeSchoolContext } from "../degreeschool/DegreeSchoolProvider"
+import { MySchoolOptionContext } from "../myschooloption/MySchoolOptionProvider"
 import DegreeSchool from "../degreeschool/DegreeSchool"
 
 // const twentyYearEarnings =  (loan.degreeAnnualEarnings * 20 )
@@ -14,7 +15,8 @@ export default ({ finworkbench, degreeSchool, loan }) => {
     const { finworkbenchs, deleteFinWorkBench, addFinWorkBench } = useContext(FinWorkBenchContext)
     // const { degrees, addDegree } = useContext(DegreeContext)
     const { loans, addLoan } = useContext(LoanContext)
-    const { degreeschools, deleteDegreeSchool } = useContext(DegreeSchoolContext)
+    // const { deleteMySchoolOption, getMySchoolOptions } = useContext(MySchoolOptionContext)
+    // const { degreeschools, deleteDegreeSchool } = useContext(DegreeSchoolContext)
 
 
 

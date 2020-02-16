@@ -7,6 +7,16 @@ h1, h2, h3, h4 {
     
 }
 
+.BCA_buttons {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    flex-basis: 20%;
+    padding: 1%;
+/* background: yellow; */
+
+}
+
 
 .loanX, .tableMyCBAx {
 

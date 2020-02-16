@@ -15,8 +15,8 @@ export default (props) => {
             <h2>My Career Options Shortlist</h2>
             <h2>aka MyCareerOptionList.js</h2>
 
-            <div className="tableDegree">
-            <section className="tableDegree__section">
+            <div className="tableMCO">
+            <section className="tableMCO__section">
             <div className="tableMCO__nameEarnings">My Career Option(s)</div>
                 <div className="tableMCO__earningsAvg"> Average Yearly Earnings</div>
                 <div className="tableMCO__earningsAvg">Action</div>
@@ -26,7 +26,7 @@ export default (props) => {
             </section>
             </div>
 
-            <div className="degrees">
+            <div className="tableMCO__listView">
 
         
                     

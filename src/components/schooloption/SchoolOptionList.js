@@ -18,6 +18,8 @@ export default (props) => {
 
             <h2>My School Options Shortlist</h2>
             <h2>aka SchoolOptionList.js</h2>
+            <h2>clicking Run Benefit Analysis creates new loan object</h2>
+            <h2>using MySchoolOption.js</h2>
 
             <div className="schoolOptionsList">
                 <section className="schoolOptionsList__section">
