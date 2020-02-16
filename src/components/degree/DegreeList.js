@@ -10,7 +10,7 @@ export default (props) => {
         <>
             <h1>Degrees and Annual Earning Figures</h1>
             <h1>aka DegreeList.js</h1>
-            {/* <div>TESTING THE RENDER</div> */}
+            <div>TESTING THE RENDER</div>
 
             <h2>Career Options and Earnings</h2>
         
@@ -25,7 +25,7 @@ export default (props) => {
             </section>
             </div>
 
-            <div className="degrees">
+            <div className="tableDegree__listView">
                 {
                     degrees.map(degree => {
                         return <Degree key={degree.id} degree={degree} addDegree={addDegree}/>

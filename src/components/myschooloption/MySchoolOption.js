@@ -3,17 +3,92 @@ import React, { useContext } from "react"
 import { MySchoolOptionContext } from "../myschooloption/MySchoolOptionProvider"
 
 import "./MySchoolOption.css"
-
 import { LoanContext } from "../loan/LoanProvider"
+import { DegreeContext } from "../degree/DegreeProvider"
+import { DegreeSchoolContext } from "../degreeschool/DegreeSchoolProvider"
+import { FinWorkBenchContext } from "../loan/FinWorkBenchProvider"
 // const twentyYearEarnings =  (loan.degreeAnnualEarnings * 20 )
 
 
-export default ({ myschooloption }) => {
+export default ({ myschooloption, finworkbench, degreeSchool, loan, degree }) => {
 
 
+    const { finworkbenchs, deleteFinWorkBench, addFinWorkBench } = useContext(FinWorkBenchContext)
     const { deleteMySchoolOption, getMySchoolOptions } = useContext(MySchoolOptionContext)
+    const { getLoans, loans, addLoan } = useContext(LoanContext)
+    const { getDegrees, degrees, addDegree } = useContext(DegreeContext)
+    const { degreeSchools, deleteDegreeSchool } = useContext(DegreeSchoolContext)
 
-    const { getLoans } = useContext(LoanContext)
+    const constructWorkBenchLoan = () => {
+
+        //     /// Creating the object right here >>>>>
+
+        const ActiveUser = localStorage.getItem("education_customer")
+
+        // const userId = parseInt(localStorage.getItem("educationScale_user"));
+
+
+        const userId = null;
+        const educationName = null;
+        const schoolName = null;
+        const annualSchoolCost = null;
+        const schoolTotalCost = null;
+        //  these items below are blank until used later
+        const loanAmount = null;
+        const loanRate = null;
+        const loanLengthMonths = null;
+        const loanPmt = null;
+        const totalLoanPmts = null;
+        const cashPaid = null;
+        const totalAmountPaid = null;
+        const degreeAnnualEarnings = null;
+        const twentyYearEarnings = null;
+        const benefitCostRatio = null;
+        const benefitCostAnalysis = null;
+
+    
+
+        addFinWorkBench({
+
+// took this from DegreeSchool.js Loanlist does a complex filter to get working
+
+
+            userId: parseInt(ActiveUser),
+
+            ///// THIS IS THE BAD CODE CAUSING THE NOT DEFINED ERROR
+
+            // schoolName: degreeSchools.schoolName,
+            // annualSchoolCost: degreeSchools.annualCost,
+            // schoolTotalCost: degreeSchools.totalCost,
+
+            schoolName: myschooloption.educationName,
+            schoolName: myschooloption.schoolName,
+            annualSchoolCost: myschooloption.annualCost,
+            schoolTotalCost: myschooloption.totalCost,
+
+            // educationName: "",
+        
+            // annualSchoolCost: "",
+            // schoolTotalCost: "",
+
+
+            //  these items below are blank until used later
+            loanAmount: 1,
+            loanRate: 1,
+            loanLengthMonths: 1,
+            loanPmt: 1,
+            totalLoanPmts: 1,
+            cashPaid: 1,
+            totalAmountPaid: 1,
+            degreeAnnualEarnings: 1000,
+            twentyYearEarnings: (degreeSchools.earningsAvg * 20),
+            benefitCostRatio: 10,
+            benefitCostAnalysis: "true"
+
+        })
+
+    }
+
 
     return (
 
@@ -44,10 +119,10 @@ export default ({ myschooloption }) => {
 
                     <div>
 
-                        <button className="runBenefitCostAnalysis__button"
+                        <button className="runBenefitCostAnalysisStep1__button"
                             onClick={() => {
 
-                                // constructNewBenefitObject()
+                                constructWorkBenchLoan()
                                 // this creates the loan object
                                 // see code for degree
                             }}

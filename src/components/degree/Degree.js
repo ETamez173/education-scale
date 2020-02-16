@@ -63,7 +63,7 @@ export default ({ degree, mycareeroption }) => {
                     // check for degree.id being in the json file if YES then dont construct but 
                     // make ALRT to say "Already added to options!"
                     // if NO then go ahead and make a new career option
-                    if    (mycareeroptions.degreeId === degrees.id)  
+                    // if    (mycareeroptions.degreeId === degrees.id)  
                         constructNewDegree()  
 
 

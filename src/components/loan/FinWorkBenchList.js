@@ -28,9 +28,9 @@ export default (props) => {
                     <div className="tableMyCBA__earningsAvg"> Repayment Years</div>
                     <div className="tableMyCBA__earningsAvg"> Interest Rate %</div>
                     <div className="tableMyCBA__earningsAvg"> Monthly Payment</div>
-                    <div className="tableMyCBA__earningsAvg"> Actions</div>
+                    <div className="tableMyCBA__earningsAvg"> Actions</div> 
                     {/* <div className="tableMyCBA__earningsHigh">Earnings High</div>
-                <div className="tableMyCBA__earningsLow">Earnings Low</div> */}
+                <div className="tableMyCBA__earningsLow">Earnings Low</div>  */}
 
                 </section>
             </div>

@@ -11,8 +11,8 @@ export default (props) => {
     return (
         <>
             <h1>My Benefit Cost Analysis</h1>
-            <h1>aka Degree SchoolList.js</h1>
-            {/* <div>TESTING THE RENDER</div> */}
+            <h1>aka Degree SchoolList.js</h1> */}
+            <div>TESTING THE RENDER</div>
 
             <h2>Finance Workbench</h2>
 
@@ -26,8 +26,8 @@ export default (props) => {
                     <div className="tableMyCBA__earningsAvg"> Interest Rate %</div>
                     <div className="tableMyCBA__earningsAvg"> Monthly Payment</div>
                     <div className="tableMyCBA__earningsAvg"> Actions</div>
-                    {/* <div className="tableMyCBA__earningsHigh">Earnings High</div>
-                <div className="tableMyCBA__earningsLow">Earnings Low</div> */}
+                    <div className="tableMyCBA__earningsHigh">Earnings High</div>
+                <div className="tableMyCBA__earningsLow">Earnings Low</div>
 
                 </section>
             </div>
