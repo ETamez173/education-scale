@@ -5,18 +5,18 @@ import { DegreeContext } from "../degree/DegreeProvider"
 import { FinWorkBenchContext } from "../loan/FinWorkBenchProvider"
 import { DegreeSchoolContext } from "../degreeschool/DegreeSchoolProvider"
 import { MySchoolOptionContext } from "../myschooloption/MySchoolOptionProvider"
-import DegreeSchool from "../degreeschool/DegreeSchool"
+// import DegreeSchool from "../degreeschool/DegreeSchool"
 
 // const twentyYearEarnings =  (loan.degreeAnnualEarnings * 20 )
 
-export default ({ finworkbench, degreeSchool, loan }) => {
+export default ({ finworkbench, degreeSchool, loan, degree, school, history }) => {
 
 
     const { finworkbenchs, deleteFinWorkBench, addFinWorkBench } = useContext(FinWorkBenchContext)
-    // const { degrees, addDegree } = useContext(DegreeContext)
-    const { loans, addLoan } = useContext(LoanContext)
+    // const { degrees, addDegree, deleteDegree } = useContext(DegreeContext)
+    const { loans, addLoan, deleteLoan } = useContext(LoanContext)
     // const { deleteMySchoolOption, getMySchoolOptions } = useContext(MySchoolOptionContext)
-    // const { degreeschools, deleteDegreeSchool } = useContext(DegreeSchoolContext)
+    const { degreeSchools, deleteDegreeSchool } = useContext(DegreeSchoolContext)
 
 
 
@@ -47,23 +47,18 @@ export default ({ finworkbench, degreeSchool, loan }) => {
         const benefitCostRatio = null;
         const benefitCostAnalysis = null;
 
-        addFinWorkBench({
+        // addFinWorkBench({
+        addLoan({
 
-// took this from DegreeSchool.js Loanlist does a complex filter to get working
+            // took this from DegreeSchool.js Loanlist does a complex filter to get working
 
+          
 
             userId: parseInt(ActiveUser),
-            educationName: degreeSchool.degree.educationName,
-            schoolName: degreeSchool.school.schoolName,
-            annualSchoolCost: degreeSchool.annualCost,
-            schoolTotalCost: degreeSchool.totalCost,
-
-            // educationName: "",
-            // schoolName: "",
-            // annualSchoolCost: "",
-            // schoolTotalCost: "",
-
-
+            educationName: degreeSchools.educationName,
+            schoolName: degreeSchools.schoolName,
+            annualSchoolCost: degreeSchools.annualCost,
+            schoolTotalCost: degreeSchools.totalCost,
             //  these items below are blank until used later
             loanAmount: 1,
             loanRate: 1,
@@ -71,10 +66,11 @@ export default ({ finworkbench, degreeSchool, loan }) => {
             loanPmt: 1,
             totalLoanPmts: 1,
             cashPaid: 1,
-            totalAmountPaid: 1,
-            degreeAnnualEarnings: 2,
+            totalAmountPaid: degreeSchools.totalAmountPaid,
+            degreeAnnualEarnings: degreeSchools.degreeAnnualEarnings,
             twentyYearEarnings: 40,
             benefitCostRatio: 10,
+            finWorkBenchStep: "false",
             benefitCostAnalysis: "true"
 
         })
@@ -103,12 +99,12 @@ export default ({ finworkbench, degreeSchool, loan }) => {
                     <div className="loan__loanAmount">${finworkbench.loanAmount}</div>
                     {/* schoolTotalCost - (Cash paid + grantsOther) = loanAmount */}
 
-                   {/* <div className="loan__loanAmount">${finWorkBench.cashPaid}</div>
+                    {/* <div className="loan__loanAmount">${finWorkBench.cashPaid}</div>
                             <div className="loan__loanAmount">${finWorkBench.grantsAndOther}</div> */}
 
-                        <div className="loan__totalLoanPmts">{finworkbench.loanLengthMonths} Months</div>
-                        <div className="loan__totalLoanPmts">{finworkbench.loanRate}%</div>
-                        <div className="loan__totalLoanPmts">${finworkbench.loanPmt}</div> 
+                    <div className="loan__totalLoanPmts">{finworkbench.loanLengthMonths} Months</div>
+                    <div className="loan__totalLoanPmts">{finworkbench.loanRate}%</div>
+                    <div className="loan__totalLoanPmts">${finworkbench.loanPmt}</div>
                     {/* <div className="loan__twentyYearEarnings">${finWorkBench.degreeAnnualEarnings * 20}</div> */}
 
                     {/* <div className="loan__totalAmountPaid">${finWorkBench.totalAmountPaid}</div>
@@ -151,7 +147,7 @@ export default ({ finworkbench, degreeSchool, loan }) => {
 
                                     onClick={() => {
 
-                                        deleteFinWorkBench(finworkbench)
+                                        deleteLoan(finworkbench)
 
                                     }}> Delete
                         </button>

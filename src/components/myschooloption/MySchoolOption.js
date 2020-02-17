@@ -15,7 +15,7 @@ export default ({ myschooloption, finworkbench, degreeSchool, loan, degree }) =>
 
     const { finworkbenchs, deleteFinWorkBench, addFinWorkBench } = useContext(FinWorkBenchContext)
     const { deleteMySchoolOption, getMySchoolOptions } = useContext(MySchoolOptionContext)
-    const { getLoans, loans, addLoan } = useContext(LoanContext)
+    const { getLoans, loans, addLoan, patchLoan } = useContext(LoanContext)
     const { getDegrees, degrees, addDegree } = useContext(DegreeContext)
     const { degreeSchools, deleteDegreeSchool } = useContext(DegreeSchoolContext)
 
@@ -46,11 +46,13 @@ export default ({ myschooloption, finworkbench, degreeSchool, loan, degree }) =>
         const benefitCostRatio = null;
         const benefitCostAnalysis = null;
 
-    
 
-        addFinWorkBench({
 
-// took this from DegreeSchool.js Loanlist does a complex filter to get working
+        addLoan({
+
+            // addFinWorkBench({
+
+            // took this from DegreeSchool.js Loanlist does a complex filter to get working
 
 
             userId: parseInt(ActiveUser),
@@ -61,17 +63,11 @@ export default ({ myschooloption, finworkbench, degreeSchool, loan, degree }) =>
             // annualSchoolCost: degreeSchools.annualCost,
             // schoolTotalCost: degreeSchools.totalCost,
 
-            schoolName: myschooloption.educationName,
+            educationName: myschooloption.educationName,
             schoolName: myschooloption.schoolName,
             annualSchoolCost: myschooloption.annualCost,
             schoolTotalCost: myschooloption.totalCost,
-
-            // educationName: "",
-        
-            // annualSchoolCost: "",
-            // schoolTotalCost: "",
-
-
+       
             //  these items below are blank until used later
             loanAmount: 1,
             loanRate: 1,
@@ -79,10 +75,11 @@ export default ({ myschooloption, finworkbench, degreeSchool, loan, degree }) =>
             loanPmt: 1,
             totalLoanPmts: 1,
             cashPaid: 1,
-            totalAmountPaid: 1,
-            degreeAnnualEarnings: 1000,
-            twentyYearEarnings: (degreeSchools.earningsAvg * 20),
+            totalAmountPaid:  myschooloption.totalAmountPaid,
+            degreeAnnualEarnings:  myschooloption.degreeAnnualEarnings,
+            twentyYearEarnings: 1,
             benefitCostRatio: 10,
+            finWorkBenchStep: "true",
             benefitCostAnalysis: "true"
 
         })
@@ -111,7 +108,7 @@ export default ({ myschooloption, finworkbench, degreeSchool, loan, degree }) =>
                 <div className="SCO__loanRate">{myschooloption.loanRate}%</div>
                 <div className="SCO__loanPmt">${myschooloption.loanPmt}</div>
                 <div className="SCO__loanPmt">${myschooloption.id}</div> */}
-         
+
 
                 <div className="BCA_buttons">
 
@@ -123,29 +120,48 @@ export default ({ myschooloption, finworkbench, degreeSchool, loan, degree }) =>
                             onClick={() => {
 
                                 constructWorkBenchLoan()
+
+
+
                                 // this creates the loan object
                                 // see code for degree
                             }}
                         >
                             Run Benefit Analysis
                 </button>
-                <br></br>
-                <br></br>
-                <br></br>
+
+
+                        {/* <button className="runBenefitCostAnalysisStep1__button"
+                            onClick={() => {
+
+
+                                patchLoan({benefitCostAnalysis: true, }, loans.id).then(() => {
+
+                                    // console.log(patchLoan())
+                      
+                                });
+
+                            }}> Run Benefit Analysis </button> */}
+
+
+
+                        <br></br>
+                        <br></br>
+                        <br></br>
                         <div>
                             <button className="deleteSchoolSearchItem__button"
                                 onClick={() => {
                                     // const { deleteMySchoolOption } = useContext(MySchoolOptionContext)
                                     // removeMySchoolOption(myschooloption)
                                     deleteMySchoolOption(myschooloption)
-                                    // getMySchoolOptions()
-                                    .then(getLoans)
-                                    .then(getMySchoolOptions)
-                                 
+                                        // getMySchoolOptions()
+                                        .then(getLoans)
+                                        .then(getMySchoolOptions)
+
                                 }}>  Delete works but shows deleted item unless refresh page</button>
                         </div>
-         
-                
+
+
                     </div>
                 </div>
 

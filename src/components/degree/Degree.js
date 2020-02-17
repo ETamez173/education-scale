@@ -37,9 +37,6 @@ export default ({ degree, mycareeroption }) => {
 
         })
 
-        // .then(() => props.history.push("/degrees"));
-
-
     }
 
 
@@ -56,25 +53,33 @@ export default ({ degree, mycareeroption }) => {
             <div className="degree__id">{degree.id}</div>
 
 
+
+   {/* LEFT OFF HERE 2-16-20 1229am */}
+
+
             <button className="saveToMyCareerOptions__button"
                 onClick={() => {
 
                     //// TODO HERE
+
+                    // mycareeroption.filter
+                    // const checkMCOforDuplicate = mycareeroptions.find(fndDUPE => fndDUPE.degreeId !== degrees.id)
+                    // console.log(checkMCOforDuplicate)
+
+                    // if (degree.id !== checkMCOforDuplicate.degreeId && checkMCOforDuplicate.shortList === true)  {
+
+                    //     console.log("this has been added before!")
+                     
                     // check for degree.id being in the json file if YES then dont construct but 
                     // make ALRT to say "Already added to options!"
                     // if NO then go ahead and make a new career option
-                    // if    (mycareeroptions.degreeId === degrees.id)  
-                        constructNewDegree()  
+              
+                       
 
+                // }  else { 
+                    constructNewDegree()  
+                // }
 
-                    // if (mycareeroptions.educationName !== degree.educationName) {
-                    // // if (mycareeroptions.degreeId !== degree.id) {
-                    //     alert("Already Added To Career Options");
-                    // }
-                    // else {
-                    // if    (mycareeroptions.degreeId !== degrees.id)  {
-                    //         constructNewDegree()  }
-                    // }
 
                 }}>
                 Add To Career Options
@@ -83,62 +88,6 @@ export default ({ degree, mycareeroption }) => {
         </section>
     );
 };
-
-
-
-
-
-
-
-// import React, { useContext } from "react"
-// import "./Degrees.css"
-// // import { Link } from "react-router-dom"
-// import { DegreeContext } from "./DegreeProvider";
-
-
-
-// export default ({ degree, addDegree }) => (
-
-
-//     <section className="degree__section">
-//         <h3 className="degree__name">  </h3>
-
-
-//         <section className="degree">
-//             <div className="degree__nameEarnings">{degree.educationName}</div>
-//             <div className="degree__earningsAvg">${degree.earningsAvg}</div>
-//             <div className="degree__earningsHigh">${degree.earningsHigh}</div>
-//             <div className="degree__earningsLow">${degree.earningsLow}</div>
-
-//             <div className="saveToMyMCO__button">
-//                 <div >
-//                     <button className="saveToMyCareerOptions__button">Save To Career Options</button>
-//                 </div>
-//             </div>
-
-
-//             <button className="btn--degreeAdd"
-
-//                 onClick={() => {
-//                     const { addDegree } = useContext(DegreeContext)
-//                     addDegree(degree)
-//                 }}
-//             >
-//                 Add To Career Options
-//         </button>
-
-
-
-//         </section>
-
-
-
-
-//     </section>
-// )
-
-
-
 
 
 

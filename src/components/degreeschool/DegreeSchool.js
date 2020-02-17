@@ -18,7 +18,7 @@ export default ({ degreeSchool, loan, degree, school, history }) => {
 
     {/* Commented out after git resolution issues */ }
     const { addLoan } = useContext(LoanContext)
-    const { deleteDegreeSchool, patchDegreeSchool } = useContext(DegreeSchoolContext)
+    const { degreeschools, deleteDegreeSchool, patchDegreeSchool } = useContext(DegreeSchoolContext)
 
 
 
@@ -130,17 +130,17 @@ export default ({ degreeSchool, loan, degree, school, history }) => {
                   
                     <div>
                     
-                        <button className="removeSchoolSearchItem__button"
+                         {/* <button className="removeSchoolSearchItem__button"
                             onClick={() => {
 
 
-                                patchDegreeSchool({schoolSearch: true,},degreeSchool.id).then(() => {
+                                patchDegreeSchool({schoolSearch: false,},degreeSchool.id).then(() => {
 
                                     console.log(degreeSchool.id)
                                     // history.push("/tasks");
                                 });
                            
-                            }}> Remove From Search </button>
+                            }}> Remove From Search </button>  */}
                     </div>
 
                 </div>
