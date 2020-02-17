@@ -6,7 +6,7 @@ import { MyCareerOptionContext } from "../mycareeroption/MyCareerOptionProvider"
 // import "./Degrees.css"
 
 
-export default ({ degree, mycareeroption, history }) => {
+export default ({ degree, mycareeroption, history, }) => {
     const { addDegree } = useContext(DegreeContext)
     const { mycareeroptions, moveToSearchMyCareerOption ,addMyCareerOption, getMyCareerOption, deleteMyCareerOption } = useContext(MyCareerOptionContext)
 
@@ -40,12 +40,25 @@ export default ({ degree, mycareeroption, history }) => {
 
             educationName: mycareeroption.educationName,
             searchSchool: "true",
-            shortList: "false",
+            shortList: "true",
             earningsAvg: mycareeroption.earningsAvg,
             userId: parseInt(ActiveUser),
             degreeId: mycareeroption.degreeId,
 
         })
+
+
+        // moveToSearchMyCareerOption({
+
+
+           
+        //     searchSchool: "true",
+        //     // shortList: "false",
+            
+
+        // })
+
+
 
     }
 
@@ -72,14 +85,24 @@ export default ({ degree, mycareeroption, history }) => {
                             // make ALRT to say "Already added to list!"
                             // if NO then go ahead and make a new career option
 
+                            // moveToSearch()
                             moveToSearch()
 
+                            // moveToSearchMyCareerOption({schoolSearch: "true",},mycareeroption.id)
+                            
+                            // .then(() => {
+
+
+                            // // patchDegreeSchool({schoolSearch: false,},degreeSchool.id).then(() => {
                             // console.log(mycareeroption.id)
 
                             history.push(`/mycareeroptions/${mycareeroption.id}`);
 
+                            // });
 
                         }}> Add To School Search </button>
+
+
                 </div>
                 <br></br>
                 <br></br>

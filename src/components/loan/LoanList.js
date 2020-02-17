@@ -37,7 +37,7 @@ export default (props) => {
             </div>
 
 
-
+{/* 
             <div className="finworkbenchs">
                 {
                     // loans.map(finWorkBench => {
@@ -52,7 +52,29 @@ export default (props) => {
                         
                     })
                 }
+            </div> */}
+
+            <div className="finworkbenchs">
+                {
+                    // loans.map(finWorkBench => {
+                        loans.map(finworkbench => {
+                        console.log(finworkbench)
+                        // if(loan.benefitCostAnalysis === false ) {
+
+                            // if(mycareeroption.searchSchool !== "true")
+                        if (finworkbench.benefitCostAnalysis !== "false") 
+                        console.log(finworkbench)
+                            return <FinWorkBench key={finworkbench.id} finworkbench={finworkbench} />
+                        
+                    })
+                }
             </div>
+
+
+
+
+
+
 {/* 
             <div className="finworkbenchs">
                 {

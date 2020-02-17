@@ -31,6 +31,17 @@ export const LoanProvider = (props) => {
         .then(getLoans)
     }
 
+    const patchLoan = (loan, id) => {
+        return fetch(`http://localhost:8088/loans/${id}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(loan)
+        })
+        .then(loans)
+    }
+
     const updateLoan = loan => {
         return fetch(`http://localhost:8088/loans/${loan.id}`, {
             method: "PUT",
@@ -48,7 +59,7 @@ export const LoanProvider = (props) => {
 
     return (
         <LoanContext.Provider value={{
-            loans, addLoan, deleteLoan, updateLoan
+            loans, addLoan, deleteLoan, updateLoan, patchLoan
         }}>
             {props.children}
         </LoanContext.Provider>

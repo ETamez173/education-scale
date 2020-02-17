@@ -25,7 +25,7 @@ export const MyCareerOptionProvider = (props) => {
 
     const moveToSearchMyCareerOption = (mycareeroption, id) => {
         // return fetch(`http://localhost:8088/tasks/${id}`, {
-            console.log(mycareeroption, id)
+            // console.log(mycareeroption, id)
         // console.log(id)
         return fetch(`http://localhost:8088/mycareeroptions/${id}}`, {
 

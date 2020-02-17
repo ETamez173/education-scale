@@ -24,6 +24,8 @@ import LoanList from "./loan/LoanList"
 import DegreeSchoolList from "./degreeschool/DegreeSchoolList"
 import { DegreeSchoolProvider } from "./degreeschool/DegreeSchoolProvider"
 
+
+import { MySchoolOptionProvider } from "./myschooloption/MySchoolOptionProvider"
 // import MyCareerOptionList from "./mycareeroption/MyCareerOptionList"
 // import { MyCareerOptionPovider } from "./mycareeroption/MyCareerOptionProvider";
 
@@ -63,7 +65,7 @@ export default (props) => {
                             render={props => <MyCareerOptionList {...props} />}
                         />
 
-{/* 
+                        {/* 
                         <Route
                             path="/tasks/editTasks/:taskId(\d+)"
                             render={props => <TaskForm {...props} />}
@@ -89,15 +91,16 @@ export default (props) => {
 
             <SchoolProvider>
                 <DegreeSchoolProvider>
-                    <Route exact path="/schools">
-                        <SchoolList />
-                    </Route>
+                    < MySchoolOptionProvider>
+                        <Route exact path="/schools">
+                            <SchoolList />
+                        </Route>
 
-                    <Route exact path="/schools">
-                        <SchoolOptionList />
-                    </Route>
+                        <Route exact path="/schools">
+                            <SchoolOptionList />
+                        </Route>
 
-
+                    </MySchoolOptionProvider>
                 </DegreeSchoolProvider>
             </SchoolProvider>
 

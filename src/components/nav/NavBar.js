@@ -6,14 +6,14 @@ export default (props) => {
     return (
         <ul className="navbar">
             <li className="navbar__item active">
-                <Link className="navbar__link" to="/">Career Research</Link>
+                <Link className="navbar__link" to="/">School / Program Research</Link>
             </li>
         
             {/* <li className="navbar__item">
                 <Link className="navbar__link" to="/schools">School Costs</Link>
             </li> */}
             <li className="navbar__item">
-                <Link className="navbar__link" to="/mycareerOptions">School Costs</Link>
+                <Link className="navbar__link" to="/mycareerOptions">Find A School</Link>
             </li>
             <li className="navbar__item">
                 <Link className="navbar__link" to="/analysis">My Benefit Cost Analysis</Link>
