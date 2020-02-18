@@ -11,7 +11,6 @@ export default (props) => {
     return (
         <>
 
-            {/* <h1>NOT USING THIS CODE </h1> */}
             <h1>My Benefit Cost Analysis</h1>
             <h1>aka LoanList.js</h1>
             <h2>render of FinWorkBenchs</h2>
@@ -25,76 +24,34 @@ export default (props) => {
                     <div className="tableMyCBA__nameCareer">Degree</div>
                     <div className="tableMyCBA__earningsAvg"> School / Program</div>
                     <div className="tableMyCBA__earningsAvg"> Average Total Costs</div>
+                    <div className="tableMyCBA__earningsAvg"> Savings, Scholarships, Grants </div>
                     <div className="tableMyCBA__earningsAvg"> Loans Taken All Years</div>
                     <div className="tableMyCBA__earningsAvg"> Repayment Years</div>
                     <div className="tableMyCBA__earningsAvg"> Interest Rate %</div>
                     <div className="tableMyCBA__earningsAvg"> Monthly Payment</div>
                     <div className="tableMyCBA__earningsAvg"> Actions</div>
                     {/* <div className="tableMyCBA__earningsHigh">Earnings High</div> */}
-                    <div className="tableMyCBA__earningsLow">Earnings Low</div>
+                    {/* <div className="tableMyCBA__earningsLow">Earnings Low</div> */}
 
                 </section>
             </div>
 
 
-{/* 
-            <div className="finworkbenchs">
-                {
-                    // loans.map(finWorkBench => {
-                        finworkbenchs.map(finworkbench => {
-                        console.log(finworkbench)
-                        // if(loan.benefitCostAnalysis === false ) {
-
-                            // if(mycareeroption.searchSchool !== "true")
-                        if (finworkbench.benefitCostAnalysis === "false") 
-                        console.log(finworkbench)
-                            return <FinWorkBench key={finworkbench.id} finworkbench={finworkbench} />
-                        
-                    })
-                }
-            </div> */}
 
             <div className="finworkbenchs">
+
                 {
                     // loans.map(finWorkBench => {
-                        loans.map(finworkbench => {
-                        console.log(finworkbench)
-                        // if(loan.benefitCostAnalysis === false ) {
+                    loans.map(finworkbench => {
+                    
 
-                            // if(mycareeroption.searchSchool !== "true")
-                        if (finworkbench.benefitCostAnalysis !== "false") 
-                        console.log(finworkbench)
+                        if (finworkbench.finWorkBenchStep === "true" &&  finworkbench.benefitCostAnalysis === "false" ) {
+                            console.log(finworkbench.benefitCostAnalysis)
                             return <FinWorkBench key={finworkbench.id} finworkbench={finworkbench} />
-                        
+                        }
                     })
                 }
             </div>
-
-
-
-
-
-
-{/* 
-            <div className="finworkbenchs">
-                {
-                    loans.map(finWorkBench => {
-                        loans.map(finworkbench => {
-                            loans.map(loan => {
-
-                                if (loan.benefitCostAnalysis === false)
-                                    // if(finworkbench.benefitCostAnalysis === false ) 
-                                    //  return <FinWorkBench key={finworkbench.id} finworkbench={finworkbench} />
-                                    return <FinWorkBench key={loan.id} loan={loan} />
-                            }
-
-                            )
-                        }
-                    
-                
-                        )}
-                    )}
-            </div> */}
 
 
 
@@ -125,8 +82,18 @@ export default (props) => {
             <div className="loans">
                 {
                     loans.map(loan => {
-                        return <Loan key={loan.id} loan={loan} />
+
+
+
+                        if (loan.finWorkBenchStep === "true" && loan.benefitCostAnalysis === "true" ) {
+
+                            console.log(loan.benefitCostAnalysis)
+
+
+                            return <Loan key={loan.id} loan={loan} />
+                        }
                     })
+
                 }
             </div>
 

@@ -41,9 +41,16 @@ export default (props) => {
 
 
                 <div className="MySchoolOptions">
+
+
                     {
+
                         loans.map(myschooloption => {
-                            return <MySchoolOption key={myschooloption.id} myschooloption={myschooloption} />
+
+                            if (myschooloption.finWorkBenchStep === "false" && myschooloption.benefitCostAnalysis === "false") {
+                                console.log(myschooloption.benefitCostAnalysis)
+                                return <MySchoolOption key={myschooloption.id} myschooloption={myschooloption} />
+                            }
                         })
                     }
                 </div>
@@ -58,3 +65,8 @@ export default (props) => {
         </>
     )
 }
+
+
+// if (finworkbench.finWorkBenchStep === "true") {
+//     console.log(finworkbench.benefitCostAnalysis)
+//     return <FinWorkBench key={finworkbench.id} finworkbench={finworkbench} />

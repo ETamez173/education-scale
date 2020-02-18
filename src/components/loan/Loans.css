@@ -95,7 +95,7 @@ h1, h2, h3, h4 {
 
 .loan__educationName, .loan__degreeAnnualEarnings,
 .loan__twentyYearEarnings, .loan__schoolName, 
-.loan__totalAmountPaid, .loan__cashPaid,
+.loan__totalAmountPaid, 
 .loan__totalLoanPmts, .loan__loanAmount
 
   {
@@ -118,6 +118,51 @@ h1, h2, h3, h4 {
 
 }
 
+
+.loan__cashPaid, .loan__yearsToRepay,
+.loan__interestRate 
+
+  {
+
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin:1%;
+    border: 1px solid black;
+    font-family:  Arial, Helvetica, sans-serif;
+    font-size: 1em;
+    /* padding: 20px 10px 20px 10px; */
+    border-radius: 3px; 
+
+    max-width: 120px;
+    word-wrap: break-word;
+    /* align-items: center; */
+    align-content: center;
+    background: yellow;
+
+
+}
+
+.loan__schoolTotCost , .loan__monthlyPmts, .loan__loanPrincipalAmount
+  {
+
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin:1%;
+    border: 1px solid black;
+    font-family:  Arial, Helvetica, sans-serif;
+    font-size: 1em;
+    /* padding: 20px 10px 20px 10px; */
+    border-radius: 3px; 
+
+    max-width: 120px;
+    word-wrap: break-word;
+    /* align-items: center; */
+    align-content: center;
+
+
+}
 
 .tableMyCBA__sectionx, .loan__sectionx {
 

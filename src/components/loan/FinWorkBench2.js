@@ -1,4 +1,4 @@
-import React, { useContext } from "react"
+import React, { useContext, useState, useEffect } from "react"
 import "./Loans.css"
 import { LoanContext } from "../loan/LoanProvider"
 import { DegreeContext } from "../degree/DegreeProvider"
@@ -9,14 +9,18 @@ import { MySchoolOptionContext } from "../myschooloption/MySchoolOptionProvider"
 
 // const twentyYearEarnings =  (loan.degreeAnnualEarnings * 20 )
 
-export default ({ finworkbench, degreeSchool, loan, degree, school, history }) => {
-
+// export default ({ finworkbench, degreeSchool, loan, degree, school, history }) => {
+    export default props => {
 
     const { finworkbenchs, deleteFinWorkBench, addFinWorkBench } = useContext(FinWorkBenchContext)
     // const { degrees, addDegree, deleteDegree } = useContext(DegreeContext)
-    const { loans, addLoan, deleteLoan } = useContext(LoanContext)
+    const { loans, addLoan, deleteLoan, updateLoan} = useContext(LoanContext)
     // const { deleteMySchoolOption, getMySchoolOptions } = useContext(MySchoolOptionContext)
     const { degreeSchools, deleteDegreeSchool } = useContext(DegreeSchoolContext)
+
+    const editMode = props.match.params.hasOwnProperty("finworkbenchId")
+
+    const [loan, setLoan] = useState({})
 
 
     function calculateLoan() {
@@ -87,12 +91,12 @@ export default ({ finworkbench, degreeSchool, loan, degree, school, history }) =
 
         ///// This code calculates the loan taken by subtracting the savings, scholarships, and grants aka cashPaid from 
         //// the schoolTotalCost  .  What you borrow is determined by what you put down 
-        const totcost = finworkbench.schoolTotalCost
+        const totcost = finworkbenchs.schoolTotalCost
         console.log(totcost)
-        const cashpaid = finworkbench.cashPaid
-        console.log(finworkbench.cashPaid)
+        const cashpaid = finworkbenchs.cashPaid
+        console.log(finworkbenchs.cashPaid)
 
-        const loanAmountCalc = finworkbench.schoolTotalCost - finworkbench.cashPaid;
+        const loanAmountCalc = finworkbenchs.schoolTotalCost - finworkbenchs.cashPaid;
         console.log(loanAmountCalc)
         //////
         ///// THis code calculates the loan payments given the loan term/lenght in months and the interest rate 
@@ -131,12 +135,12 @@ export default ({ finworkbench, degreeSchool, loan, degree, school, history }) =
 
 
             userId: parseInt(ActiveUser),
-            educationName: finworkbench.educationName,
-            schoolName: finworkbench.schoolName,
-            annualSchoolCost: finworkbench.annualSchoolCost,
-            schoolTotalCost: finworkbench.schoolTotalCost,
+            educationName: finworkbenchs.educationName,
+            schoolName: finworkbenchs.schoolName,
+            annualSchoolCost: finworkbenchs.annualSchoolCost,
+            schoolTotalCost: finworkbenchs.schoolTotalCost,
             //  these items below are blank until used later
-            loanAmount: finworkbench.schoolTotalCost - finworkbench.cashPaid,
+            loanAmount: finworkbenchs.schoolTotalCost - finworkbenchs.cashPaid,
             loanRate: 7,
             loanLengthMonths: 120,
             loanPmt: 1,
@@ -151,6 +155,65 @@ export default ({ finworkbench, degreeSchool, loan, degree, school, history }) =
 
         })
 
+
+
+
+        const handleControlledInputChange = (event) => {
+            /*
+                When changing a state object or array, always create a new one
+                and change state instead of modifying current one
+            */
+            const newLoan = Object.assign({}, loan)
+            newLoan[event.target.name] = event.target.value
+            setLoan(newLoan)
+        }
+    
+        const setDefaults = () => {
+            if (editMode) {
+                const loanId = parseInt(props.match.params.loanId)
+                const selectedLoan = loans.find(l => l.id === loanId) || {}
+                setLoan(selectedLoan)
+            }
+        }
+    
+        useEffect(() => {
+            setDefaults()
+        }, [loans])
+    
+        const constructNewLoan = () => {
+    
+            
+            // const locationId = parseInt(animal.locationId)
+    
+            // if (locationId === 0) {
+            //     window.alert("Please select a location")
+            // } 
+            
+            // else {
+                if (editMode) {
+                    updateLoan({
+                        // id: animal.id,
+                        // name: animal.name,
+                        // breed: animal.breed,
+                        // locationId: locationId,
+                        // treatment: animal.treatment,
+                        customerId: parseInt(localStorage.getItem("school_customer"))
+                    })
+                        .then(() => props.history.push("/loans"))
+                } else {
+                    addLoan({
+                        // name: animal.name,
+                        // breed: animal.breed,
+                        // locationId: locationId,
+                        // treatment: animal.treatment,
+                        customerId: parseInt(localStorage.getItem("school_customer"))
+                    })
+                       .then(() => props.history.push("/loans"))
+                }
+            }
+        }
+    
+    
     }
 
 
@@ -163,9 +226,9 @@ export default ({ finworkbench, degreeSchool, loan, degree, school, history }) =
 
                 <section className="loan__section">
 
-                    <div className="loan__educationName">{finworkbench.educationName}</div>
-                    <div className="loan__schoolName">{finworkbench.schoolName}</div>
-                    <div className="loan__schoolTotCost">${finworkbench.schoolTotalCost}</div>
+                    {/* <div className="loan__educationName">{finworkbenchs.educationName}</div>
+                    <div className="loan__schoolName">{finworkbenchs.schoolName}</div>
+                    <div className="loan__schoolTotCost">${finworkbenchs.schoolTotalCost}</div> */}
                     {/* <div className="loan__cashPaid">${finworkbench.cashpaid}</div> */}
                     {/* these below are inputs items for calculating the loan payments etc */}
 
@@ -240,7 +303,7 @@ export default ({ finworkbench, degreeSchool, loan, degree, school, history }) =
                         <div > 
                         <button className="calculateLoan__button"
                             onClick={() => {
-                                calculateLoan()
+                                // calculateLoan()
                             }}> Compute Loan
                         </button>
                         </div>
@@ -252,7 +315,7 @@ export default ({ finworkbench, degreeSchool, loan, degree, school, history }) =
                             <button className="runBenefitCostAnalysis__button"
                                 onClick={() => {
 
-                                    constructBCAobject()
+                                    // constructBCAobject()
                                     // this creates the loan object
 
                                     // see code for degree
@@ -272,7 +335,7 @@ export default ({ finworkbench, degreeSchool, loan, degree, school, history }) =
 
                                     onClick={() => {
 
-                                        deleteLoan(finworkbench)
+                                        // deleteLoan(finworkbench)
 
                                     }}> Delete
                         </button>
@@ -315,7 +378,7 @@ export default ({ finworkbench, degreeSchool, loan, degree, school, history }) =
             <div > </div>
             <button className="calculateLoan__button"
                 onClick={() => {
-                    calculateLoan()
+                    // calculateLoan()
                 }}> Compute Loan
             </button>
 
@@ -338,14 +401,5 @@ export default ({ finworkbench, degreeSchool, loan, degree, school, history }) =
         </>
     )
 
-}
+            
 
-
-{/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */ }
-
-
-
-
-
-
-{/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */ }
