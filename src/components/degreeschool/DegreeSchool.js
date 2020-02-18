@@ -66,8 +66,8 @@ export default ({ degreeSchool, loan, degree, school, history }) => {
             degreeAnnualEarnings: 2,
             twentyYearEarnings: 40,
             benefitCostRatio: 10,
+            finWorkBenchStep: "false",
             benefitCostAnalysis: "false"
-
 
         })
 

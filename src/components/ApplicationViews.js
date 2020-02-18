@@ -154,8 +154,8 @@ export default (props) => {
                             {/* <Route exact path="/analysis" render={
                             props => <DegreeSchoolList {...props} />
                         } /> */}
-
-                            {/* <Route exact path="/analysis" render={
+{/* 
+                            <Route exact path="/analysis" render={
                                 props => <FinWorkBenchList {...props} />
                             } /> */}
 
