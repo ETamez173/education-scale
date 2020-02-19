@@ -1,22 +1,40 @@
-import React, { useContext } from "react"
+//// This is the copy that has the input boxes format with css
+//// before attempting the refactor to get the inputs to work in react
+
+
+import React, { useContext, useState, useEffect } from "react"
 import "./Loans.css"
 import { LoanContext } from "../loan/LoanProvider"
 import { DegreeContext } from "../degree/DegreeProvider"
 import { FinWorkBenchContext } from "../loan/FinWorkBenchProvider"
 import { DegreeSchoolContext } from "../degreeschool/DegreeSchoolProvider"
 import { MySchoolOptionContext } from "../myschooloption/MySchoolOptionProvider"
-// import DegreeSchool from "../degreeschool/DegreeSchool"
-
-// const twentyYearEarnings =  (loan.degreeAnnualEarnings * 20 )
-
-export default ({ finworkbench, degreeSchool, loan, degree, school, history }) => {
 
 
-    const { finworkbenchs, deleteFinWorkBench, addFinWorkBench } = useContext(FinWorkBenchContext)
+
+
+export default props => {
+
+    // export default ({ finworkbench, degreeSchool, loan, degree, school, history }) => {
+
+    const { finworkbenchs, deleteFinWorkBench, addFinWorkBench, addLoan, updateLoan, deleteLoan } = useContext(LoanContext)
+    // const { finworkbenchs, deleteFinWorkBench, addFinWorkBench } = useContext(FinWorkBenchContext)
     // const { degrees, addDegree, deleteDegree } = useContext(DegreeContext)
-    const { loans, addLoan, deleteLoan } = useContext(LoanContext)
+    // const { finworkbenchs, addLoan, deleteLoan, updateLoan } = useContext(LoanContext)
     // const { deleteMySchoolOption, getMySchoolOptions } = useContext(MySchoolOptionContext)
     const { degreeSchools, deleteDegreeSchool } = useContext(DegreeSchoolContext)
+
+    const [loan, setLoan] = useState({})
+
+    const handleControlledInputChange = (event) => {
+        /*
+            When changing a state object or array, always create a new one
+            and change state instead of modifying current one
+        */
+        const newLoan = Object.assign({}, loan)
+        newLoan[event.target.name] = event.target.value
+        setLoan(newLoan)
+    }
 
 
     function calculateLoan() {
@@ -26,22 +44,22 @@ export default ({ finworkbench, degreeSchool, loan, degree, school, history }) =
         // an annual rate to a monthly rate. Convert payment period in years
         // to the number of monthly payments.
 
-
-
         //// This where we get the three lon inputs off the DOM
 
-        // var principal = document.loandata.principal.value;
-        // var interest = document.loandata.interest.value / 100 / 12;
-        // var payments = document.loandata.years.value * 12;
+        var principal = loan.principal;
+        console.log(principal)
+        var interest = loan.interest / 100 / 12;
+        console.log(interest)
+        const payments = parseInt(loan.years) * 12;
+        console.log(loan.years)
+        console.log(payments)
 
-        var principal = 10000;
-        var interest = 7 / 100 / 12;
-        var payments = 10 * 12;
 
         // Now compute the monthly payment figure, using esoteric math.
-        var x = Math.pow(1 + interest, payments);
-        var monthly = (principal * x * interest) / (x - 1);
-
+        const x = Math.pow(1 + interest, payments);
+        console.log(x)
+        const monthly = (principal * x * interest) / (x - 1);
+        console.log(monthly)
         // Check that the result is a finite number. If so, display the results.
         if (!isNaN(monthly) &&
             (monthly != Number.POSITIVE_INFINITY) &&
@@ -50,10 +68,15 @@ export default ({ finworkbench, degreeSchool, loan, degree, school, history }) =
 
             const moPmt = round(monthly);
             console.log(moPmt)
+
+            // This figure includes all principal and interest and payments paid over life of loan
             const totLoan = monthly * payments
             console.log(totLoan)
 
-            // const totLoan = round(monthly * payments);
+            const totLoanRounded = round(monthly * payments);
+            console.log(totLoanRounded)
+
+            // / This figure includes all interest paid over life of loan
             const totInterest =
                 round((monthly * payments) - principal);
             console.log(totInterest)
@@ -87,19 +110,19 @@ export default ({ finworkbench, degreeSchool, loan, degree, school, history }) =
 
         ///// This code calculates the loan taken by subtracting the savings, scholarships, and grants aka cashPaid from 
         //// the schoolTotalCost  .  What you borrow is determined by what you put down 
-        const totcost = finworkbench.schoolTotalCost
+        const totcost = loan.schoolTotalCost
         console.log(totcost)
-        const cashpaid = finworkbench.cashPaid
-        console.log(finworkbench.cashPaid)
+        const cashpaid = loan.cashPaid
+        console.log(loan.cashPaid)
 
-        const loanAmountCalc = finworkbench.schoolTotalCost - finworkbench.cashPaid;
-        console.log(loanAmountCalc)
+        const loanAmountCalc = loan.schoolTotalCost - loan.cashPaid;
+        console.log(loan)
         //////
         ///// THis code calculates the loan payments given the loan term/lenght in months and the interest rate 
         const iRate = 7;
         const loanTermMonths = 120;
         const loanPayment = loanAmountCalc
-
+        const loanId = null;
         const userId = null;
         const educationName = null;
         const schoolName = null;
@@ -119,25 +142,18 @@ export default ({ finworkbench, degreeSchool, loan, degree, school, history }) =
         const benefitCostRatio = null;
         const benefitCostAnalysis = null;
 
-
-
-
-
         // addFinWorkBench({
         addLoan({
 
-            // took this from DegreeSchool.js Loanlist does a complex filter to get working
-
-
 
             userId: parseInt(ActiveUser),
-            educationName: finworkbench.educationName,
-            schoolName: finworkbench.schoolName,
-            annualSchoolCost: finworkbench.annualSchoolCost,
-            schoolTotalCost: finworkbench.schoolTotalCost,
+            educationName: loan.educationName,
+            schoolName: loan.schoolName,
+            annualSchoolCost: loan.annualSchoolCost,
+            schoolTotalCost: loan.schoolTotalCost,
             //  these items below are blank until used later
-            loanAmount: finworkbench.schoolTotalCost - finworkbench.cashPaid,
-            loanRate: 7,
+            loanAmount: loan.schoolTotalCost - loan.cashPaid,
+            loanRate: loan.rate,
             loanLengthMonths: 120,
             loanPmt: 1,
             totalLoanPmts: 1,
@@ -153,187 +169,226 @@ export default ({ finworkbench, degreeSchool, loan, degree, school, history }) =
 
     }
 
+    const editLoanFactors = () => {
+
+
+        const id = loan.id
+        console.log(id)
+
+        const totcost = loan.schoolTotalCost
+        console.log(totcost)
+        const cashpaid = loan.cashPaid
+        console.log(loan.cashPaid)
+
+        const loanAmountCalc = loan.schoolTotalCost - loan.cashPaid;
+        console.log(loanAmountCalc)
+
+
+        // const moPmt = moPmt;
+        const moPmt = loan.payment
+
+
+        updateLoan({
+
+            id: loan.id,
+            educationName: loan.educationName,
+            schoolName: loan.schoolName,
+            schoolTotalCost: loan.schoolTotalCost,
+            cashPaid: loan.cashPaid,
+            loanAmount: loan.schoolTotalCost - loan.cashPaid,
+            loanRate: loan.rate,
+            loanLengthYears: loan.years,
+
+            loanPmt: moPmt,
+            totalLoanPmts: "",
+
+            userId: localStorage.getItem("education_customer")
+        })
+
+
+
+    }
+
+
+
 
     return (
 
 
         <>
+
+            {/* <h2 className="loanForm__title">{editMode ? "Update Loan" : "Add Loan"}</h2> */}
+
             <section className="finWorkBench">
                 <h3 className="loan__name">  </h3>
 
                 <section className="loan__section">
 
-                    <div className="loan__educationName">{finworkbench.educationName}</div>
-                    <div className="loan__schoolName">{finworkbench.schoolName}</div>
-                    <div className="loan__schoolTotCost">${finworkbench.schoolTotalCost}</div>
-                    {/* <div className="loan__cashPaid">${finworkbench.cashpaid}</div> */}
-                    {/* these below are inputs items for calculating the loan payments etc */}
-
-                    {/* The amounts from scholarships, grants, and savings will be */}
-                    <input type="text" className="loan__cashPaid" name="cashpaid" size="8">
-                    </input>
-
-
-                    {/* The loan Principal Amount will be */}
-                    <input type="text" className="loan__loanPrincipalAmount" name="principal" size="8" >
-                    </input>
-
-
-                    {/* <div className="loan__loanAmount">${finworkbench.loanAmount}</div> */}
-                    {/* schoolTotalCost - (Cash paid + grantsOther) = loanAmount */}
-
-                    {/* <div className="loan__loanAmount">${finWorkBench.cashPaid}</div>
-                            <div className="loan__loanAmount">${finWorkBench.grantsAndOther}</div> */}
-
-                    {/* The loan years to repay will be */}
-
-                    <input type="text" className="loan__yearsToRepay" name="years" size="8" >
-                    </input>
-
-                    {/* <div className="loan__yearsToRepay">{finworkbench.loanLengthMonths} Months</div> */}
-
-                    {/* <div className="loan__loanRate">{finworkbench.loanRate}%</div> */}
-
-                    {/* <input type="text" className="loan__totalInerest" name="totalinterest" size="8" >
-                    </input> */}
-
-                    {/* <div className="loan__totalLoanPmts">${finworkbench.loanPmt}</div> */}
-
-
-                    {/* The loan interest rate will be */}
-                    <input type="text" className="loan__interestRate" name="interest" size="8">
-
-                    </input>
-
-
-
-
-
-                    {/* The monthly payment will be */}
-                    <input type="text" className="loan__monthlyPmts" name="payment" size="8">
-                    </input>
-
-
-
-
-                    <div className="BCA_buttons">
-
-                        <div>
-                        <button className="addLoanInputs__button"
-                                onClick={() => {
-
-                                    // editBCAobject()
-                                    // this sets up the edit thht looks like an form
-
-                                    // see code for degree
-
-                                }}>
-                                Edit Savings, Scholarships, Grants, % Rate and Years
-                        </button>
-                    
-                        <br></br>
-                        <br></br>
+                    <fieldset>
+                        <div className="loan__inputBox">
+                            <div className="form-group">
+                                <label htmlFor="name">Cash paid: </label>
+                                <input type="number" name="cashPaid" required autoFocus className="form-control"
+                                    proptype="number"
+                                    placeholder="Cash Paid"
+                                    defaultValue={loan.cashPaid}
+                                    onChange={handleControlledInputChange}
+                                />
+                            </div>
                         </div>
-                        <br></br>
-                        <br></br>
+                    </fieldset>
 
-                        <div > 
-                        <button className="calculateLoan__button"
-                            onClick={() => {
-                                calculateLoan()
-                            }}> Compute Loan
-                        </button>
+
+
+                    <fieldset>
+                        <div className="loan__inputBox">
+                            <div className="form-group">
+                                <label htmlFor="name">Loan principal: </label>
+                                <input type="number" name="principal" required autoFocus className="form-control"
+                                    proptype="number"
+                                    placeholder="Loan principal"
+                                    defaultValue={loan.principal}
+                                    onChange={handleControlledInputChange}
+                                />
+                            </div>
                         </div>
+                    </fieldset>
 
 
-                        <div > 
-                            <br></br>
-                            <br></br>
-                            <button className="runBenefitCostAnalysis__button"
-                                onClick={() => {
 
-                                    constructBCAobject()
-                                    // this creates the loan object
 
-                                    // see code for degree
-
-                                }}>Run Benefit Analysis
-                        </button>
-                 
-                        <br></br>
-                        <br></br>
+                    <fieldset>
+                        <div className="loan__inputBox4">
+                            <div className="form-group">
+                                <label htmlFor="name">Loan Years: </label>
+                                <input type="number" name="years" required autoFocus className="form-control"
+                                    proptype="number"
+                                    placeholder="Loan years"
+                                    defaultValue={loan.years}
+                                    onChange={handleControlledInputChange}
+                                />
+                            </div>
                         </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <div className="loan__inputBox3">
+                            <div className="form-group">
+                                <label htmlFor="name">Loan interest: </label>
+
+                                <input type="number" id="interest" name="interest" min="1" max="30" required autoFocus className="form-control"
+                                    // <input type="number" id="quantity" name="quantity" min="1" max="5"
+                                    /* </input> */
+                                    /* <input type="number" name="interest" required autoFocus className="form-control" */
+                                    proptype="number"
+                                    placeholder="Loan interest"
+                                    defaultValue={loan.interest}
+                                    onChange={handleControlledInputChange}
+                                />
+                            </div>
+                        </div>
+                    </fieldset>
+
+
+                    <fieldset>
+                        <div className="loan__inputBox4">
+                            <div className="form-group">
+                                <label htmlFor="name">Loan Payment: </label>
+
+
+                                <div>   <div className="loan__paymentAmount">${loan.payment}</div></div>
+                                <input type="number" name="payment" required autoFocus className="form-control"
+                                    proptype="number"
+                                    placeholder="Loan payment"
+                                    defaultValue={loan.payment}
+                                    onChange={handleControlledInputChange}
+                                />
+                            </div>
+                        </div>
+                    </fieldset>
+
+
+
+
+
+                    <div>
+                        <div className="BCA_buttons">
+
+                            <div>
+                                <button type="submit"
+                                    onClick={evt => {
+                                        evt.preventDefault()
+                                        calculateLoan()
+                                    }}
+                                    className="btn btn-primary">Compute Loan            
+                                </button>
+                            </div>
+
+                            <br></br>
+                            <br></br>
+
+                            <div>
+                                <button className="addLoanInputs__button"
+                                    onClick={() => {
+
+                                        editLoanFactors()
+                                      
+                                    }}>
+                                    Save Loan
+                                </button>
+                            <br></br>
+                            </div>
+                            <br></br>
+                            {/* <div >
+                                <button className="calculateLoan__button"
+                                    onClick={() => {
+                                        calculateLoan()
+                                    }}> Compute Loan
+                        </button>
+                            </div> */}
+                            <div >
+                            <br></br>
+                                <button className="runBenefitCostAnalysis__button"
+                                    onClick={() => {
+
+                                        constructBCAobject()
+                                    
+                                    }}>Run Benefit Analysis
+                        </button>
+
+                            <br></br>
+                            <br></br>
+                            </div>
                             <br></br>
                             <br></br>
                             <br></br>
 
-                        <div>
-                        <button className="deleteFinWorkBenchItem__button"
+                            <div>
+                                <button className="deleteFinWorkBenchItem__button"
 
                                     onClick={() => {
 
-                                        deleteLoan(finworkbench)
+                                        deleteLoan(finworkbenchs)
 
                                     }}> Delete
                         </button>
-                        </div>
+                            </div>
 
+
+                            {/* </form> */}
+
+                            {/* <button className="calculateLoan__button"
+                onClick={() => {
+                    calculateLoan()
+                }}> Compute Loan
+             </button> */}
+
+                        </div>
                     </div>
-                  
 
                 </section>
 
             </section>
-
-            {/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */}
-            <h3>Enter Loan Information:</h3>
-
-
-            <div> P)</div>
-            <div> Cash Paid - Scholarships, Grants, Savings:</div>
-            <input type="text" name="cashpaid" size="8">
-            </input>
-
-
-
-
-            <div> 1)</div>
-            <div> Amount of the loan (any currency):</div>
-            <input type="text" name="principal" size="8" >
-            </input>
-
-            <div> 2)</div>
-            <div> Annual percentage rate of interest:</div>
-            <input type="text" name="interest" size="8">
-            </input>
-
-            <div> 3)</div>
-            <div> Repayment period in years:</div>
-            <input type="text" name="years" size="8" >
-            </input>
-
-            <div > </div>
-            <button className="calculateLoan__button"
-                onClick={() => {
-                    calculateLoan()
-                }}> Compute Loan
-            </button>
-
-            <div> 4)</div>
-            <div> Your monthly payment will be:</div>
-            <input type="text" name="payment" size="12">
-            </input>
-
-            <div> 6)</div>
-            <div> Your total interest payments will be:</div>
-            <input type="text" name="totalinterest" size="12">
-            </input>
-
-
-            {/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */}
-
-
-
 
         </>
     )
@@ -341,11 +396,3 @@ export default ({ finworkbench, degreeSchool, loan, degree, school, history }) =
 }
 
 
-{/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */ }
-
-
-
-
-
-
-{/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */ }

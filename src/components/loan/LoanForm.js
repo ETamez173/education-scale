@@ -1,19 +1,25 @@
 import React, { useContext, useState, useEffect } from "react"
-import { AnimalContext } from "./AnimalProvider"
-import { LocationContext } from "../locations/LocationProvider"
 
+import { LoanContext } from "../loan/LoanProvider"
+// import { DegreeContext } from "../degree/DegreeProvider"
+import { FinWorkBenchContext } from "../loan/FinWorkBenchProvider"
+import { DegreeSchoolContext } from "../degreeschool/DegreeSchoolProvider"
+// import { MySchoolOptionContext } from "../myschooloption/MySchoolOptionProvider"
 
 export default props => {
-    const { locations } = useContext(LocationContext)
-    const { addAnimal, animals, updateAnimal } = useContext(AnimalContext)
-    const [animal, setAnimal] = useState({})
+    const { loans, addLoan, deleteLoan, updateLoan } = useContext(LoanContext)
+    const { finworkbenchs, deleteFinWorkBench, addFinWorkBench } = useContext(FinWorkBenchContext)
+    // const { degrees, addDegree, deleteDegree } = useContext(DegreeContext)
+    
+    // const { deleteMySchoolOption, getMySchoolOptions } = useContext(MySchoolOptionContext)
+    const { degreeSchools, deleteDegreeSchool } = useContext(DegreeSchoolContext)
+// debugger
+    const [loan, setLoan] = useState({})
 
+    const ActiveUser = localStorage.getItem("education_customer")
+    
     const editMode = props.match.params.hasOwnProperty("loanId")
-
-
-
-
-// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    // const editMode = props.match.params.hasOwnProperty(1)
 
     const handleControlledInputChange = (event) => {
         /*
@@ -27,7 +33,8 @@ export default props => {
 
     const setDefaults = () => {
         if (editMode) {
-            const loanId = parseInt(props.match.params.loanId)
+            // const loanId = parseInt(1, 10)
+            const loanId = parseInt(props.match.params.loanId, 10)
             const selectedLoan = loans.find(l => l.id === loanId) || {}
             setLoan(selectedLoan)
         }
@@ -49,29 +56,41 @@ export default props => {
         // else {
             if (editMode) {
                 updateLoan({
-                    id: animal.id,
-                    name: animal.name,
-                    breed: animal.breed,
-                    locationId: locationId,
-                    treatment: animal.treatment,
-                    customerId: parseInt(localStorage.getItem("school_customer"))
+                    id: loan.id,
+                    educationName: loan.educationName,
+                    schoolName: loan.schoolName,
+                    schoolTotalCost: loan.schoolTotalCost,
+                    cashPaid: 0,
+                    loanAmount: loan.schoolTotalCost - loan.cashPaid,
+                    loanRate: 7,
+                    loanLengthYears: 10,
+                    // loanLengthMonths: 120,
+                    loanPmt: "",
+                    totalLoanPmts: "",
+                    
+                    // name: animal.name,
+                    // breed: animal.breed,
+                    // locationId: locationId,
+                    // treatment: animal.treatment,
+                    userId: localStorage.getItem("education_customer")
+                   
                 })
-                    .then(() => props.history.push("/loans"))
+                    .then(() => props.history.push("/analysis"))
             } else {
                 addLoan({
-                    name: animal.name,
-                    breed: animal.breed,
-                    locationId: locationId,
-                    treatment: animal.treatment,
-                    customerId: parseInt(localStorage.getItem("school_customer"))
+            //         // name: animal.name,
+            //         // breed: animal.breed,
+            //         // locationId: locationId,
+            //         // treatment: animal.treatment,
+                    userId: localStorage.getItem("education_customer")
                 })
                    .then(() => props.history.push("/loans"))
             }
         }
-    }
+    
 
+    // }
 
-// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 
     return (
@@ -143,13 +162,8 @@ export default props => {
         </form>
     )
 
+ 
 
 
-
-
-
-
-
-
-
+            }
 

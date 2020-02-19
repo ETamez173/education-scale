@@ -55,7 +55,7 @@ h1, h2, h3, h4 {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    /* flex-basis: 20%; */
+    flex-basis: 5%;
     padding: 1%;
     /* background-color: goldenrod; */
     margin:1%;
@@ -64,10 +64,10 @@ h1, h2, h3, h4 {
     /* padding: 20px 10px 20px 10px; */
     border-radius: 3px; 
     /* justify-content: space-around; */
-
-
     justify-content: space-around;
-    border: 1px solid black;
+
+    /* justify-content: space-around; */
+    /* border: 1px solid black; */
 
 
     
@@ -134,7 +134,8 @@ h1, h2, h3, h4 {
     /* padding: 20px 10px 20px 10px; */
     border-radius: 3px; 
 
-    max-width: 120px;
+    max-width: 140px;
+    min-width: 120px;
     word-wrap: break-word;
     /* align-items: center; */
     align-content: center;
@@ -162,6 +163,67 @@ h1, h2, h3, h4 {
     align-content: center;
 
 
+}
+
+
+.loan__inputBoxx, .loan__inputBox2 {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    flex-basis: 20%;
+    padding: 1%;
+    /* background-color: goldenrod; */
+    margin:1%;
+    /* border: 1px solid black; */
+    font-family:  Arial, Helvetica, sans-serif;
+    /* padding: 20px 10px 20px 10px; */
+    border-radius: 3px; 
+    align-items: center;
+    cursor: cell   ;
+    max-width: 120px;
+    
+}
+
+
+.form-control  {
+
+    border-radius: 3px; 
+    align-items: center;
+    cursor: cell   ;
+    max-width: 75px;
+    background-color: blue;
+    fill: yellowgreen;
+    color: white;
+}
+
+.cant__see {
+    color:transparent
+}
+
+.character__spacing {
+    padding: 3%;
+    /* max-width: 35px;
+    min-width: 20px; */
+}
+
+.loan__inputBox3, .loan__inputBox4, .loan__inputBox {
+    display: flex;
+    /* flex-wrap: wrap-reverse; */
+    /* flex-wrap: wrap; */
+    flex-direction: row;
+    flex-basis: 20%;
+    padding: 1%;
+    /* background-color: goldenrod; */
+    margin:1%;
+    /* border: 1px solid black; */
+    font-family:  Arial, Helvetica, sans-serif;
+    /* padding: 20px 10px 20px 10px; */
+    border-radius: 3px; 
+    align-items: center;
+    cursor: cell   ;
+    max-width: 120px;
+    /* background-color: teal; */
+    
 }
 
 .tableMyCBA__sectionx, .loan__sectionx {

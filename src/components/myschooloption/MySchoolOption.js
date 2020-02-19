@@ -69,16 +69,17 @@ export default ({ myschooloption, finworkbench, degreeSchool, loan, degree }) =>
             schoolTotalCost: myschooloption.schoolTotalCost,
        
             //  these items below are blank until used later
-            loanAmount: 1,
-            loanRate: 1,
-            loanLengthMonths: 1,
-            loanPmt: 1,
-            totalLoanPmts: 1,
-            cashPaid: 1,
-            totalAmountPaid:  myschooloption.totalAmountPaid,
+            loanAmount: 0,
+            loanRate: 7,
+            loanLengthMonths: 120,
+            loanLengthYears: 10,
+            loanPmt: "",
+            totalLoanPmts: "",
+            cashPaid: 0,
+            totalAmountPaid:  "",
             degreeAnnualEarnings:  myschooloption.degreeAnnualEarnings,
-            twentyYearEarnings: 1,
-            benefitCostRatio: 10,
+            twentyYearEarnings: "",
+            benefitCostRatio: "",
             finWorkBenchStep: "true",
             benefitCostAnalysis: "false"
 

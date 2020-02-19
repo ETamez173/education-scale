@@ -3,6 +3,7 @@ import { LoanContext } from "./LoanProvider"
 import Loan from "./Loan"
 import FinWorkBench from "./FinWorkBench"
 import "./Loans.css"
+import LoanForm from "./LoanForm"
 
 import { FinWorkBenchContext } from "../loan/FinWorkBenchProvider"
 export default (props) => {
@@ -97,6 +98,24 @@ export default (props) => {
                 }
             </div>
 
+            {/* <div className="loans">
+                {
+                    loans.map(loan => {
+
+
+
+                        // if (loan.finWorkBenchStep === "true" && loan.benefitCostAnalysis === "true" ) 
+                        {
+
+                            // console.log(loan.benefitCostAnalysis)
+
+
+                            return <LoanForm key={loan.id} loanform={loan} />
+                        }
+                    })
+
+                }
+            </div> */}
 
 
 
