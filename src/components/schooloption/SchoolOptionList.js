@@ -48,7 +48,7 @@ export default (props) => {
                         loans.map(myschooloption => {
 
                             if (myschooloption.finWorkBenchStep === "false" && myschooloption.benefitCostAnalysis === "false") {
-                                console.log(myschooloption.benefitCostAnalysis)
+                                // console.log(myschooloption.benefitCostAnalysis)
                                 return <MySchoolOption key={myschooloption.id} myschooloption={myschooloption} />
                             }
                         })

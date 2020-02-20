@@ -43,8 +43,8 @@ export default ({ degreeSchool, loan, degree, school, history }) => {
         const totalLoanPmts = null;
         const cashPaid = null;
         const totalAmountPaid = null;
-        const degreeAnnualEarnings = null;
-        const twentyYearEarnings = null;
+        const degreeAnnualEarnings = degreeSchool.degree.earningsAvg;
+        const twentyYearEarnings = degreeSchool.degree.earningsAvg * 20;
         const benefitCostRatio = null;
         const benefitCostAnalysis = null;
 
@@ -64,15 +64,19 @@ export default ({ degreeSchool, loan, degree, school, history }) => {
             totalLoanPmts: 1,
             cashPaid: 1,
             totalAmountPaid: 1,
-            degreeAnnualEarnings: degreeSchool.earningsAvg,
-            twentyYearEarnings: degreeSchool.earningsAvg * 20,
+            degreeAnnualEarnings: degreeAnnualEarnings,
+           
+            twentyYearEarnings: twentyYearEarnings,
             benefitCostRatio: 1,
             finWorkBenchStep: "false",
             benefitCostAnalysis: "false"
 
         })
-
-
+        console.log(degreeAnnualEarnings)
+        // console.log(degreeSchool.degree.earningsAvg)
+        
+        console.log(twentyYearEarnings)
+        // console.log(degreeSchool.degree.earningsAvg * 20)
     }
 
     return (

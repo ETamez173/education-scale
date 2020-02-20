@@ -47,8 +47,8 @@ export default (props) => {
                     
 
                         if (loan.finWorkBenchStep === "true" &&  loan.benefitCostAnalysis === "false" ) {
-                            console.log( loan.finWorkBenchStep)
-                            console.log( loan.benefitCostAnalysis)
+                            // console.log( loan.finWorkBenchStep)
+                            // console.log( loan.benefitCostAnalysis)
                             return <FinWorkBench key={loan.id} loan={loan} />
                             // return <FinWorkBench key={finworkbench.id} finworkbench={finworkbench} />
                         }
@@ -90,9 +90,9 @@ export default (props) => {
 
                         if (loan.finWorkBenchStep === "true" && loan.benefitCostAnalysis === "true" ) {
 
-                            console.log(loan.finWorkBenchStep)
+                            // console.log(loan.finWorkBenchStep)
 
-                            console.log(loan.benefitCostAnalysis)
+                            // console.log(loan.benefitCostAnalysis)
 
                             return <Loan key={loan.id} loan={loan} />
                         }

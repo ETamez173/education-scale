@@ -46,17 +46,18 @@ export default props => {
         const totalLoanPmts = null;
         const cashPaid = null;
         const totalAmountPaid = null;
-        const degreeAnnualEarnings = degreeSchools.earningsAvg;
-        console.log(degreeAnnualEarnings)
-        // const twentyYearEarnings = parseInt(myschooloption.earningsAvg) * 20;
+        const degreeAnnualEarnings = props.myschooloption.degreeAnnualEarnings;
+    
+        // console.log(degreeAnnualEarnings)
+        const twentyYearEarnings = props.myschooloption.twentyYearEarnings;
         // console.log(myschooloption.earningsAvg)
         // console.log(twentyYearEarnings)
         const benefitCostRatio = null;
         const benefitCostAnalysis = null;
 
         // const degreeAnnualEarnings = mycareeroptions.earningsAvg;
-        const twentyYearEarnings = mycareeroption.earningsAvg * 20;
-        console.log(mycareeroption.earningsAvg)
+        // const twentyYearEarnings = mycareeroptions.earningsAvg * 20;
+        console.log(twentyYearEarnings)
         // console.log(twentyYearEarnings)
 
 
@@ -94,8 +95,8 @@ export default props => {
             totalLoanPmts: 2,
             cashPaid: 2,
             totalAmountPaid: 2,
-            degreeAnnualEarnings: mycareeroptions.earningsAvg,
-            twentyYearEarnings: mycareeroptions.earningsAvg * 20,
+            degreeAnnualEarnings: degreeAnnualEarnings,
+            twentyYearEarnings: twentyYearEarnings,
 
             // twentyYearEarnings: twentyYearEarnings,
             benefitCostRatio: 2,
@@ -103,7 +104,8 @@ export default props => {
             benefitCostAnalysis: "false"
 
         })
-        // console.log(degreeAnnualEarnings)
+        console.log(degreeAnnualEarnings)
+        console.log(twentyYearEarnings)
     }
 
 

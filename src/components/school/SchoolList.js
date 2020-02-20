@@ -61,7 +61,7 @@ export default (props) => {
                         {
 
                             const founddMatchSchoolsForDegree = mycareeroptions.find(fndMSFD => fndMSFD.degreeId === ds.degreeId)
-                            console.log(founddMatchSchoolsForDegree)
+                            // console.log(founddMatchSchoolsForDegree)
 
                             // if (founddMatchSchoolsForDegree !== undefined) {
                                 if (founddMatchSchoolsForDegree !== undefined && ds.schoolSearch === true) {
@@ -74,7 +74,7 @@ export default (props) => {
                                 // console.log(mycareeroptions.schoolSearch)
                             }
                             else if (founddMatchSchoolsForDegree === undefined) {
-                                console.log("This one is a doesnt match the degree!")
+                                // console.log("This one is a doesnt match the degree!")
 
                             }
 
