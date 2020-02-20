@@ -11,7 +11,7 @@ export const MySchoolOptionProvider = (props) => {
             .then(setMySchoolOptions)
     }
 
-    console.log(myschooloptions)
+    // console.log(myschooloptions)
 
     const addMySchoolOption = myschooloption => {
         return fetch("http://localhost:8088/loans", {

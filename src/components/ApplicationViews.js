@@ -153,42 +153,42 @@ export default (props) => {
                 <SchoolProvider> */}
             <SchoolProvider>
                 <DegreeSchoolProvider>
-                    <LoanProvider>
-                        < FinWorkBenchProvider>
-                            {/* <Route exact path="/analysis" render={
+                    <MySchoolOptionProvider>
+                        <LoanProvider>
+                            < FinWorkBenchProvider>
+                                <MyCareerOptionProvider>
+                                    {/* <Route exact path="/analysis" render={
                             props => <DegreeSchoolList {...props} />
                         } /> */}
-                            {/* 
+                                    {/* 
                             <Route exact path="/analysis" render={
                                 props => <FinWorkBenchList {...props} />
                             } /> */}
 
-                            {/* <Route exact path="/analysis/create" render={
+                                    {/* <Route exact path="/analysis/create" render={
                                 props => <LoanForm {...props} />
                             } /> */}
-                            <Route exact path="/analysis" render={
-                                props => <LoanList {...props} />
-                            } />
+                                    <Route exact path="/analysis" render={
+                                        props => <LoanList {...props} />
+                                    } />
 
-
-
-                            
-                            <Route path="/analysis/edit/:loanId(\d+)" render={
+                                    {/* <Route path="/analysis/edit/:loanId(\d+)" render={
                                 props => <LoanForm {...props} />
                             } /> 
 
 
                             <Route path="/analysis/:loanId(\d+)" render={
                                 props => <LoanForm {...props} />
-                            } />
+                            } /> */}
 
-                            <Route exact path="/analysis/create">
+                                    {/* <Route exact path="/analysis/create">
                                 <LoanForm />
-                            </Route>
+                            </Route> */}
 
-
-                        </FinWorkBenchProvider>
-                    </LoanProvider>
+                                </MyCareerOptionProvider>
+                            </FinWorkBenchProvider>
+                        </LoanProvider>
+                    </MySchoolOptionProvider>
                 </DegreeSchoolProvider>
             </SchoolProvider>
             {/* </SchoolProvider>

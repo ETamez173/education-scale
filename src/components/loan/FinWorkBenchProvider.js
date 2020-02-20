@@ -47,7 +47,7 @@ export const FinWorkBenchProvider = (props) => {
     }, [])
 
 
-    console.log(finworkbenchs)
+    // console.log(finworkbenchs)
     return (
         <FinWorkBenchContext.Provider value={{
             finworkbenchs, addFinWorkBench, deleteFinWorkBench, updateFinWorkBench

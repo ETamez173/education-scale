@@ -8,7 +8,7 @@ import LoanForm from "./LoanForm"
 import { FinWorkBenchContext } from "../loan/FinWorkBenchProvider"
 export default (props) => {
     const { loans } = useContext(LoanContext)
-    const { finworkbenchs } = useContext(FinWorkBenchContext)
+    // const { finworkbenchs } = useContext(FinWorkBenchContext)
     return (
         <>
 
@@ -42,13 +42,15 @@ export default (props) => {
             <div className="finworkbenchs">
 
                 {
-                    // loans.map(finWorkBench => {
-                    loans.map(finworkbench => {
+                    // loans.map(finWorkBench => {s
+                    loans.map(loan => {
                     
 
-                        if (finworkbench.finWorkBenchStep === "true" &&  finworkbench.benefitCostAnalysis === "false" ) {
-                            console.log(finworkbench.benefitCostAnalysis)
-                            return <FinWorkBench key={finworkbench.id} finworkbench={finworkbench} />
+                        if (loan.finWorkBenchStep === "true" &&  loan.benefitCostAnalysis === "false" ) {
+                            console.log( loan.finWorkBenchStep)
+                            console.log( loan.benefitCostAnalysis)
+                            return <FinWorkBench key={loan.id} loan={loan} />
+                            // return <FinWorkBench key={finworkbench.id} finworkbench={finworkbench} />
                         }
                     })
                 }
@@ -88,8 +90,9 @@ export default (props) => {
 
                         if (loan.finWorkBenchStep === "true" && loan.benefitCostAnalysis === "true" ) {
 
-                            console.log(loan.benefitCostAnalysis)
+                            console.log(loan.finWorkBenchStep)
 
+                            console.log(loan.benefitCostAnalysis)
 
                             return <Loan key={loan.id} loan={loan} />
                         }
