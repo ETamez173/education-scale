@@ -1,4 +1,4 @@
-import React, { useContext } from "react"
+import React, { useContext, useState, useEffect } from "react"
 
 import { MySchoolOptionContext } from "../myschooloption/MySchoolOptionProvider"
 
@@ -7,17 +7,22 @@ import { LoanContext } from "../loan/LoanProvider"
 import { DegreeContext } from "../degree/DegreeProvider"
 import { DegreeSchoolContext } from "../degreeschool/DegreeSchoolProvider"
 import { FinWorkBenchContext } from "../loan/FinWorkBenchProvider"
+import { MyCareerOptionContext } from "../mycareeroption/MyCareerOptionProvider"
 // const twentyYearEarnings =  (loan.degreeAnnualEarnings * 20 )
 
-
-export default ({ myschooloption, finworkbench, degreeSchool, loan, degree }) => {
+export default props => {
+// export default ({ myschooloption, mycareeroption, finworkbench, degreeSchool, loan, degree }) => {
 
 
     const { finworkbenchs, deleteFinWorkBench, addFinWorkBench } = useContext(FinWorkBenchContext)
-    const { deleteMySchoolOption, getMySchoolOptions } = useContext(MySchoolOptionContext)
+    const { myschooloptions, deleteMySchoolOption, getMySchoolOptions } = useContext(MySchoolOptionContext)
     const { getLoans, loans, addLoan, patchLoan } = useContext(LoanContext)
     const { getDegrees, degrees, addDegree } = useContext(DegreeContext)
     const { degreeSchools, deleteDegreeSchool } = useContext(DegreeSchoolContext)
+    const { mycareeroptions, addMyCareerOption, deleteMyCareerOption } = useContext(MyCareerOptionContext)
+
+    const [loan, setLoan] = useState({})
+    const [mycareeroption, setMyCareerOption] = useState({})
 
     const constructWorkBenchLoan = () => {
 
@@ -27,7 +32,7 @@ export default ({ myschooloption, finworkbench, degreeSchool, loan, degree }) =>
 
         // const userId = parseInt(localStorage.getItem("educationScale_user"));
 
-
+       
         const userId = null;
         const educationName = null;
         const schoolName = null;
@@ -41,10 +46,18 @@ export default ({ myschooloption, finworkbench, degreeSchool, loan, degree }) =>
         const totalLoanPmts = null;
         const cashPaid = null;
         const totalAmountPaid = null;
-        const degreeAnnualEarnings = null;
-        const twentyYearEarnings = null;
+        const degreeAnnualEarnings = degreeSchools.earningsAvg;
+        console.log(degreeAnnualEarnings)
+        // const twentyYearEarnings = parseInt(myschooloption.earningsAvg) * 20;
+        // console.log(myschooloption.earningsAvg)
+        // console.log(twentyYearEarnings)
         const benefitCostRatio = null;
         const benefitCostAnalysis = null;
+
+        // const degreeAnnualEarnings = mycareeroptions.earningsAvg;
+        const twentyYearEarnings = mycareeroption.earningsAvg * 20;
+        console.log(mycareeroption.earningsAvg)
+        // console.log(twentyYearEarnings)
 
 
 
@@ -63,28 +76,34 @@ export default ({ myschooloption, finworkbench, degreeSchool, loan, degree }) =>
             // annualSchoolCost: degreeSchools.annualCost,
             // schoolTotalCost: degreeSchools.totalCost,
 
-            educationName: myschooloption.educationName,
-            schoolName: myschooloption.schoolName,
-            annualSchoolCost: myschooloption.annualSchoolCost,
-            schoolTotalCost: myschooloption.schoolTotalCost,
-       
+
+            /// These work with props.
+            educationName: props.myschooloption.educationName,
+            schoolName: props.myschooloption.schoolName,
+
+
+            annualSchoolCost: props.myschooloption.annualSchoolCost,
+            schoolTotalCost: props.myschooloption.schoolTotalCost,
+
             //  these items below are blank until used later
-            loanAmount: 0,
-            loanRate: 7,
-            loanLengthMonths: 120,
-            loanLengthYears: 10,
-            loanPmt: "",
-            totalLoanPmts: "",
-            cashPaid: 0,
-            totalAmountPaid:  "",
-            degreeAnnualEarnings:  myschooloption.degreeAnnualEarnings,
-            twentyYearEarnings: "",
-            benefitCostRatio: "",
+            loanAmount: 2,
+            loanRate: 2,
+            loanLengthMonths: 2,
+            loanLengthYears: 2,
+            loanPmt: 2,
+            totalLoanPmts: 2,
+            cashPaid: 2,
+            totalAmountPaid: 2,
+            degreeAnnualEarnings: mycareeroptions.earningsAvg,
+            twentyYearEarnings: mycareeroptions.earningsAvg * 20,
+
+            // twentyYearEarnings: twentyYearEarnings,
+            benefitCostRatio: 2,
             finWorkBenchStep: "true",
             benefitCostAnalysis: "false"
 
         })
-
+        // console.log(degreeAnnualEarnings)
     }
 
 
@@ -95,9 +114,9 @@ export default ({ myschooloption, finworkbench, degreeSchool, loan, degree }) =>
 
             <section className="SCO__section">
 
-                <div className="SCO__educationName">{myschooloption.educationName}</div>
-                <div className="SCO__schoolName">{myschooloption.schoolName}</div>
-                <div className="SCO__schoolTotCost">${myschooloption.schoolTotalCost}</div>
+                <div className="SCO__educationName">{props.myschooloption.educationName}</div>
+                <div className="SCO__schoolName">{props.myschooloption.schoolName}</div>
+                <div className="SCO__schoolTotCost">${props.myschooloption.schoolTotalCost}</div>
 
                 {/* these below are inputs items for calculatint the loan payments etc */}
                 {/* <div className="SCO__loanAmount">${myschooloption.loanAmount}</div> */}
@@ -154,7 +173,7 @@ export default ({ myschooloption, finworkbench, degreeSchool, loan, degree }) =>
                                 onClick={() => {
                                     // const { deleteMySchoolOption } = useContext(MySchoolOptionContext)
                                     // removeMySchoolOption(myschooloption)
-                                    deleteMySchoolOption(myschooloption)
+                                    deleteMySchoolOption(myschooloptions)
                                         // getMySchoolOptions()
                                         .then(getLoans)
                                         .then(getMySchoolOptions)

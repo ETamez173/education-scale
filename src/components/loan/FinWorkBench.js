@@ -9,22 +9,34 @@ import { DegreeContext } from "../degree/DegreeProvider"
 import { FinWorkBenchContext } from "../loan/FinWorkBenchProvider"
 import { DegreeSchoolContext } from "../degreeschool/DegreeSchoolProvider"
 import { MySchoolOptionContext } from "../myschooloption/MySchoolOptionProvider"
-
-
-
+import MyCareerOption from "../mycareeroption/MyCareerOption"
+import { MyCareerOptionContext } from "../mycareeroption/MyCareerOptionProvider"
 
 export default props => {
 
     // export default ({ finworkbench, degreeSchool, loan, degree, school, history }) => {
-
-    const { finworkbenchs, deleteFinWorkBench, addFinWorkBench, addLoan, updateLoan, deleteLoan } = useContext(LoanContext)
-    // const { finworkbenchs, deleteFinWorkBench, addFinWorkBench } = useContext(FinWorkBenchContext)
+    const { addLoan, deleteLoan, updateLoan, history } = useContext(LoanContext)
+    // const { finworkbenchs, deleteFinWorkBench, addFinWorkBench, addLoan, updateLoan, deleteLoan } = useContext(LoanContext)
+    const { finworkbenchs, deleteFinWorkBench, addFinWorkBench } = useContext(FinWorkBenchContext)
     // const { degrees, addDegree, deleteDegree } = useContext(DegreeContext)
     // const { finworkbenchs, addLoan, deleteLoan, updateLoan } = useContext(LoanContext)
+    // const { mycareeroptions } = useContext(MyCareerOptionContext)
+  
+
     // const { deleteMySchoolOption, getMySchoolOptions } = useContext(MySchoolOptionContext)
     const { degreeSchools, deleteDegreeSchool } = useContext(DegreeSchoolContext)
 
     const [loan, setLoan] = useState({})
+    const [mycareeroption, setMyCareerOption] = useState({})
+    const [degreeschool, setDegreeSchool] = useState({})
+    /////// using props is key since I used destructured props notation
+
+    ////// setLoan(props.loan) 
+
+
+    console.log(props.loan.id)
+
+
 
     const handleControlledInputChange = (event) => {
         /*
@@ -46,7 +58,12 @@ export default props => {
 
         //// This where we get the three lon inputs off the DOM
 
-        var principal = loan.principal;
+        const totcost = props.loan.schoolTotalCost  // sees this
+        // console.log(totcost)
+        // console.log(loan.cashPaid)
+        const principal = totcost - loan.cashPaid;  // doesnt get this - input needed from below
+
+        // var principal = props.loan.principal;
         console.log(principal)
         var interest = loan.interest / 100 / 12;
         console.log(interest)
@@ -103,6 +120,7 @@ export default props => {
     }
 
 
+    //  This takes the loan object in the Finance Workbench and adds the loan principal, total interest and payements etc 
 
     const constructBCAobject = () => {
 
@@ -110,13 +128,14 @@ export default props => {
 
         ///// This code calculates the loan taken by subtracting the savings, scholarships, and grants aka cashPaid from 
         //// the schoolTotalCost  .  What you borrow is determined by what you put down 
-        const totcost = loan.schoolTotalCost
+        const totcost = props.loan.schoolTotalCost
         console.log(totcost)
         const cashpaid = loan.cashPaid
         console.log(loan.cashPaid)
 
-        const loanAmountCalc = loan.schoolTotalCost - loan.cashPaid;
+        const loanAmountCalc = totcost - loan.cashPaid;
         console.log(loan)
+        console.log(loanAmountCalc)
         //////
         ///// THis code calculates the loan payments given the loan term/lenght in months and the interest rate 
         const iRate = 7;
@@ -127,18 +146,22 @@ export default props => {
         const educationName = null;
         const schoolName = null;
         const annualSchoolCost = null;
-        const schoolTotalCost = null;
+        const schoolTotalCost = props.loan.schoolTotalCost;
         //  these items below are blank until used later
-        const loanAmount = loanAmountCalc;
-        console.log(loanAmount)
+
+        // console.log(loanAmount)
         const loanRate = null;
         const loanLengthMonths = null;
         const loanPmt = null;
         const totalLoanPmts = null;
         const cashPaid = null;
         const totalAmountPaid = null;
-        const degreeAnnualEarnings = null;
-        const twentyYearEarnings = null;
+        // const degreeAnnualEarnings = props.degreeSchools.earningsAvg;
+        // console.log(degreeAnnualEarnings)
+        const degreeAnnualEarnings2 = degreeSchools.earningsAvg;
+        console.log(degreeAnnualEarnings2)
+        // const twentyYearEarningsCalc =  props.mycareeroption.earningsAvg;
+        // console.log(twentyYearEarningsCalc)
         const benefitCostRatio = null;
         const benefitCostAnalysis = null;
 
@@ -147,26 +170,28 @@ export default props => {
 
 
             userId: parseInt(ActiveUser),
-            educationName: loan.educationName,
-            schoolName: loan.schoolName,
-            annualSchoolCost: loan.annualSchoolCost,
-            schoolTotalCost: loan.schoolTotalCost,
+            educationName: props.loan.educationName,
+            schoolName: props.loan.schoolName,
+            annualSchoolCost: props.loan.annualSchoolCost,
+            schoolTotalCost: props.loan.schoolTotalCost,
             //  these items below are blank until used later
-            loanAmount: loan.schoolTotalCost - loan.cashPaid,
-            loanRate: loan.rate,
-            loanLengthMonths: 120,
-            loanPmt: 1,
-            totalLoanPmts: 1,
-            cashPaid: 1,
-            totalAmountPaid: degreeSchools.totalAmountPaid,
-            degreeAnnualEarnings: degreeSchools.degreeAnnualEarnings,
-            twentyYearEarnings: 40,
-            benefitCostRatio: 10,
+            // loanAmount: loan.schoolTotalCost - loan.cashPaid,
+            loanAmount: parseInt(loanAmountCalc),
+            loanRate: parseInt(loan.interest),
+            loanLengthYears: loan.years,
+            loanLengthMonths: loan.years * 12,
+            loanPmt: 3,
+            totalLoanPmts: 3,
+            cashPaid: parseInt(loan.cashPaid),
+            totalAmountPaid: props.loan.totalAmountPaid,
+            degreeAnnualEarnings: props.loan.degreeAnnualEarnings,
+            twentyYearEarnings: props.loan.twentyYearEarnings,
+            benefitCostRatio: 3,
             finWorkBenchStep: "true",
             benefitCostAnalysis: "true"
 
         })
-
+        // console.log(loan.schoolTotalCost)
     }
 
     const editLoanFactors = () => {
@@ -190,18 +215,26 @@ export default props => {
 
         updateLoan({
 
-            id: loan.id,
-            educationName: loan.educationName,
-            schoolName: loan.schoolName,
-            schoolTotalCost: loan.schoolTotalCost,
-            cashPaid: loan.cashPaid,
-            loanAmount: loan.schoolTotalCost - loan.cashPaid,
-            loanRate: loan.rate,
-            loanLengthYears: loan.years,
+            id: props.loan.id,
+            educationName: props.loan.educationName,
+            schoolName: props.loan.schoolName,
+            annualSchoolCost: props.loan.annualSchoolCost,
+            schoolTotalCost: props.loan.schoolTotalCost,
 
+
+            loanAmount: loan.principal - loan.cashPaid,
+            loanRate: loan.interest,
+            loanLengthYears: loan.years,
+            loanLengthMonths: loan.years * 12,
             loanPmt: moPmt,
             totalLoanPmts: "",
-
+            cashPaid: loan.cashPaid,
+            totalAmountPaid: props.loan.totalAmountPaid,
+            degreeAnnualEarnings: props.loan.degreeAnnualEarnings,
+            twentyYearEarnings: props.loan.twentyYearEarnings,
+            benefitCostRatio: 3,
+            finWorkBenchStep: "true",
+            benefitCostAnalysis: "false",
             userId: localStorage.getItem("education_customer")
         })
 
@@ -209,6 +242,13 @@ export default props => {
 
     }
 
+    // const id = loan.id;
+    const removeLoanObject = () => {
+        // const id = loan.id;
+
+        // console.log(finworkbenchs.id)
+        deleteLoan(props.loan)
+    }
 
 
 
@@ -224,16 +264,28 @@ export default props => {
 
                 <section className="loan__section">
 
+
+                    <div>   <div className="loan__educationName">{props.loan.educationName}</div></div>
+                    <div>    <div className="loan__schoolName">{props.loan.schoolName}</div></div>
+                    <div>    <div className="loan__schoolTotCost">${props.loan.schoolTotalCost}</div></div>
+
+
+
                     <fieldset>
                         <div className="loan__inputBox">
                             <div className="form-group">
-                                <label htmlFor="name">Cash paid: </label>
-                                <input type="number" name="cashPaid" required autoFocus className="form-control"
-                                    proptype="number"
-                                    placeholder="Cash Paid"
-                                    defaultValue={loan.cashPaid}
-                                    onChange={handleControlledInputChange}
-                                />
+
+                                <div className="label__thing">
+                                    <label htmlFor="name">Cash paid: </label>
+                                </div>
+                                <div className="intput__thing">
+                                    <input type="number" name="cashPaid" required autoFocus className="form-control"
+                                        proptype="number"
+                                        placeholder="Cash Paid"
+                                        defaultValue={loan.cashPaid}
+                                        onChange={handleControlledInputChange}
+                                    />
+                                </div>
                             </div>
                         </div>
                     </fieldset>
@@ -243,13 +295,17 @@ export default props => {
                     <fieldset>
                         <div className="loan__inputBox">
                             <div className="form-group">
-                                <label htmlFor="name">Loan principal: </label>
-                                <input type="number" name="principal" required autoFocus className="form-control"
-                                    proptype="number"
-                                    placeholder="Loan principal"
-                                    defaultValue={loan.principal}
-                                    onChange={handleControlledInputChange}
-                                />
+                                <div className="label__thing">
+                                    <label htmlFor="name">Loan principal: </label>
+                                </div>
+                                <div className="intput__thing">
+                                    <input type="number" name="principal" required autoFocus className="form-control"
+                                        proptype="number"
+                                        placeholder="Loan principal"
+                                        defaultValue={loan.principal}
+                                        onChange={handleControlledInputChange}
+                                    />
+                                </div>
                             </div>
                         </div>
                     </fieldset>
@@ -260,13 +316,17 @@ export default props => {
                     <fieldset>
                         <div className="loan__inputBox4">
                             <div className="form-group">
-                                <label htmlFor="name">Loan Years: </label>
-                                <input type="number" name="years" required autoFocus className="form-control"
-                                    proptype="number"
-                                    placeholder="Loan years"
-                                    defaultValue={loan.years}
-                                    onChange={handleControlledInputChange}
-                                />
+                                <div className="label__thing">
+                                    <label htmlFor="name">Loan Years: </label>
+                                </div>
+                                <div className="intput__thing">
+                                    <input type="number" name="years" required autoFocus className="form-control"
+                                        proptype="number"
+                                        placeholder="Loan years"
+                                        defaultValue={loan.years}
+                                        onChange={handleControlledInputChange}
+                                    />
+                                </div>
                             </div>
                         </div>
                     </fieldset>
@@ -274,17 +334,20 @@ export default props => {
                     <fieldset>
                         <div className="loan__inputBox3">
                             <div className="form-group">
-                                <label htmlFor="name">Loan interest: </label>
-
-                                <input type="number" id="interest" name="interest" min="1" max="30" required autoFocus className="form-control"
-                                    // <input type="number" id="quantity" name="quantity" min="1" max="5"
-                                    /* </input> */
-                                    /* <input type="number" name="interest" required autoFocus className="form-control" */
-                                    proptype="number"
-                                    placeholder="Loan interest"
-                                    defaultValue={loan.interest}
-                                    onChange={handleControlledInputChange}
-                                />
+                                <div className="label__thing">
+                                    <label htmlFor="name">Loan interest: </label>
+                                </div>
+                                <div className="intput__thing">
+                                    <input type="number" id="interest" name="interest" min="1" max="30" required autoFocus className="form-control"
+                                        // <input type="number" id="quantity" name="quantity" min="1" max="5"
+                                        /* </input> */
+                                        /* <input type="number" name="interest" required autoFocus className="form-control" */
+                                        proptype="number"
+                                        placeholder="Loan interest"
+                                        defaultValue={loan.interest}
+                                        onChange={handleControlledInputChange}
+                                    />
+                                </div>
                             </div>
                         </div>
                     </fieldset>
@@ -293,16 +356,18 @@ export default props => {
                     <fieldset>
                         <div className="loan__inputBox4">
                             <div className="form-group">
-                                <label htmlFor="name">Loan Payment: </label>
-
-
-                                <div>   <div className="loan__paymentAmount">${loan.payment}</div></div>
-                                <input type="number" name="payment" required autoFocus className="form-control"
-                                    proptype="number"
-                                    placeholder="Loan payment"
-                                    defaultValue={loan.payment}
-                                    onChange={handleControlledInputChange}
-                                />
+                                <div className="label__thing">
+                                    <label htmlFor="name">Loan Payment: </label>
+                                </div>
+                                <div className="intput__thing">
+                                    <div>   <div className="loan__paymentAmount">${loan.payment}</div></div>
+                                    <input type="number" name="payment" required autoFocus className="form-control"
+                                        proptype="number"
+                                        placeholder="Loan payment"
+                                        defaultValue={loan.payment}
+                                        onChange={handleControlledInputChange}
+                                    />
+                                </div>
                             </div>
                         </div>
                     </fieldset>
@@ -320,7 +385,7 @@ export default props => {
                                         evt.preventDefault()
                                         calculateLoan()
                                     }}
-                                    className="btn btn-primary">Compute Loan            
+                                    className="btn btn-primary">Compute Loan
                                 </button>
                             </div>
 
@@ -332,11 +397,11 @@ export default props => {
                                     onClick={() => {
 
                                         editLoanFactors()
-                                      
+
                                     }}>
                                     Save Loan
                                 </button>
-                            <br></br>
+                                <br></br>
                             </div>
                             <br></br>
                             {/* <div >
@@ -347,17 +412,17 @@ export default props => {
                         </button>
                             </div> */}
                             <div >
-                            <br></br>
+                                <br></br>
                                 <button className="runBenefitCostAnalysis__button"
                                     onClick={() => {
 
                                         constructBCAobject()
-                                    
+
                                     }}>Run Benefit Analysis
                         </button>
 
-                            <br></br>
-                            <br></br>
+                                <br></br>
+                                <br></br>
                             </div>
                             <br></br>
                             <br></br>
@@ -368,7 +433,11 @@ export default props => {
 
                                     onClick={() => {
 
-                                        deleteLoan(finworkbenchs)
+                                        const id = loan.id;
+
+                                        // console.log(loan.id)
+                                        removeLoanObject()
+                                        // deleteLoan(loan)
 
                                     }}> Delete
                         </button>

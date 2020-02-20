@@ -33,7 +33,10 @@ export default ({ loan }) => {
                 <div className="loan__totalAmountPaid">${loan.totalAmountPaid}</div>
 
                 {/* these are inputs to calculate the loan , payments etc */}
+             
+                
                 <div className="loan__cashPaid">${loan.cashPaid}</div>
+
                 <div className="loan__totalLoanPmts">${loan.totalLoanPmts}</div>
                 <div className="loan__loanAmount">${loan.loanAmount}</div>
 

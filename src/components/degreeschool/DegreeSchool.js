@@ -59,13 +59,14 @@ export default ({ degreeSchool, loan, degree, school, history }) => {
             loanAmount: 1,
             loanRate: 1,
             loanLengthMonths: 1,
+            loanLengthYears: 1,
             loanPmt: 1,
             totalLoanPmts: 1,
             cashPaid: 1,
             totalAmountPaid: 1,
-            degreeAnnualEarnings: 2,
-            twentyYearEarnings: 40,
-            benefitCostRatio: 10,
+            degreeAnnualEarnings: degreeSchool.earningsAvg,
+            twentyYearEarnings: degreeSchool.earningsAvg * 20,
+            benefitCostRatio: 1,
             finWorkBenchStep: "false",
             benefitCostAnalysis: "false"
 
