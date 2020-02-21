@@ -11,7 +11,7 @@ export const FinWorkBenchProvider = (props) => {
             .then(setFinWorkBenchs)
     }
 
-    console.log(finworkbenchs)
+    // console.log(finworkbenchs)
 
     const addFinWorkBench = finworkbench => {
         return fetch("http://localhost:8088/finworkbenchs", {

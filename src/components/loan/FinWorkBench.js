@@ -68,7 +68,7 @@ export default props => {
         totcost = props.loan.schoolTotalCost  // sees this
         // console.log(totcost)
         // console.log(loan.cashPaid)
-        principal = totcost - loan.cashPaid;  // sees this
+        principal = totcost - loan.cashPaid;  // sees loan.cashPaid in input field
         console.log(principal)
 
 
@@ -154,37 +154,26 @@ export default props => {
 
         const loanPmt = moPmt;
         console.log(loanPmt)
-        //////
-        ///// THis code calculates the loan payments given the loan term/lenght in months and the interest rate 
+
+        const totalLoanPmts = payments;
+        const loanPayment = loanAmountCalc
+        const schoolTotalCost = props.loan.schoolTotalCost;
+
+
         const iRate = 7;
         const loanTermMonths = 120;
-        const loanPayment = loanAmountCalc
         const loanId = null;
         const userId = null;
         const educationName = null;
         const schoolName = null;
         const annualSchoolCost = null;
-        const schoolTotalCost = props.loan.schoolTotalCost;
-        //  these items below are blank until used later
-
-        // console.log(loanAmount)
         const loanRate = null;
         const loanLengthMonths = null;
-
-        const totalLoanPmts = payments;
-
         const cashPaid = null;
         const totalAmountPaid = null;
-        // const degreeAnnualEarnings = props.degreeSchools.earningsAvg;
-        // console.log(degreeAnnualEarnings)
-        // const degreeAnnualEarnings2 = degreeSchools.earningsAvg;
-        // console.log(degreeAnnualEarnings2)
-        // const twentyYearEarningsCalc =  props.mycareeroption.earningsAvg;
-        // console.log(twentyYearEarningsCalc)
         const benefitCostRatio = null;
         const benefitCostAnalysis = null;
 
-        // addFinWorkBench({
         addLoan({
 
 
@@ -194,7 +183,7 @@ export default props => {
             annualSchoolCost: props.loan.annualSchoolCost,
             schoolTotalCost: props.loan.schoolTotalCost,
             //  these items below are blank until used later
-            // loanAmount: loan.schoolTotalCost - loan.cashPaid,
+
             loanAmount: parseInt(loanAmountCalc),
             loanRate: parseInt(loan.interest),
             loanLengthYears: loan.years,
@@ -202,7 +191,7 @@ export default props => {
             loanPmt: moPmt,
             totalLoanPmts: round(loanPmt * loan.years * 12),
             cashPaid: parseInt(loan.cashPaid),
-            totalAmountPaid:round((loanPmt * loan.years * 12) + parseInt(loan.cashPaid)),
+            totalAmountPaid: round((loanPmt * loan.years * 12) + parseInt(loan.cashPaid)),
             degreeAnnualEarnings: props.loan.degreeAnnualEarnings,
             twentyYearEarnings: props.loan.twentyYearEarnings,
             benefitCostRatio: round(props.loan.twentyYearEarnings / ((loanPmt * loan.years * 12) + parseInt(loan.cashPaid))),
@@ -226,11 +215,6 @@ export default props => {
 
         const loanAmountCalc = loan.schoolTotalCost - loan.cashPaid;
         console.log(loanAmountCalc)
-
-
-        // const moPmt = moPmt;
-        // const moPmt = moPmt
-        // const moPmt = loan.payment
 
         updateLoan({
 
@@ -261,15 +245,66 @@ export default props => {
 
     }
 
-    // const id = loan.id;
     const removeLoanObject = () => {
-        // const id = loan.id;
 
-        // console.log(finworkbenchs.id)
         deleteLoan(props.loan)
     }
 
+    let currentPrincipal = 0;
+    // let displayPrincipal = 0;
+    let displayPrincipal = props.loan.schoolTotalCost;
 
+    const principalValueCheck = () => {
+        // if (loan.cashPaid > 0)  {
+
+        // if (loan.cashPaid === "NaN" || loan.cashPaid === 0)  {
+        // if (loan.cashPaid === 0)  {
+        if (loan.cashPaid === NaN) {
+
+            // if (props.loan.schoolTotalCost - (loan.cashPaid) !== props.loan.schoolTotalCost )  
+
+            // {
+
+            // currentPrincipal = props.loan.schoolTotalCost - loan.cashPaid;
+            currentPrincipal = props.loan.schoolTotalCost - 0;
+            displayPrincipal = props.loan.schoolTotalCost - 0;
+            // const currentPrincipal = props.loan.schoolTotalCost
+            // props.loan.schoolTotalCost - loan.cashPaid;
+        } else if (loan.cashPaid !== 0) 
+        
+     {
+            // const A = 0
+            // const A = props.loan.schoolTotalCost - 0
+
+            currentPrincipal = props.loan.schoolTotalCost - loan.cashPaid;
+            displayPrincipal = props.loan.schoolTotalCost ;
+            // displayPrincipal = 0;
+
+
+            //  } else {
+            //     // const A = 0
+            //     // const A = props.loan.schoolTotalCost - 0
+
+            //     currentPrincipal = props.loan.schoolTotalCost - loan.cashPaid;
+            //     // displayPrincipal = props.loan.schoolTotalCost - loan.cashPaid;
+            //     displayPrincipal = 0;
+             }
+
+        }
+    
+
+
+
+
+    const formatter = new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD',
+        minimumFractionDigits: 2
+    })
+
+
+    {/* <div className="loan__principal"> ${props.loan.schoolTotalCost - loan.cashPaid}</div>
+                        <div className="loan__principal"> ${props.loan.schoolTotalCost - loan.cashPaid}</div> */}
 
     return (
 
@@ -297,10 +332,10 @@ export default props => {
                             <div className="form-group">
 
                                 <div className="label__thing">
-                                    <label htmlFor="name" className="label__inputext">Enter Cash & Other: </label>
+                                    <label htmlFor="name" className="label__inputext">Enter Savings: </label>
                                 </div>
                                 <div className="input__thing">
-                                    <input type="number" name="cashPaid" required autoFocus className="form-control"
+                                    <input type="number" id="cashPaid" name="cashPaid" required autoFocus className="form-control2"
                                         proptype="number"
                                         placeholder="Cash Paid"
                                         defaultValue={loan.cashPaid}
@@ -338,6 +373,14 @@ export default props => {
                         {/* <div>Loan principal:</div> */}
                         <div className="loan__principal"> ${props.loan.schoolTotalCost - loan.cashPaid}</div>
 
+                        ${console.log(props.loan.schoolTotalCost)}
+                        {/* ${console.log(loan.cashPaid)} */}
+
+                        <div className="loan__principal"> ${principalValueCheck()}</div>
+                        <div className="loan__principal"> ${props.loan.schoolTotalCost - principalValueCheck}</div>
+                        <div className="loan__principal"> ${principalValueCheck(loan.cashPaid)}</div>
+                        <div className="loan__principal"> ${currentPrincipal}</div>
+                        <div className="loan__principal"> ${displayPrincipal}</div>
                     </div>
                     {/* </div> */}
                     {/* </div> */}
@@ -351,7 +394,7 @@ export default props => {
                                     <label htmlFor="name">Enter Years: </label>
                                 </div>
                                 <div className="input__thing">
-                                    <input type="number" name="years" required autoFocus className="form-control"
+                                    <input type="number" id="years" name="years" required autoFocus className="form-control2"
                                         proptype="number"
                                         placeholder="Loan years"
                                         defaultValue={loan.years}
@@ -369,7 +412,7 @@ export default props => {
                                     <label htmlFor="name">Enter Rate: </label>
                                 </div>
                                 <div className="input__thing">
-                                    <input type="number" id="interest" name="interest" min="1" max="30" required autoFocus className="form-control"
+                                    <input type="number" id="interest" name="interest" min="1" max="30" required autoFocus className="form-control2"
                                         // <input type="number" id="quantity" name="quantity" min="1" max="5"
                                         /* </input> */
                                         /* <input type="number" name="interest" required autoFocus className="form-control" */
@@ -404,7 +447,7 @@ export default props => {
                     </fieldset> */}
 
 
-                    <div className="loan__lineItem1">Loan Payment:
+                    <div className="loan__lineItem1">Monthly Payment:
                         {/* <div>Loan principal:</div> */}
                         <div className="loan__payment"> ${moPmt}</div>
 
@@ -420,7 +463,7 @@ export default props => {
                                     onClick={evt => {
                                         evt.preventDefault()
                                         calculateLoan()
-                                        console.log(moPmt)
+
                                     }}
                                     className="btn btn-primary">Compute Loan
                                 </button>
@@ -441,13 +484,7 @@ export default props => {
                                 <br></br>
                             </div>
                             <br></br>
-                            {/* <div >
-                                <button className="calculateLoan__button"
-                                    onClick={() => {
-                                        calculateLoan()
-                                    }}> Compute Loan
-                        </button>
-                            </div> */}
+
                             <div >
                                 <br></br>
                                 <button className="runBenefitCostAnalysis__button"

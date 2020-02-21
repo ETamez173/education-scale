@@ -3,7 +3,7 @@ import { LoanContext } from "./LoanProvider"
 import Loan from "./Loan"
 import FinWorkBench from "./FinWorkBench"
 import "./Loans.css"
-import LoanForm from "./LoanForm"
+// import LoanForm from "./LoanForm"
 
 import { FinWorkBenchContext } from "../loan/FinWorkBenchProvider"
 export default (props) => {
@@ -13,9 +13,9 @@ export default (props) => {
         <>
 
             <h1>My Benefit Cost Analysis</h1>
-            <h1>aka LoanList.js</h1>
-            <h2>render of FinWorkBenchs</h2>
-            {/* <div>TESTING THE RENDER</div> */}
+            
+
+
 
             <h2>Finance Workbench</h2>
 
@@ -60,8 +60,7 @@ export default (props) => {
 
 
             <h2>Benefit Cost Analysis</h2>
-            {/* <h2>Lower part of LoanList.js</h2>
-            <h2>render of Loans</h2> */}
+    
 
             <div className="tableBCA">
                 <section className="tableBCA__section">
@@ -101,25 +100,7 @@ export default (props) => {
                 }
             </div>
 
-            {/* <div className="loans">
-                {
-                    loans.map(loan => {
-
-
-
-                        // if (loan.finWorkBenchStep === "true" && loan.benefitCostAnalysis === "true" ) 
-                        {
-
-                            // console.log(loan.benefitCostAnalysis)
-
-
-                            return <LoanForm key={loan.id} loanform={loan} />
-                        }
-                    })
-
-                }
-            </div> */}
-
+     
 
 
         </>

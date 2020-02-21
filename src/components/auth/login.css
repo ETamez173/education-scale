@@ -19,7 +19,7 @@ fieldset {
 
 .form--login > fieldset > input[type="email"],
 .form--login > fieldset > input[type="password"] {
-    width: 25em;
+    width: 45em;
 }
 
 .email__prompt, .password__prompt, .link__register,
@@ -31,12 +31,41 @@ fieldset {
     /* padding: 20px 10px 20px 10px; */
 
 }
+.sign__in {
 
+   align-content: center; 
+   /* background-color: lightblue; */
+   display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-around;
+    flex-basis: 20%;
+
+}
+
+.login__section  {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: flex-start;
+    /* background-color: pink; */
+    /* align-content: flex-start; */
+}
 
 
 .label--login {
     width: 8rem;
     display: inline-block;
+}
+
+.form__placement {
+
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: flex-end;
+    
+    /* background-color: rebeccapurple; */
 }
 
 .form-control {
@@ -54,7 +83,15 @@ fieldset {
     border-radius: .25rem;
     -webkit-transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    
 }
+
+
+#email, #password {
+
+    max-width: 250px;
+}
+
 
 .container--login {
     text-align: center;
@@ -62,14 +99,17 @@ fieldset {
 }
 
 .form--login {
-    background-position-x: right;
-    /* background-image: url(logo.png); */
+
+    
+    background-position-x: center;
+    background-image: url(SchoolScale_pic1.PNG);
     z-index: 1;
-    min-height: 25rem;
-    min-width: 45rem;
+    min-height: 70rem;
+    min-width: 85rem;
+    
 
 
-    background-color: hsla(0,0%,100%,0.40);
+    /* background-color: hsla(0,0%,100%,0.40); */
     background-blend-mode: overlay;
     background-repeat: no-repeat;
 }

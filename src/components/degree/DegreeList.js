@@ -8,11 +8,10 @@ export default (props) => {
 
     return (
         <>
-            <h1>Degrees and Annual Earning Figures</h1>
-            <h1>aka DegreeList.js</h1>
-            <div>TESTING THE RENDER</div>
+            {/* <h1>Degrees and Annual Earning Figures</h1> */}
+            <h1>Research Degrees and Annual Earning Figures</h1>
 
-            <h2>Career Options and Earnings</h2>
+            {/* <h2>Career Options and Earnings</h2> */}
         
           
             <div className="tableDegree">
