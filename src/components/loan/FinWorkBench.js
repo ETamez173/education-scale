@@ -308,16 +308,16 @@ export default props => {
 
 
 
-    const formatter = new Intl.NumberFormat('en-US', {
-        style: 'currency',
-        currency: 'USD',
-        minimumFractionDigits: 2
-    })
+    // const formatter = new Intl.NumberFormat('en-US', {
+    //     style: 'currency',
+    //     currency: 'USD',
+    //     minimumFractionDigits: 2
+    // })
 
 
-    formatter.format(1000) // "$1,000.00"
-    formatter.format(10) // "$10.00"
-    formatter.format(123233000) // "$123,233,000.00"
+    // formatter.format(1000) // "$1,000.00"
+    // formatter.format(10) // "$10.00"
+    // formatter.format(123233000) // "$123,233,000.00"
 
 
     {/* <div className="loan__principal"> ${props.loan.schoolTotalCost - loan.cashPaid}</div>

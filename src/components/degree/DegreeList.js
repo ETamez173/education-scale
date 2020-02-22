@@ -13,7 +13,7 @@ export default (props) => {
 
             {/* <h2>Career Options and Earnings</h2> */}
         
-          <div className="degree__listCenter">
+          <div className="degreeList">
             <div className="tableDegree">
             <section className="tableDegree__section">
                 <div className="tableDegree__nameCareer">Career Option(s)</div>
@@ -23,16 +23,18 @@ export default (props) => {
                 <div className="tableDegree__earningsLow">Action</div>
             </section>
             </div>
-
+            </div>
             <div className="tableDegree__listView">
+                <div className="tableDegree__listItem_center"> 
                 {
                     degrees.map(degree => {
                         return <Degree key={degree.id} degree={degree} addDegree={addDegree}/>
                     })
                 }
-            </div>
+                </div>
+            </div> 
 
-            </div>
+           
           
 
 

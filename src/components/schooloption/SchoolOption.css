@@ -45,6 +45,27 @@
 
 
 
+.myCareerOptionsShortList, .degreeList {
+
+
+
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    /* flex-basis: 20%; */
+    padding: 1%;
+    /* background-color: goldenrod; */
+    margin:1%;
+    border: 1px solid black;
+    font-family:  Arial, Helvetica, sans-serif;
+    /* padding: 20px 10px 20px 10px; */
+    border-radius: 3px; 
+    justify-content: space-around;
+
+
+    background-color: mediumaquamarine;
+    margin: auto;
+}
 
 
 .schoolOptionsList__section {

@@ -1,4 +1,27 @@
 .degreex, .myCareerOption {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    /* flex-basis: 20%; */
+    padding: 1%;
+    /* background-color: goldenrod; */
+    margin:1%;
+    border: 1px solid black;
+    font-family:  Arial, Helvetica, sans-serif;
+    /* padding: 20px 10px 20px 10px; */
+    font-size: 1.25em;
+    border-radius: 3px; 
+    justify-content: space-around;
+    max-width: 80vw;
+     align-content: center;
+
+     margin: auto;
+
+}
+
+
+
+.degreemmm, .myCareerOptionmmm {
 
     display: flex;
     flex-wrap: wrap;
@@ -16,31 +39,50 @@
 
 }
 
-.myCareerOption__nameEarnings, .myCareerOption__earningsAvg,
-.myCareerOption__earningsHigh, .myCareerOption__earningsLow {
-
-
+.myCareerOption__nameEarnings  {
 
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
 
+    margin:1%;
+    /* border: 1px solid black; */
+    font-family:  Arial, Helvetica, sans-serif;
+    /* padding: 20px 10px 20px 10px; */
+    border-radius: 3px; 
+    font-size: 1em;
+    border: 1px solid black;
+
+    max-width: 150px;
+    min-width: 150px;
+    word-wrap: break-word;
+
+    align-content: center;
+}
+
+
+.myCareerOption__earningsAvg,
+.myCareerOption__earningsHigh, .myCareerOption__earningsLow {
+
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
 
     margin:1%;
     /* border: 1px solid black; */
     font-family:  Arial, Helvetica, sans-serif;
     /* padding: 20px 10px 20px 10px; */
-    font-size: 1.25em;
     border-radius: 3px; 
-
+    font-size: 1em;
     border: 1px solid black;
 
     max-width: 150px;
     word-wrap: break-word;
 
-align-content: center;
-
+    align-content: center;
 }
+
+
 
 
 .tableDegree__section {
@@ -103,6 +145,41 @@ align-content: center;
     border-radius: 3px; 
 }
 
+
+
+.MCOShortlist__buttons {
+
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    flex-basis: 20%;
+    border: 1px solid black;
+ /* align-content: center; */
+    align-content: center;
+
+ /* justify-content: space-around; */
+
+    background-color: thistle;
+}
+
+
+.addToSchoolSearch__button {
+    max-width: 100px;
+    word-wrap: break-word;
+    
+    }
+
+
+.deleteMyCareerOption__button {
+    max-width: 80px;
+    word-wrap: break-word;
+    
+    }
+
+.deleteMCObtn__center {
+margin: auto;
+    /* align-items: center; */
+}
 
 
 
