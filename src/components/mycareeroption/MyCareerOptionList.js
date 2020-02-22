@@ -8,14 +8,12 @@ export default (props) => {
 
     return (
         <>
-            {/* <h1>Degrees and Annual Earning Figures</h1> */}
-
-            {/* <div>TESTING THE RENDER</div> */}
+         
 
             <h2>My Career Options Shortlist</h2>
-            <h2>aka MyCareerOptionList.js</h2>
-
-            <div className="tableMCO">
+            {/* <h2>aka MyCareerOptionList.js</h2> */}
+            {/* <div className="tableMCO"> */}
+            <div className="myCareerOptionsShortList">
             <section className="tableMCO__section">
             <div className="tableMCO__nameEarnings">My Career Option(s)</div>
                 <div className="tableMCO__earningsAvg"> Average Yearly Earnings</div>

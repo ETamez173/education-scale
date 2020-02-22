@@ -8,12 +8,12 @@ h1, h2, h3, h4 {
 }
 
 
-.loanX, .tableMyCBAx {
+.loanX, .tableMyCBA__earningsAvg {
 
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    flex-basis: 20%;
+    flex-basis: 10%;
     padding: 1%;
     /* background-color: goldenrod; */
     margin:1%;
@@ -22,6 +22,8 @@ h1, h2, h3, h4 {
     /* padding: 20px 10px 20px 10px; */
     border-radius: 3px; 
     justify-content: space-around;
+    max-width: 95px;
+    min-width: 75px;
 
 }
 
@@ -61,13 +63,15 @@ h1, h2, h3, h4 {
     margin:1%;
     border: 1px solid black;
     font-family:  Arial, Helvetica, sans-serif;
-    /* padding: 20px 10px 20px 10px; */
+    padding: 20px 10px 20px 10px;
     border-radius: 3px; 
     /* justify-content: space-around; */
     justify-content: space-around;
 
     /* justify-content: space-around; */
     /* border: 1px solid black; */
+   /* background-color:lightcyan; */
+
 
 
     
@@ -82,14 +86,60 @@ h1, h2, h3, h4 {
 .tableMSO__nameEarnings, .tableMSO__earningsAvg,
 .tableMSO__earningsHigh, .tableMSO__earningsLow,
 .tableMSO__earningsTotal, .loan__amount, .loan__rate, 
-.loan__length, .loan__payment {
+.loan__length, .loan__paymentmm {
 
     margin:1%;
     /* border: 1px solid black; */
     font-family:  Arial, Helvetica, sans-serif;
-    font-size: 1.25em;
+    font-size: 1em;
     /* padding: 20px 10px 20px 10px; */
     border-radius: 3px; 
+max-width: 100px;
+
+}
+
+
+.loan__schoolDiv0
+{
+
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    /* flex-basis: 30%; */
+    padding: 1%;
+    /* margin:1%; */
+    border: 1px solid black;   
+    max-width: 120px;
+    max-height: 80px;
+}
+
+
+
+.loan__schoolDiv2
+{
+
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    /* flex-basis: 30%; */
+    padding: 1%;
+    /* margin:1%; */
+    border: 1px solid black;   
+    max-width: 140px;
+    max-height: 80px;
+}
+
+.loan__schoolDiv {
+
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    /* flex-basis: 30%; */
+    padding: 1%;
+    /* margin:1%; */
+    border: 1px solid black;   
+
+    max-height: 75px;
 }
 
 
@@ -104,12 +154,12 @@ h1, h2, h3, h4 {
     flex-wrap: wrap;
     flex-direction: row;
     margin:1%;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     font-family:  Arial, Helvetica, sans-serif;
     font-size: 1em;
     /* padding: 20px 10px 20px 10px; */
     border-radius: 3px; 
-
+   min-width: 120px;
     max-width: 120px;
     word-wrap: break-word;
     /* align-items: center; */
@@ -117,6 +167,7 @@ h1, h2, h3, h4 {
 
 
 }
+
 
 
 .loan__cashPaid, .loan__yearsToRepay,
@@ -144,6 +195,17 @@ h1, h2, h3, h4 {
 
 }
 
+
+
+.loan__principal1:after {
+    content: attr(data-value);
+  }
+  
+  /* hide the output if the data-value is equal to "$0" */
+  .loan__principal1[data-value="$NaN"]:after {
+    content: "";
+  }
+
 .loan__schoolTotCost , .loan__principal, .loan__payment, .loan__monthlyPmts, .loan__loanPrincipalAmount
   {
 
@@ -153,11 +215,11 @@ h1, h2, h3, h4 {
     margin:1%;
     border: 1px solid black;
     font-family:  Arial, Helvetica, sans-serif;
-    font-size: 1.25em;
+    font-size: 1em;
     /* padding: 20px 10px 20px 10px; */
     border-radius: 3px; 
 
-    max-width: 120px;
+    max-width: 130px;
     word-wrap: break-word;
     /* align-items: center; */
     align-content: center;
@@ -165,7 +227,34 @@ h1, h2, h3, h4 {
 
 }
 
-.loan__lineItem1 {
+/* .loan__principal[target=NaN] {
+    background-color: yellow;
+  }
+
+/* .loan__principal {
+    
+    */
+
+   
+/* } */
+
+
+.loan__lineFiller0 {
+    color: transparent
+}
+
+.loan__lineItem0 {
+    /* background-color: blue; */
+        border: 1px solid black;
+}
+
+.loan__lineItem2 
+{
+    border: 1px solid black;
+min-width: 140px;
+}
+
+.loan__lineItem1,  {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -188,9 +277,39 @@ h1, h2, h3, h4 {
     /* border: 1px solid black; */
     border-radius: 3px; 
     /* align-content: center;  */
-    min-width: 150px;
+    min-width: 100px;
+    max-height: 20px;
 
 }
+
+#interest, #cashPaid, #years {
+
+max-height: 20px;
+
+}
+#interest {
+
+    min-width: 100px; 
+}
+
+#cashPaid {
+
+    /* max-height: 20px; */
+
+    width: 85px;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='16px' width='95px'><text x='2' y='15' fill='gray' font-size='14' font-family='arial'>$</text></svg>");
+    padding-left: 12px;
+
+}
+
+
+/* 
+input {
+    width: 85px;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='16px' width='85px'><text x='2' y='13' fill='gray' font-size='12' font-family='arial'>$</text></svg>");
+    padding-left: 12px;
+} */
+
 
 
 .loan__inputBoxx, .loan__inputBox2 {
@@ -222,18 +341,18 @@ input[type=number] {
   }
 
 
-.form-control  {
+.form-control2  {
 
     border-radius: 3px; 
     align-items: center;
     cursor: cell   ;
-    max-width: 75px;
+    max-width: 100px;
     background-color: blue;
     fill: blue;
     color: white;
 }
 
-.input__thingx, .loan__paymentAmountx {
+.input__thingy, .loan__paymentAmountx {
 
     background-color: blue;
 }
@@ -248,11 +367,11 @@ input[type=number] {
     padding: 1%;
   border: 1px solid black;
   /* max-width: 120px; */
-  min-width: 120px;
+  min-width: 115px;
   word-wrap: break-word;
   /* align-items: center; */
   align-content: center;
-
+  max-height: 15px;
 
 }
 

@@ -42,7 +42,7 @@ export default ({ degree, mycareeroption }) => {
 
     return (
 
-
+//  <div className="tableDegree__listItem_center">
         <section className="degree">
 
             <div className="degree__nameEarnings">{degree.educationName}</div>
@@ -86,6 +86,8 @@ export default ({ degree, mycareeroption }) => {
                 </button>
 
         </section>
+
+        // </div>
     );
 };
 

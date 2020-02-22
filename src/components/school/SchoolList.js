@@ -23,14 +23,8 @@ export default (props) => {
         <>
 
             <h1>Search Schools By Degree And Cost</h1>
-            <h1>aka SchoolList.js</h1>
-            <p>renders the list - on the DegreeSearch.js card the Onclick creates a new loan object with search===false</p>
-
-            {/* <p>need to filter degreeschools by shoolId in mycareeroptions </p> */}
-          < p> build a SEARCH refresh that clears the search results and you need to go back to start point </p>
-              <p> ?? use  a delete all mycareeroptions where the userId === the active users id ???   </p>
-              <p> ?? </p>
-            {/* <div>TESTING THE RENDER</div> */}
+          
+            
 
             <div className="tableSearchSchool">
                 <section className="tableSearchSchool__section">

@@ -8,13 +8,12 @@ export default (props) => {
 
     return (
         <>
-            <h1>Degrees and Annual Earning Figures</h1>
-            <h1>aka DegreeList.js</h1>
-            <div>TESTING THE RENDER</div>
+            {/* <h1>Degrees and Annual Earning Figures</h1> */}
+            <h1>Research Degrees and Annual Earning Figures</h1>
 
-            <h2>Career Options and Earnings</h2>
+            {/* <h2>Career Options and Earnings</h2> */}
         
-          
+          <div className="degreeList">
             <div className="tableDegree">
             <section className="tableDegree__section">
                 <div className="tableDegree__nameCareer">Career Option(s)</div>
@@ -24,16 +23,18 @@ export default (props) => {
                 <div className="tableDegree__earningsLow">Action</div>
             </section>
             </div>
-
+            </div>
             <div className="tableDegree__listView">
+                <div className="tableDegree__listItem_center"> 
                 {
                     degrees.map(degree => {
                         return <Degree key={degree.id} degree={degree} addDegree={addDegree}/>
                     })
                 }
-            </div>
+                </div>
+            </div> 
 
-
+           
           
 
 

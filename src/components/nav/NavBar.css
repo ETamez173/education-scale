@@ -4,6 +4,10 @@
     justify-content: left;
     flex-basis: 20%;
     justify-content: space-evenly;
+    border-radius: 5px; 
+   
+
+    background-color: thistle;
 }
 
 .navbar__item {
