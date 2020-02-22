@@ -22,7 +22,8 @@ export default (props) => {
 
             <div className="tableMyCBA__List">
                 <section className="tableMyCBA__section">
-                    <div className="tableMyCBA__nameCareer">Degree</div>
+                    <div className="tableMyCBA__earningsAvg">Degree</div>
+                    {/* <div className="loan__lineFiller0">filler</div> */}
                     <div className="tableMyCBA__earningsAvg"> School / Program</div>
                     <div className="tableMyCBA__earningsAvg"> Average Total Costs</div>
                     <div className="tableMyCBA__earningsAvg"> Savings, Scholarships, Grants </div>

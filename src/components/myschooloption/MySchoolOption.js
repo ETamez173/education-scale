@@ -101,7 +101,8 @@ export default props => {
             // twentyYearEarnings: twentyYearEarnings,
             benefitCostRatio: 2,
             finWorkBenchStep: "true",
-            benefitCostAnalysis: "false"
+            benefitCostAnalysis: "false",
+            step: "myschooloption"
 
         })
         console.log(degreeAnnualEarnings)

@@ -13,7 +13,7 @@ export default (props) => {
 
             {/* <h2>Career Options and Earnings</h2> */}
         
-          
+          <div className="degree__listCenter">
             <div className="tableDegree">
             <section className="tableDegree__section">
                 <div className="tableDegree__nameCareer">Career Option(s)</div>
@@ -32,7 +32,7 @@ export default (props) => {
                 }
             </div>
 
-
+            </div>
           
 
 

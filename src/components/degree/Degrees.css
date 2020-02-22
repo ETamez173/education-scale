@@ -24,6 +24,7 @@
     font-size: 1.25em;
     border-radius: 3px; 
     justify-content: space-around;
+    max-width: 80vw;
 
 }
 
@@ -58,6 +59,13 @@ color: transparent;
 }
 
 
+.degree__listCenter {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: center;
+}
+
 .tableDegree__section, .tableMCO__section {
 
     display: flex;
@@ -77,6 +85,8 @@ color: transparent;
     
     background-color: lightgreen;
 
+    max-width: 140vw;
+  min-width: 80vw; 
 }
 
 .tableDegree__nameCareer, .tableDegree__earningsAvg,
@@ -101,7 +111,7 @@ color: transparent;
 }
 
 
-.tableMCO__section {
+.tableMCO__sectionx {
 
     display: flex;
     flex-wrap: wrap;
