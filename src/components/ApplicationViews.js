@@ -31,6 +31,7 @@ import { MySchoolOptionProvider } from "./myschooloption/MySchoolOptionProvider"
 import { FinWorkBenchProvider } from "./loan/FinWorkBenchProvider"
 import FinWorkBenchList from "./loan/FinWorkBenchList"
 
+import DegreeForm from "./degree/DegreeForm"
 
 // import LoanForm from "./loan/LoanForm"
 
@@ -55,6 +56,18 @@ export default (props) => {
                                 <Route exact path="/">
                                     <DegreeList />
                                 </Route>
+
+
+
+                                <Route exact path="/degrees/create" render={
+                                    props => <DegreeForm {...props} />
+                                } />
+
+                                {/* <Route path="/degrees/edit/:degreeId(\d+)" render={
+                                    props => <DegreeForm {...props} />
+                                } /> */}
+
+
 
                                 {/* <Route exact path="/">
                         <CareerOptionList />

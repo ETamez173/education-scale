@@ -22,36 +22,41 @@ export default (props) => {
             <h2>using MySchoolOption.js</h2>
 
             <div className="schoolOptionsList">
-                <section className="schoolOptionsList__section">
+            <div className="tableSchoolOption">
+                <section className="tableSchoolOption__section">  
                     <div className="schoolOptionsList__ed_voc">Degree</div>
                     <div className="schoolOptionsList__schoolProgram"> School/ Program</div>
                     <div className="schoolOptionsList__avgYrlyCosts">Average Yearly Costs</div>
                     <div className="schoolOptionsList__avgTotCosts">Average Total Costs</div>
-
-
                 </section>
             </div>
-
-            <div className="schools">
-                {/* {
-                    schools.map(school => {
-                        return <SchoolOption key={school.id} school={school} />
-                    })
-                } */}
-
-
-                <div className="MySchoolOptions">
+            </div>
+            <div className="tableMSO__mySchoolView">
+                <div className="tableMSO__listItemCenter">
 
 
                     {
 
-                        loans.map(myschooloption => {
+                        loans.map(loan => {
 
-                            if (myschooloption.finWorkBenchStep === "false" && myschooloption.benefitCostAnalysis === "false") {
+                            if (loan.finWorkBenchStep === "false" && loan.benefitCostAnalysis === "false") {
                                 // console.log(myschooloption.benefitCostAnalysis)
-                                return <MySchoolOption key={myschooloption.id} myschooloption={myschooloption} />
+                                return <MySchoolOption key={loan.id} loan={loan} />
                             }
                         })
+
+                        // loans.map(myschooloption => {
+
+                        //     if (myschooloption.finWorkBenchStep === "false" && myschooloption.benefitCostAnalysis === "false") {
+                        //         // console.log(myschooloption.benefitCostAnalysis)
+                        //         return <MySchoolOption key={myschooloption.id} myschooloption={myschooloption} />
+                        //     }
+                        // })
+
+
+
+
+
                     }
                 </div>
 

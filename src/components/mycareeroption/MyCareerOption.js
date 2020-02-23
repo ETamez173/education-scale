@@ -45,7 +45,7 @@ export default ({ degree, mycareeroption, history, }) => {
         <section className="myCareerOption">
 
             <div className="myCareerOption__nameEarnings">{mycareeroption.educationName}</div>
-            <div className="myCareerOption__earningsAvg">${mycareeroption.earningsAvg}</div>
+            <div className="myCareerOption__earningsAvg">{(mycareeroption.earningsAvg.toLocaleString('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0 }))}</div>
             <div>
                 <div className="MCOShortlist__buttons" >
                     <div>

@@ -5,6 +5,8 @@ import MyCareerOption from "../mycareeroption/MyCareerOption"
 
 export default (props) => {
     const { mycareeroptions } = useContext(MyCareerOptionContext)
+    const ActiveUser = localStorage.getItem("education_customer")
+    console.log(ActiveUser)
 
     return (
         <>
@@ -32,7 +34,11 @@ export default (props) => {
 
                 {
                     mycareeroptions.map(mycareeroption => {
-                        if(mycareeroption.shortList === "true" && mycareeroption.searchSchool === "false" )
+                        const ActiveUser = localStorage.getItem("education_customer")
+                        if(ActiveUser !== mycareeroption.userId )
+
+                        // if(mycareeroption.shortList === "true" && mycareeroption.searchSchool === "false" && ActiveUser === mycareeroption.userId )
+                        console.log(ActiveUser)
                         return <MyCareerOption key={mycareeroption.id} {...props} mycareeroption={mycareeroption} />
                     })
                 }

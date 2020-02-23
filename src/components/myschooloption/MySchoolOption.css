@@ -10,11 +10,11 @@ h1, h2, h3, h4 {
 .BCA_buttons {
     display: flex;
     flex-wrap: wrap;
-    flex-direction: row;
+    flex-direction: column;
     flex-basis: 20%;
-    padding: 1%;
+    /* padding: 1%; */
 /* background: yellow; */
-
+/* max-height: 80px; */
 }
 
 
@@ -47,33 +47,44 @@ h1, h2, h3, h4 {
 
 
 
-.SCO__section  {
-
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    /* flex-basis: 20%; */
-    padding: 1%;
-    /* background-color: goldenrod; */
-    margin:1%;
-    border: 1px solid black;
-    font-family:  Arial, Helvetica, sans-serif;
-    /* padding: 20px 10px 20px 10px; */
-    border-radius: 3px; 
-    /* justify-content: space-around; */
+.SCO__sectionx, .mySchoolOption  {
 
 
-    justify-content: space-around;
-    border: 1px solid black;
-
-
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        /* flex-basis: 20%; */
+        padding: 1%;
+        margin:1%;
+        border: 1px solid black;
+        font-family:  Arial, Helvetica, sans-serif;
+        /* padding: 20px 10px 20px 10px; */
+        font-size: 1.25em;
+        border-radius: 3px; 
+        justify-content: space-around;
+        max-width: 80vw;
+        align-content: center;
+        margin: auto;
+        /* background-color: peachpuff; */
+        background-color: lightcoral;
     
 }
 
 
 
+.tableMSO__mySchoolView
+{
 
+    /* overflow: scroll; 
+      overflow: hidden;  */
+      overflow: auto;  
+      /* overflow: visible; */
+  
+      height: 60vh;
+      /* align-content: space-around; */
+      /* background-color: pink; */
 
+}
 
 
 .tableMSO__nameEarnings, .tableMSO__earningsAvg,
@@ -108,21 +119,39 @@ h1, h2, h3, h4 {
     margin:1%;
     border: 1px solid black;
     font-family:  Arial, Helvetica, sans-serif;
-    font-size: 1.5em;
+    font-size: 1em;
     /* padding: 20px 10px 20px 10px; */
     border-radius: 3px; 
-
+    min-width: 120px;
     max-width: 120px;
     word-wrap: break-word;
     /* align-items: center; */
     align-content: center;
-
+    max-height: 90px;
 
 }
 
 
 
+.runBCA__button, .deleteMyMCO__button {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    margin:1%;
+    border: 1px solid black;
+    font-family:  Arial, Helvetica, sans-serif;
+    font-size: 1em;
+    /* padding: 20px 10px 20px 10px; */
+    /* border-radius: 3px;  */
+  
+    word-wrap: break-word;
+    /* align-items: center; */
+    align-content: center;
+    max-width: 100px;
+margin : auto;
 
+
+}
 
 
 
@@ -142,25 +171,10 @@ h1, h2, h3, h4 {
     /* justify-content: space-around; */
 
 }
-/* .tableMyCBA { */
+
     .tableMyCBA__section {
 
-        /* display: flex;
-        flex-wrap: wrap;
-        flex-direction: row;
-        flex-basis: 20%;
-        padding: 1%; */
-        /* background-color: goldenrod; */
-        /* margin:1%;
-        border: 1px solid black;
-        font-family:  Arial, Helvetica, sans-serif; */
-        /* padding: 20px 10px 20px 10px; */
-        /* border-radius: 3px; 
-        justify-content: space-around; */
-    
-    /* } */
-
-    /* .degree { */
+   
 
         display: flex;
         flex-wrap: wrap;

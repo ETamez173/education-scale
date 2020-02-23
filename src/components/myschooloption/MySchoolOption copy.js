@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from "react"
 
-import { loanContext } from "../loan/LoanProvider"
+import { MySchoolOptionContext } from "../myschooloption/MySchoolOptionProvider"
 
 import "./MySchoolOption.css"
 import { LoanContext } from "../loan/LoanProvider"
@@ -11,12 +11,12 @@ import { MyCareerOptionContext } from "../mycareeroption/MyCareerOptionProvider"
 // const twentyYearEarnings =  (loan.degreeAnnualEarnings * 20 )
 
 export default props => {
-    // export default ({ loan, mycareeroption, finworkbench, degreeSchool, loan, degree }) => {
+    // export default ({ myschooloption, mycareeroption, finworkbench, degreeSchool, loan, degree }) => {
 
 
     const { finworkbenchs, deleteFinWorkBench, addFinWorkBench } = useContext(FinWorkBenchContext)
-    // const { loans, deleteloan, getloans } = useContext(loanContext)
-    const { getLoans, loans, addLoan, deleteLoan, patchLoan, history } = useContext(LoanContext)
+    const { myschooloptions, deleteMySchoolOption, getMySchoolOptions } = useContext(MySchoolOptionContext)
+    const { getLoans, loans, addLoan, deleteLoan, patchLoa, history  } = useContext(LoanContext)
     const { getDegrees, degrees, addDegree } = useContext(DegreeContext)
     const { degreeSchools, deleteDegreeSchool } = useContext(DegreeSchoolContext)
     const { mycareeroptions, addMyCareerOption, deleteMyCareerOption } = useContext(MyCareerOptionContext)
@@ -46,11 +46,11 @@ export default props => {
         const totalLoanPmts = null;
         const cashPaid = null;
         const totalAmountPaid = null;
-        const degreeAnnualEarnings = props.loan.degreeAnnualEarnings;
+        const degreeAnnualEarnings = props.myschooloption.degreeAnnualEarnings;
 
         // console.log(degreeAnnualEarnings)
-        const twentyYearEarnings = props.loan.twentyYearEarnings;
-        // console.log(loan.earningsAvg)
+        const twentyYearEarnings = props.myschooloption.twentyYearEarnings;
+        // console.log(myschooloption.earningsAvg)
         // console.log(twentyYearEarnings)
         const benefitCostRatio = null;
         const benefitCostAnalysis = null;
@@ -71,13 +71,20 @@ export default props => {
 
             userId: parseInt(ActiveUser),
 
-           /// These work with props.
-            educationName: props.loan.educationName,
-            schoolName: props.loan.schoolName,
+            ///// THIS IS THE BAD CODE CAUSING THE NOT DEFINED ERROR
+
+            // schoolName: degreeSchools.schoolName,
+            // annualSchoolCost: degreeSchools.annualCost,
+            // schoolTotalCost: degreeSchools.totalCost,
 
 
-            annualSchoolCost: props.loan.annualSchoolCost,
-            schoolTotalCost: props.loan.schoolTotalCost,
+            /// These work with props.
+            educationName: props.myschooloption.educationName,
+            schoolName: props.myschooloption.schoolName,
+
+
+            annualSchoolCost: props.myschooloption.annualSchoolCost,
+            schoolTotalCost: props.myschooloption.schoolTotalCost,
 
             //  these items below are blank until used later
             loanAmount: 2,
@@ -95,7 +102,7 @@ export default props => {
             benefitCostRatio: 2,
             finWorkBenchStep: "true",
             benefitCostAnalysis: "false",
-            step: "loan"
+            step: "myschooloption"
 
         })
         console.log(degreeAnnualEarnings)
@@ -116,9 +123,9 @@ export default props => {
         <section className="SCO__section">
             <section className="mySchoolOption">
 
-                <div className="SCO__educationName">{props.loan.educationName}</div>
-                <div className="SCO__schoolName">{props.loan.schoolName}</div>
-                <div className="SCO__schoolTotCost">{(props.loan.schoolTotalCost.toLocaleString('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0 }))}</div>
+                <div className="SCO__educationName">{props.myschooloption.educationName}</div>
+                <div className="SCO__schoolName">{props.myschooloption.schoolName}</div>
+                <div className="SCO__schoolTotCost">{(props.myschooloption.schoolTotalCost.toLocaleString('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0 }))}</div>
 
                 <div className="BCA_buttons">
 
@@ -134,15 +141,19 @@ export default props => {
                 </button>
 
                         <br></br>
-
-
+                    
+                       
                         <div className="deleteMyMCO__button">
                             <button className="deleteSchoolSearchItem__button"
                                 onClick={() => {
-
+                                    // const { deleteMySchoolOption } = useContext(MySchoolOptionContext)
+                                    // removeMySchoolOption(myschooloption)
                                     removeMyCareerOption()
+                                        // getMySchoolOptions()
+                                        // .then(getLoans)
+                                        // .then(getMySchoolOptions)
 
-                                }}>  Delete </button>
+                                }}>  Delete works needs refresh page</button>
                         </div>
 
 

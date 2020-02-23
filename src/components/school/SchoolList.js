@@ -23,24 +23,24 @@ export default (props) => {
         <>
 
             <h1>Search Schools By Degree And Cost</h1>
-          
-            
-
-            <div className="tableSearchSchool">
-                <section className="tableSearchSchool__section">
-                    <div className="tableSearchSchool__nameEarnings">Degree </div>
-                    <div className="tableSearchSchool__earningsAvg"> School/ Program</div>
-                    <div className="tableSearchSchool__earningsHigh">Average Yearly Costs</div>
-                    <div className="tableSearchSchool__earningsTotal">Average Total Costs</div>
-                    <div className="tableSearchSchool__addButtonTitle">Add To School Options</div>
 
 
-                </section>
+            <div className="searchSchoolList">
+                <div className="tableSearchSchool">
+                    <section className="tableSearchSchool__section">
+                        <div className="tableSearchSchool__nameEarnings">Degree </div>
+                        <div className="tableSearchSchool__earningsAvg"> School/ Program</div>
+                        <div className="tableSearchSchool__earningsHigh">Average Yearly Costs</div>
+                        <div className="tableSearchSchool__earningsTotal">Average Total Costs</div>
+                        <div className="tableSearchSchool__addButtonTitle">Add To School Options</div>
+
+
+                    </section>
+                </div>
             </div>
 
-
-            <div className="degreeSchools">
-
+            <div className="tableDegreeSchool__listView">
+            <div className="tableDegreeSchool__listItem_center">
 
                 {
                     degreeSchools.map(ds => {
@@ -58,7 +58,7 @@ export default (props) => {
                             // console.log(founddMatchSchoolsForDegree)
 
                             // if (founddMatchSchoolsForDegree !== undefined) {
-                                if (founddMatchSchoolsForDegree !== undefined && ds.schoolSearch === true) {
+                            if (founddMatchSchoolsForDegree !== undefined && ds.schoolSearch === true) {
                                 console.log("This one has a degree match for the mycareeroptions!")
 
                                 return <DegreeSchool key={ds.id}
@@ -78,7 +78,7 @@ export default (props) => {
                 }
 
             </div>
-
+            </div>
         </>
     )
 }
