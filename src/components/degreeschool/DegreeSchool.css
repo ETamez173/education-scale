@@ -38,6 +38,68 @@
 }
 
 
+.addToSchoolOptionShortlist_button
+
+{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+
+    margin:1%;
+    /* border: 1px solid black; */
+    font-family:  Arial, Helvetica, sans-serif;
+    /* font-size: 1.25em; */
+    /* padding: 20px 10px 20px 10px; */
+    border-radius: 3px; 
+
+
+    /* max-width: 120px; */
+    word-wrap: break-word;
+    align-content: center;
+
+}
+
+
+.addToSchool__buttonThing
+
+{
+    
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+
+    margin:1%;
+    /* border: 1px solid black; */
+    font-family:  Arial, Helvetica, sans-serif;
+    font-size: 1.25em;
+    /* padding: 20px 10px 20px 10px; */
+    border-radius: 3px; 
+
+
+    /* max-width: 120px; */
+    word-wrap: break-word;
+    align-content: center;
+
+}
+.SCO__schoolTotCostx {
+
+
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+
+    margin:1%;
+    /* border: 1px solid black; */
+    font-family:  Arial, Helvetica, sans-serif;
+    font-size: 1em;
+    /* padding: 20px 10px 20px 10px; */
+    border-radius: 3px; 
+
+
+    max-width: 120px;
+    word-wrap: break-word;
+    align-content: center;
+}
 
 .tableMyCBA__sectionx {
 
@@ -98,6 +160,30 @@ background-color: mediumpurple;
 
 
 
+.degreeSchool {
+
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    /* flex-basis: 30%; */
+    padding: 1%;
+    margin:1%;
+    border: 1px solid black;
+    font-family:  Arial, Helvetica, sans-serif;
+    /* padding: 20px 10px 20px 10px; */
+    font-size: 1em;
+    border-radius: 3px; 
+    justify-content: space-around;
+    max-width: 80vw;
+    max-height: 10vw;
+    align-content: center;
+    margin: auto;
+    /* background-color: peachpuff; */
+    background-color: rgb(153, 230, 81);
+}
+
+
+
 .finWorkBench__buttons {
 
     margin:1%;
@@ -131,13 +217,13 @@ background-color: orange;
     flex-direction: row;
 
     margin:1%;
-    /* border: 1px solid black; */
+    border: 1px solid black;
     font-family:  Arial, Helvetica, sans-serif;
-    font-size: 1.25em;
+    font-size: 1em;
     /* padding: 20px 10px 20px 10px; */
     border-radius: 3px; 
 
-
+    min-width: 120px;
     max-width: 120px;
     word-wrap: break-word;
     align-content: center;
@@ -155,15 +241,91 @@ background-color: orange;
     margin:1%;
     border: 1px solid black;
     font-family:  Arial, Helvetica, sans-serif;
-    font-size: 1.25em;
+    font-size: 1em;
     /* padding: 20px 10px 20px 10px; */
     border-radius: 3px; 
-
+    min-width: 120px;
     max-width: 120px;
     word-wrap: break-word;
     align-content: center;
 
 }
+
+.degrees, .tableDegree__listView, .tableMCO__listView  {
+    /* overflow: scroll; 
+      overflow: hidden;  */
+      overflow: auto;  
+      /* overflow: visible; */
+  
+      height: 100vh;
+      /* align-content: space-around; */
+      /* background-color: pink; */
+  
+  }
+
+
+  .tableSearchSchool__section, .tableMCO__sectionmmm {
+
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    padding: 1%;
+    margin:1%;
+    border: 1px solid black;
+    font-family:  Arial, Helvetica, sans-serif;
+    border-radius: 3px; 
+    justify-content: space-around;
+    max-width: 140vw;
+    min-width: 80vw; 
+
+    margin: auto;
+    background-color: lightgreen;
+}
+
+.tableDegreeSchool__listView   {
+    /* overflow: scroll; 
+      overflow: hidden;  */
+      overflow: auto;  
+      /* overflow: visible; */
+  
+      height: 60vh;
+      /* align-content: space-around; */
+      /* background-color: pink; */
+  
+  }
+  
+
+.searchSchoolList {
+
+
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    /* flex-basis: 20%; */
+    padding: 1%;
+    margin:1%;
+    border: 1px solid black;
+    font-family:  Arial, Helvetica, sans-serif;
+    border-radius: 3px; 
+    justify-content: space-around;
+    background-color: mediumaquamarine;
+    margin: auto;
+}
+
+
+
+
+
+  .tableDegreeSchool__listItem_centerx
+
+  {
+    
+      margin: auto;
+      background-color: yellow;
+  
+  
+  }
+
 
 
 

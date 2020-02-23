@@ -4,7 +4,7 @@ import "./DegreeSchool.css"
 import { DegreeContext } from "../degree/DegreeProvider";
 import { SchoolContext } from "../school/SchoolProvider"
 import { LoanContext } from "../loan/LoanProvider"
-import { DegreeSchoolContext} from "../degreeschool/DegreeSchoolProvider"
+import { DegreeSchoolContext } from "../degreeschool/DegreeSchoolProvider"
 
 import School from "../school/School"
 import Loan from "../loan/Loan"
@@ -27,7 +27,7 @@ export default ({ degreeSchool, loan, degree, school, history }) => {
         //     /// Creating the object right here >>>>>
 
         const ActiveUser = localStorage.getItem("education_customer")
-      
+
         // const userId = parseInt(localStorage.getItem("educationScale_user"));
 
         const userId = null;
@@ -65,7 +65,7 @@ export default ({ degreeSchool, loan, degree, school, history }) => {
             cashPaid: 1,
             totalAmountPaid: 1,
             degreeAnnualEarnings: degreeAnnualEarnings,
-           
+
             twentyYearEarnings: twentyYearEarnings,
             benefitCostRatio: 1,
             finWorkBenchStep: "false",
@@ -73,20 +73,17 @@ export default ({ degreeSchool, loan, degree, school, history }) => {
             step: "degreeschool"
 
         })
-        console.log(degreeAnnualEarnings)
-        // console.log(degreeSchool.degree.earningsAvg)
-        
-        console.log(twentyYearEarnings)
-        // console.log(degreeSchool.degree.earningsAvg * 20)
+
+
     }
 
     return (
 
-        <section className="degreeSchool__section">
+        // <section className="degreeSchool__section">
+        // <section className="degreeSchool">
 
-            <h3 className="degreeSchool__name"></h3>
 
-            <section className="tableMyCBA">
+            <section className="degreeSchool">
 
 
                 {/* <div className="degreeSchool__nameCareer">{degreeSchool.degree.educationName}</div> */}
@@ -100,12 +97,12 @@ export default ({ degreeSchool, loan, degree, school, history }) => {
                 <div className="degreeSchool__nameSchool">{degreeSchool.school.schoolName}</div> */}
 
 
-                <div className="degreeSchool__nameCareer">${degreeSchool.annualCost}</div>
-                <div className="degreeSchool__nameCareer">${degreeSchool.totalCost}</div>
+                <div className="degreeSchool__nameCareer">{(degreeSchool.annualCost.toLocaleString('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0 }))}</div>
+                <div className="degreeSchool__nameCareer">{(degreeSchool.totalCost.toLocaleString('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0 }))}</div>
                 {/* <div className="degreeSchool__totalCost">${degreeschool.degree.totalCost}</div> */}
 
 
-                <div>
+                <div className="addToSchool__buttonThing">
                     <div>
                         <button className="addToSchoolOptionShortlist_button"
                             onClick={() => {
@@ -122,21 +119,19 @@ export default ({ degreeSchool, loan, degree, school, history }) => {
                         >
                             Add to School Shortlist
                 </button>
-<br></br>
-<br></br>
-<br></br>
-<br></br>
+                        <br></br>
+                      
                     </div>
 
                     <div className="finWorkBench__buttons">
                         <div>
-                            
+
                         </div>
                     </div>
-                  
+
                     <div>
-                    
-                         {/* <button className="removeSchoolSearchItem__button"
+
+                        {/* <button className="removeSchoolSearchItem__button"
                             onClick={() => {
 
 
@@ -153,7 +148,7 @@ export default ({ degreeSchool, loan, degree, school, history }) => {
             </section>
 
 
-        </section>
+        // </section>
 
     );
 

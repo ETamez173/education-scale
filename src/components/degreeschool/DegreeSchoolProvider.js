@@ -26,14 +26,14 @@ export const DegreeSchoolProvider = (props) => {
             },
             body: JSON.stringify(degreeSchool)
         })
-            .then(getDegreeSchools)
+            .then(getDegreeSchools).sort(function(a, b){return a-b});
     }
 
     const deleteDegreeSchool = degreeSchool => {
         return fetch(`http://localhost:8088/degreeSchools/${degreeSchool.id}`, {
             method: "DELETE"
         })
-            .then(getDegreeSchools)
+            .then(getDegreeSchools).sort(function(a, b){return a-b});
     }
 
 
@@ -45,7 +45,7 @@ export const DegreeSchoolProvider = (props) => {
             },
             body: JSON.stringify(degreeSchool)
         })
-        .then(getDegreeSchools)
+        .then(getDegreeSchools).sort(function(a, b){return a-b});
     }
 
 
@@ -58,7 +58,7 @@ export const DegreeSchoolProvider = (props) => {
             },
             body: JSON.stringify(degreeSchool)
         })
-            .then(getDegreeSchools)
+            .then(getDegreeSchools).sort(function(a, b){return a-b});
     }
 
     useEffect(() => {

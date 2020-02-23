@@ -132,21 +132,6 @@ export default props => {
     }
 
 
-
-
-
-
-
-    // This simple method rounds a number to two decimal places.
-    // function round(x) {
-    //     return Math.round(x * 100) / 100;
-    // }
-    // function round2(x) {
-    //     return Math.round(x * 1) / 100;
-    // }
-    ///// loan code
-
-
     //  This takes the loan object in the Finance Workbench and adds the loan principal, total interest and payements etc 
 
     const constructBCAobject = () => {
@@ -498,14 +483,21 @@ export default props => {
 
 
                                 <div>
-                                    <button className="addLoanInputs__button"
+                                    {/* <button className="addLoanInputs__button"
                                         onClick={() => {
 
-                                            editLoanFactors()
+                                            // if (loan.cashPaid !== 0 && loan.interest !== 0 && loan.years !== 0) {
+                                                if (loan.cashPaid === NaN && loan.interest === NaN  && loan.years === NaN ) {
+                                                // editLoanFactors()
+                                                alert("Something is missing! Enter Interest Rate, Loan Years");
+                                            } else {
+
+                                              
+                                            }
 
                                         }}>
                                         Save Loan
-                                </button>
+                                </button> */}
 
                                 </div>
 
