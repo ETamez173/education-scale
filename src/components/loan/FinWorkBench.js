@@ -49,13 +49,11 @@ export default props => {
 
 
     let totcost = 0;
-
     let principal = 0;
-    // let moPmt = 0;
     let payments = 0;
     let totLoanRounded = 0;
 
-    ///// loan code
+
     function calculateLoan() {
 
         // Get the user's input from the form. Assume it is all valid.
@@ -63,11 +61,8 @@ export default props => {
         // an annual rate to a monthly rate. Convert payment period in years
         // to the number of monthly payments.
 
-        //// This where we get the three loan inputs off the DOM
 
         totcost = props.loan.schoolTotalCost  // sees this
-        // console.log(totcost)
-        // console.log(loan.cashPaid)
         principal = totcost - loan.cashPaid;  // sees loan.cashPaid in input field
         console.log(principal)
 
@@ -86,6 +81,7 @@ export default props => {
         console.log(x)
         const monthly = (principal * x * interest) / (x - 1);
         console.log(monthly)
+
         // Check that the result is a finite number. If so, display the results.
         let moPmt = 0;
 
@@ -93,10 +89,8 @@ export default props => {
             (monthly != Number.POSITIVE_INFINITY) &&
             (monthly != Number.NEGATIVE_INFINITY)) {
 
-
             moPmt = round(monthly, 2);
             console.log(moPmt)
-
 
             // This figure includes all principal and interest and payments paid over life of loan
             const totLoan = monthly * payments
@@ -120,7 +114,7 @@ export default props => {
             // document.loandata.totalinterest.value = "";
 
         }
-        // return (moPmt, totLoanRounded, payments, principal, totcost )
+
         setMoPmt(moPmt)
         console.log(moPmt)
     }
@@ -144,14 +138,11 @@ export default props => {
         console.log(totcost)
         const cashpaid = loan.cashPaid
         console.log(loan.cashPaid)
-
         const loanAmountCalc = totcost - loan.cashPaid;
         console.log(loan)
         console.log(loanAmountCalc)
-
         const loanPmt = moPmt;
         console.log(loanPmt)
-
         const totalLoanPmts = payments;
         const loanPayment = loanAmountCalc
         const schoolTotalCost = props.loan.schoolTotalCost;
@@ -197,7 +188,7 @@ export default props => {
             step: "finworkbench"
 
         })
-        // console.log(loanPmt)
+   
     }
 
     const editLoanFactors = () => {
@@ -221,8 +212,6 @@ export default props => {
             schoolName: props.loan.schoolName,
             annualSchoolCost: props.loan.annualSchoolCost,
             schoolTotalCost: props.loan.schoolTotalCost,
-
-
             loanAmount: parseInt(loanAmountCalc),
             loanRate: loan.interest,
             loanLengthYears: loan.years,
@@ -251,18 +240,18 @@ export default props => {
 
     let currentPrincipal = 0;
     let displayPrincipal = 0;
-    // let displayPrincipal = props.loan.schoolTotalCost;
+
 
     const principalValueCheck = () => {
-        // if (loan.cashPaid > 0)  {
 
-        // if (loan.cashPaid === "NaN" || loan.cashPaid === 0)  {
-        // if (loan.cashPaid === 0)  {
+
+
+
         if (loan.cashPaid === NaN) {
 
             // if (props.loan.schoolTotalCost - (loan.cashPaid) !== props.loan.schoolTotalCost )  
 
-            // {
+   
 
             // currentPrincipal = props.loan.schoolTotalCost - loan.cashPaid;
             currentPrincipal = props.loan.schoolTotalCost - 0;
@@ -290,30 +279,14 @@ export default props => {
     }
 
 
-
-
-
-    // const formatter = new Intl.NumberFormat('en-US', {
-    //     style: 'currency',
-    //     currency: 'USD',
-    //     minimumFractionDigits: 2
-    // })
-
-
-    // formatter.format(1000) // "$1,000.00"
-    // formatter.format(10) // "$10.00"
-    // formatter.format(123233000) // "$123,233,000.00"
-
-
-    {/* <div className="loan__principal"> ${props.loan.schoolTotalCost - loan.cashPaid}</div>
-                        <div className="loan__principal"> ${props.loan.schoolTotalCost - loan.cashPaid}</div> */}
+    
 
     return (
 
 
         <>
 
-            {/* <h2 className="loanForm__title">{editMode ? "Update Loan" : "Add Loan"}</h2> */}
+            
 
             <section className="finWorkBench">
                 <h3 className="loan__name">  </h3>
@@ -329,7 +302,7 @@ export default props => {
                         <div className="loan__schoolName">{props.loan.schoolName}</div>
                     </div>
 
-                    <div className="loan__lineFiller0">filler</div>
+                    {/* <div className="loan__lineFiller0">filler</div> */}
                     <div className="loan__lineFiller0">filler</div>
                     <div className="loan__schoolDiv">
                         <div>
@@ -337,20 +310,19 @@ export default props => {
 
                                 <div className="loan__lineFiller0">filler</div>
                                 <div className="loan__lineItem0">School Costs </div>
-                                {/* <div>    <div className="loan__schoolTotCost">${props.loan.schoolTotalCost}</div></div> */}
                                 <div className="loan__schoolTotCost">{(props.loan.schoolTotalCost.toLocaleString('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0 }))}</div>
                             </div>
                         </div>
                     </div>
-
+                    <div className="loan__lineFiller0">filler</div>
 
                     <div className="loan__schoolDiv">
                         {/* <fieldset> */}
-                        <div className="loan__inputBoxx">
+                        <div className="loan__inputBox">
                             <div className="form-group">
 
                                 <div className="label__thing">
-                                    <label htmlFor="name" className="label__inputext">Savings: </label>
+                                    <label htmlFor="name" className="label__inputext">Enter Cash</label>
                                 </div>
                                 <div className="input__thing">
                                     <input type="number" id="cashPaid" name="cashPaid" required autoFocus className="form-control2"
@@ -379,8 +351,7 @@ export default props => {
                         </div>
                     </div>
 
-                    {/* ${console.log(props.loan.schoolTotalCost)} */}
-                    {/* ${console.log(loan.cashPaid)} */}
+         
 
                     {/*                      
                         <div className="loan__principal"> 3-{currentPrincipal}</div>
@@ -390,7 +361,7 @@ export default props => {
                         <div className="loan__principal"> 2${principalValueCheck(loan.cashPaid)}</div>
                         <div className="loan__principal"> 4${displayPrincipal}</div>  */}
 
-                    <div className="loan__lineFiller0">filler</div>
+                    {/* <div className="loan__lineFiller0">filler</div> */}
                     <div className="loan__lineFiller0">filler</div>
                     <div className="loan__schoolDiv">
                         <fieldset>
@@ -406,6 +377,7 @@ export default props => {
                                             defaultValue={loan.years}
                                             onChange={handleControlledInputChange}
                                         />
+                                  
                                     </div>
                                 </div>
                             </div>
@@ -422,9 +394,6 @@ export default props => {
                                     </div>
                                     <div className="input__thing">
                                         <input type="number" id="interest" name="interest" min="1" max="50" required autoFocus className="form-control2"
-                                            // <input type="number" id="quantity" name="quantity" min="1" max="5"
-                                            /* </input> */
-                                            /* <input type="number" name="interest" required autoFocus className="form-control" */
                                             proptype="number"
                                             placeholder="Interest %"
                                             defaultValue={loan.interest}
@@ -437,14 +406,14 @@ export default props => {
                     </div>
 
 
-
+                    <div className="loan__lineFiller0">filler</div>
                     <div className="loan__schoolDiv2">
                         {/* <div className="loan__lineFiller0">filler</div>
                     <div className="loan__lineFiller0">filler</div> */}
                         <div>
                             <div>
                                 <div className="loan__lineItem2">Monthly Payment:   </div>
-                                {/* <div>Loan principal:</div> */}
+                       
 
                                 <div className="loan__payment"> ${moPmt}</div>
                             </div>
@@ -463,7 +432,7 @@ export default props => {
 
 
 
-
+                    <div className="loan__lineFiller0">filler</div>
 
                     <div className="loan__schoolDiv">
                         <div>
@@ -510,7 +479,7 @@ export default props => {
                                             constructBCAobject()
 
                                         }}>Run Benefit Analysis
-                        </button>
+                                    </button>
 
                                     <br></br>
                                     <br></br>
@@ -530,7 +499,7 @@ export default props => {
                                             // deleteLoan(loan)
 
                                         }}> Delete
-                        </button>
+                                 </button>
                                 </div>
 
 
@@ -554,6 +523,3 @@ export default props => {
 
 }
 
-        // this bracket is used if I need to use the smaller functions for loan
-
-        // }

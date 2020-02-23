@@ -17,7 +17,7 @@ h1, h2, h3, h4 {
     padding: 1%;
     /* background-color: goldenrod; */
     margin:1%;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     font-family:  Arial, Helvetica, sans-serif;
     /* padding: 20px 10px 20px 10px; */
     border-radius: 3px; 
@@ -54,27 +54,28 @@ h1, h2, h3, h4 {
 
 .loan__section {
 
+
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    flex-basis: 5%;
+    /* flex-basis: 20%; */
     padding: 1%;
-    /* background-color: goldenrod; */
     margin:1%;
     border: 1px solid black;
     font-family:  Arial, Helvetica, sans-serif;
-    padding: 20px 10px 20px 10px;
+    /* padding: 20px 10px 20px 10px; */
+    font-size: 1.25em;
     border-radius: 3px; 
-    /* justify-content: space-around; */
     justify-content: space-around;
-
-    /* justify-content: space-around; */
-    /* border: 1px solid black; */
-   /* background-color:lightcyan; */
-
-
-
+    max-width: 90vw;
+    align-content: center;
+    margin: auto;
+    background-color: peachpuff;
+    /* background-color: peachpuff; */
     
+    background-image: url(../auth/SchoolScale_pic1.PNG);
+    z-index: 1;
+
 }
 
 
@@ -108,7 +109,7 @@ max-width: 100px;
     /* flex-basis: 30%; */
     padding: 1%;
     /* margin:1%; */
-    border: 1px solid black;   
+    /* border: 1px solid black;    */
     max-width: 120px;
     max-height: 80px;
 }
@@ -124,7 +125,7 @@ max-width: 100px;
     /* flex-basis: 30%; */
     padding: 1%;
     /* margin:1%; */
-    border: 1px solid black;   
+    /* border: 1px solid black;    */
     max-width: 140px;
     max-height: 80px;
 }
@@ -137,7 +138,7 @@ max-width: 100px;
     /* flex-basis: 30%; */
     padding: 1%;
     /* margin:1%; */
-    border: 1px solid black;   
+    /* border: 1px solid black;    */
 
     max-height: 75px;
 }
@@ -156,7 +157,7 @@ max-width: 100px;
     margin:1%;
     /* border: 1px solid black; */
     font-family:  Arial, Helvetica, sans-serif;
-    font-size: 1em;
+    font-size: 1.2em;
     /* padding: 20px 10px 20px 10px; */
     border-radius: 3px; 
    min-width: 120px;
@@ -179,7 +180,7 @@ max-width: 100px;
     flex-wrap: wrap;
     flex-direction: row;
     margin:1%;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     font-family:  Arial, Helvetica, sans-serif;
     font-size: 1em;
     /* padding: 20px 10px 20px 10px; */
@@ -190,8 +191,8 @@ max-width: 100px;
     /* word-wrap: break-word; */
     /* align-items: center; */
     align-content: center;
-    background: yellow;
-    border: 1px solid black;
+    /* background: yellow; */
+    /* border: 1px solid black; */
 
 }
 
@@ -213,7 +214,7 @@ max-width: 100px;
     flex-wrap: wrap;
     flex-direction: row;
     margin:1%;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     font-family:  Arial, Helvetica, sans-serif;
     font-size: 1em;
     /* padding: 20px 10px 20px 10px; */
@@ -243,12 +244,12 @@ max-width: 100px;
     color: transparent
 }
 
-.loan__lineItem0 {
+.loan__lineItem0mm {
     /* background-color: blue; */
         border: 1px solid black;
 }
 
-.loan__lineItem2 
+.loan__lineItem2mmm 
 {
     border: 1px solid black;
 min-width: 140px;
@@ -362,10 +363,10 @@ input[type=number] {
     /* flex-wrap: wrap-reverse; */
     flex-direction: row;
     flex-wrap: wrap;
-    flex-direction: row;
-    flex-basis: 20%;
+ 
+    flex-basis: 10%;
     padding: 1%;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   /* max-width: 120px; */
   min-width: 115px;
   word-wrap: break-word;
@@ -401,7 +402,7 @@ input[type=number] {
     border-radius: 3px; 
     align-items: center;
     cursor: cell   ;
-    max-width: 120px;
+    max-width: 130px;
     /* background-color: teal; */
     
 }
@@ -493,13 +494,22 @@ input[type=number] {
 .BCA__ratio {
 
     margin:1%;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     font-family:  Arial, Helvetica, sans-serif;
-    font-size: 1.75em;
-    padding: 20px 10px 20px 10px;
+    font-size: 3em;
+    /* padding: 20px 10px 20px 10px; */
     border-radius: 3px; 
-    background-color: yellow;
+    /* background-color: rgb(82, 218, 55); */
     color: blue;
+    align-content: center;
+    /* max-width: 100px; */
+margin: auto;
+    width: 120px;
+    height: 100px;
+    background: lime;
+    border-radius: 50%
+
+
 }
 
 .BCA__ratio:hover {

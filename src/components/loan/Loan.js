@@ -54,14 +54,13 @@ export default ({ loan }) => {
                             <button className="addBCANote__button">Add Note</button>
                         </div>
 
-                        <br></br>
 
                         <div>
                             <button className="showBCANotes__button">Show Notes</button>
                         </div>
 
-                        <br></br>
-                        <br></br>
+                  
+                     
                         <br></br>
                         <div>
                             <button className="deleteFinWorkBenchItem__button"

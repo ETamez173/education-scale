@@ -24,6 +24,7 @@ export default (props) => {
                 <div className="tableDegree">
                     <section className="tableDegree__section">
                         <div className="tableDegree__nameCareer">Career Option(s)</div>
+                        <div className="tableDegree__fill"> fil</div>
                         <div className="tableDegree__earningsAvg"> Earnings Average</div>
                         <div className="tableDegree__earningsHigh">Earnings High</div>
                         <div className="tableDegree__earningsLow">Earnings Low</div>
