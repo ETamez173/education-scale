@@ -6,7 +6,7 @@ import { MyCareerOptionContext } from "../mycareeroption/MyCareerOptionProvider"
 import "./Degrees.css"
 
 
-export default ({ degree, mycareeroption }) => {
+export default ({ degree, mycareeroption, props }) => {
     const { degrees, addDegree } = useContext(DegreeContext)
     const { mycareeroptions, addMyCareerOption } = useContext(MyCareerOptionContext)
 
@@ -47,9 +47,9 @@ export default ({ degree, mycareeroption }) => {
 
             <div className="degree__nameEarnings">{degree.educationName}</div>
             <div className="degree__id">{degree.id}</div>
-            <div className="degree__earningsAvg">{(degree.earningsAvg.toLocaleString('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0 }))}</div>
-            <div className="degree__earningsHigh">{(degree.earningsHigh.toLocaleString('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0 }))}</div>
-            <div className="degree__earningsLow">{(degree.earningsLow.toLocaleString('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0 }))}</div>
+            <div className="degree__earningsAvg">{degree.earningsAvg}</div>
+            <div className="degree__earningsHigh">{degree.earningsHigh}</div>
+            <div className="degree__earningsLow">{degree.earningsLow}</div>
 
        
 

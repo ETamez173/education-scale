@@ -4,7 +4,7 @@ import Degree from "./Degree"
 import "./Degrees.css"
 
 export default (props) => {
-    const { degrees, addDegree, history } = useContext(DegreeContext)
+    const { degrees, addDegree} = useContext(DegreeContext)
 
     return (
         <>
@@ -36,7 +36,7 @@ export default (props) => {
                 <div className="tableDegree__listItem_center">
                     {
                         degrees.map(degree => {
-                            return <Degree key={degree.id} degree={degree} addDegree={addDegree} />
+                            return <Degree key={degree.id} props={props} degree={degree} addDegree={addDegree} />
                         })                    }
                 </div>
             </div>

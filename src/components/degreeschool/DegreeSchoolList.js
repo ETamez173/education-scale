@@ -11,8 +11,8 @@ export default (props) => {
     return (
         <>
             <h1>My Benefit Cost Analysis</h1>
-            <h1>aka Degree SchoolList.js</h1> */}
-            <div>TESTING THE RENDER</div>
+            {/* <h1>aka Degree SchoolList.js</h1>
+            <div>TESTING THE RENDER</div> */}
 
             <h2>Finance Workbench</h2>
 

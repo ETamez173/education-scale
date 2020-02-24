@@ -7,6 +7,7 @@ import "./Loans.css"
 import { FinWorkBenchContext } from "./FinWorkBenchProvider"
 export default (props) => {
     const { loans } = useContext(LoanContext)
+    // console.log("workbenchlist", loans)
     const { finworkbenchs } = useContext(FinWorkBenchContext)
     return (
         <>
@@ -40,6 +41,7 @@ export default (props) => {
 
                 {
                     // loans.map(finWorkBench => {s
+                    console.log(loans)||
                     loans.map(loan => {
                         const ActiveUser = localStorage.getItem("education_customer")
 

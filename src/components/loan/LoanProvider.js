@@ -8,7 +8,7 @@ export const LoanProvider = (props) => {
     const getLoans = () => {
         return fetch("http://localhost:8088/loans")
             .then(res => res.json())
-            .then(setLoans)
+            .then(data => setLoans(data)).then(()=> console.log(loans) )
     }
 
     // console.log(loans)
@@ -21,6 +21,7 @@ export const LoanProvider = (props) => {
             },
             body: JSON.stringify(loan)
         })
+        // .then(res => res.json())
             .then(getLoans)
     }
 

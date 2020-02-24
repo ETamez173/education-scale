@@ -15,7 +15,7 @@ import { MyCareerOptionContext } from "../mycareeroption/MyCareerOptionProvider"
 export default props => {
 
     // export default ({ finworkbench, degreeSchool, loan, degree, school, history }) => {
-    const { addLoan, deleteLoan, updateLoan, history } = useContext(LoanContext)
+    const { addLoan, deleteLoan, updateLoan, getLoans, history  } = useContext(LoanContext)
     // const { finworkbenchs, deleteFinWorkBench, addFinWorkBench, addLoan, updateLoan, deleteLoan } = useContext(LoanContext)
     const { finworkbenchs, deleteFinWorkBench, addFinWorkBench } = useContext(FinWorkBenchContext)
     // const { degrees, addDegree, deleteDegree } = useContext(DegreeContext)
@@ -162,7 +162,7 @@ export default props => {
         const totalAmountPaid = null;
         const benefitCostRatio = null;
         const benefitCostAnalysis = null;
-
+// debugger
         addLoan({
 
 
@@ -189,6 +189,8 @@ export default props => {
             step: "finworkbench"
 
         })
+        
+        // .then(getLoans)
 
     }
 
@@ -432,7 +434,7 @@ export default props => {
 
                                     <button className="runBenefitCostAnalysis__button"
                                         onClick={() => {
-
+// debugger
                                             constructBCAobject()
 
                                         }}>Run Benefit Analysis

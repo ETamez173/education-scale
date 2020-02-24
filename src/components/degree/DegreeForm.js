@@ -33,8 +33,8 @@ export default props => {
     }, [degrees])
 
     const constructNewDegree = () => {
-        const schoolId = parseInt(degree.schoolId)
-        console.log(schoolId)
+        const schoolId = parseInt(degree.id)
+        // console.log(schoolId)
 
         if (schoolId === 0) {
             window.alert("Please select a school")
@@ -48,21 +48,21 @@ export default props => {
                     earningsLow: degree.earningLow,
                     degreeNote: degree.note,
                     // customerId: parseInt(localStorage.getItem("kennel_customer"))
-                    // userId: parseInt(localStorage.getItem("education_customer")),
+                    userId: parseInt(localStorage.getItem("education_customer")),
                 })
                     .then(() => props.history.push("/degrees"))
             } else {
                 addDegree({
 
                     educationName: degree.name,
-                    earningsAvg: degree.earningAverage,
-                    earningsHigh: degree.earningHigh,
-                    earningsLow: degree.earningLow,
+                    earningsAvg: degree.earningsAverage,
+                    earningsHigh: degree.earningsHigh,
+                    earningsLow: degree.earningsLow,
                     degreeNote: degree.note,
 
-                    userId: parseInt(localStorage.getItem("education_customer")),
+                    // userId: parseInt(localStorage.getItem("education_customer")),
                 })
-                    .then(() => props.history.push("/degrees"))
+                    .then(() => props.history.push("/"))
             }
         }
         }
@@ -85,10 +85,10 @@ export default props => {
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="breed">Yearly Earnings Average: </label>
-                    <input type="number" name="earningsaverage" required className="form-control"
+                    <input type="number" name="earningsAverage" required className="form-control"
                         proptype="varchar"
-                        placeholder="Yearly average"
-                        defaultValue={degree.earningAverage}
+                        placeholder="YearlyAverage"
+                        defaultValue={degree.earningsAverage}
                         onChange={handleControlledInputChange}
                     />
                 </div>
@@ -99,10 +99,10 @@ export default props => {
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="breed">Yearly Earnings High: </label>
-                    <input type="number" name="earningshigh" required className="form-control"
+                    <input type="number" name="earningsHigh" required className="form-control"
                         proptype="varchar"
-                        placeholder="Yearly high"
-                        defaultValue={degree.earningHigh}
+                        placeholder="Yearlyhigh"
+                        defaultValue={degree.earningsHigh}
                         onChange={handleControlledInputChange}
                     />
                 </div>
@@ -111,10 +111,10 @@ export default props => {
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="breed">Yearly Earnings Low: </label>
-                    <input type="number" name="earningslow" required className="form-control"
+                    <input type="number" name="earningsLow" required className="form-control"
                         proptype="varchar"
-                        placeholder="Yearly low"
-                        defaultValue={degree.earningLow}
+                        placeholder="Yearlylow"
+                        defaultValue={degree.earningsLow}
                         onChange={handleControlledInputChange}
                     />
                 </div>
@@ -140,6 +140,11 @@ export default props => {
                 className="btn btn-primary">
                 {editMode ? "Update Degree" : "Add Degree"}
             </button>
+            <button onClick={() => {
+                props.history.push(`/Degrees/edit/${degree.id}`)
+            }}>Edit</button>
+
+
         </form>
     )
 }

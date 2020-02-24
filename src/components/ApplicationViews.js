@@ -43,26 +43,17 @@ export default (props) => {
                     <MyCareerOptionProvider>
                         <DegreeSchoolProvider>
                             < FinWorkBenchProvider>
+
+                                {/* 
                                 <Route exact path="/">
                                     <DegreeList />
-                                </Route>
-
-
-
-                                <Route exact path="/degrees/create" render={
-                                    props => <DegreeForm {...props} />
-                                } />
-
-
+                                </Route> */}
 
                                 <Route exact path="/">
-                                    <MyCareerOptionList {...props} />
+                                    <DegreeList {...props} />
+                                    {/* } /> */}
                                 </Route>
 
-{/* 
-                                <Route exact path="/degrees" render={
-                                    props => <DegreeForm {...props} />
-                                } /> */}
 
                                 <Route exact path="/degrees/create" render={
                                     props => <DegreeForm {...props} />
@@ -71,6 +62,21 @@ export default (props) => {
                                 <Route path="/degrees/edit/:degreeId(\d+)" render={
                                     props => <DegreeForm {...props} />
                                 } />
+
+                                <Route exact path="/">
+                                    <MyCareerOptionList {...props} />
+                                </Route>
+
+                                {/* 
+                                <Route exact path="/degrees" render={
+                                    props => <DegreeForm {...props} />
+                                } /> */}
+
+                                {/* <Route exact path="/degrees/create" render={
+                                    props => <DegreeForm {...props} />
+                                } /> */}
+
+
 
 
                             </FinWorkBenchProvider>
@@ -127,7 +133,7 @@ export default (props) => {
                                 <MyCareerOptionProvider>
 
 
-                                <Route exact path="/analysis" render={
+                                    <Route exact path="/analysis" render={
                                         props => <FinWorkBenchList {...props} />
                                     } />
 
