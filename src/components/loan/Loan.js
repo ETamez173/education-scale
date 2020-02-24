@@ -30,19 +30,19 @@ export default ({ loan }) => {
             <section className="loan__section">
 
 
-                <div className="loan__educationName">{loan.educationName}</div>
-                <div className="loan__degreeAnnualEarnings">{(loan.degreeAnnualEarnings.toLocaleString('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0 }))}</div>
-                <div className="loan__twentyYearEarnings">{(loan.twentyYearEarnings.toLocaleString('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0 }))}</div>
-                <div className="loan__schoolName">{loan.schoolName}</div>
-                <div className="loan__totalAmountPaid">{(loan.totalAmountPaid.toLocaleString('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0 }))}</div>
+               <div className="vert__align"> <div className="loan__educationName">{loan.educationName}</div></div>
+               <div className="vert__align">  <div className="loan__degreeAnnualEarnings">{(loan.degreeAnnualEarnings.toLocaleString('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0 }))}</div></div>
+               <div className="vert__align"> <div className="loan__twentyYearEarnings">{(loan.twentyYearEarnings.toLocaleString('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0 }))}</div></div>
+                <div className="vert__align"> <div className="loan__schoolName">{loan.schoolName}</div></div>
+                <div className="vert__align"><div className="loan__totalAmountPaid">{(loan.totalAmountPaid.toLocaleString('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0 }))}</div></div>
 
                 {/* these are inputs to calculate the loan , payments etc */}
              
                 
-                <div className="loan__cashPaid">{(loan.cashPaid.toLocaleString('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0 }))}</div>
+                <div className="vert__align"> <div className="loan__cashPaid">{(loan.cashPaid.toLocaleString('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0 }))}</div></div>
 
-                <div className="loan__totalLoanPmts">{(loan.totalLoanPmts.toLocaleString('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0 }))}</div>
-                <div className="loan__loanAmount">{(loan.loanAmount.toLocaleString('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0 }))}</div>
+                <div className="vert__align"><div className="loan__totalLoanPmts">{(loan.totalLoanPmts.toLocaleString('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0 }))}</div></div>
+                <div className="vert__align"><div className="loan__loanAmount">{(loan.loanAmount.toLocaleString('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0 }))}</div></div>
 
 
                 <div className="BCA_buttons">

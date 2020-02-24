@@ -4,6 +4,7 @@ import "./NavBar.css"
 
 export default (props) => {
     return (
+        <div  className="navbar__container" >
         <ul className="navbar">
             <li className="navbar__item active">
                 <Link className="navbar__link" to="/">School / Program Research</Link>
@@ -18,9 +19,9 @@ export default (props) => {
             <li className="navbar__item">
                 <Link className="navbar__link" to="/analysis">My Benefit Cost Analysis</Link>
             </li>
-            <li className="navbar__item">
+            {/* <li className="navbar__item">
                 <Link className="navbar__link" to="/plans">Saved Plans</Link>
-            </li>
+            </li> */}
             {
                 localStorage.getItem("education_customer")
                     ? <li className="navbar__item">
@@ -37,5 +38,6 @@ export default (props) => {
 
             }
         </ul>
+        </div>
     )
 }

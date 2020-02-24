@@ -174,8 +174,8 @@ export default props => {
 
             loanAmount: parseInt(loanAmountCalc),
             loanRate: parseInt(loan.interest),
-            loanLengthYears: loan.years,
-            loanLengthMonths: loan.years * 12,
+            loanLengthYears: parseInt(loan.years),
+            loanLengthMonths: parseInt(loan.years * 12),
             loanPmt: moPmt,
             totalLoanPmts: round(loanPmt * loan.years * 12, 0),
             cashPaid: parseInt(loan.cashPaid),
@@ -213,9 +213,9 @@ export default props => {
             annualSchoolCost: props.loan.annualSchoolCost,
             schoolTotalCost: props.loan.schoolTotalCost,
             loanAmount: parseInt(loanAmountCalc),
-            loanRate: loan.interest,
-            loanLengthYears: loan.years,
-            loanLengthMonths: loan.years * 12,
+            loanRate: parseInt(loan.interest),
+            loanLengthYears: parseInt(loan.years),
+            loanLengthMonths: parseInt(loan.years * 12),
             loanPmt: moPmt,
             totalLoanPmts: round(loanPmt * loan.years * 12, 0),
             cashPaid: parseInt(loan.cashPaid),
@@ -223,7 +223,7 @@ export default props => {
             degreeAnnualEarnings: props.loan.degreeAnnualEarnings,
             twentyYearEarnings: props.loan.twentyYearEarnings,
             benefitCostRatio: 3,
-            finWorkBenchStep: "true",
+            finWorkBenchStep: "false",
             benefitCostAnalysis: "false",
             userId: localStorage.getItem("education_customer"),
             step: "updateLoan"
@@ -297,7 +297,7 @@ export default props => {
                     <div className="loan__schoolDiv0">
                         <div className="loan__educationName">{props.loan.educationName}</div>
                     </div>
-                    <div className="loan__lineFiller0">filler</div>
+                    {/* <div className="loan__lineFiller0">filler</div> */}
                     <div className="loan__schoolDiv0">
                         <div className="loan__schoolName">{props.loan.schoolName}</div>
                     </div>
@@ -306,11 +306,12 @@ export default props => {
                     <div className="loan__lineFiller0">filler</div>
                     <div className="loan__schoolDiv">
                         <div>
+                               {/* <div className="loan__lineFiller0">filler</div> */}
                             <div>
 
-                                <div className="loan__lineFiller0">filler</div>
-                                <div className="loan__lineItem0">School Costs </div>
-                                <div className="loan__schoolTotCost">{(props.loan.schoolTotalCost.toLocaleString('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0 }))}</div>
+                             
+                                {/* <div className="loan__lineItem0"> </div> */}
+                                <div className="vert__align"> <div className="loan__schoolTotCost">{(props.loan.schoolTotalCost.toLocaleString('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0 }))}</div></div>
                             </div>
                         </div>
                     </div>
@@ -328,6 +329,7 @@ export default props => {
                                     <input type="number" id="cashPaid" name="cashPaid" required autoFocus className="form-control2"
                                         proptype="number"
                                         placeholder="Savings"
+                              
                                         defaultValue={loan.cashPaid}
                                         onChange={handleControlledInputChange}
                                     />
@@ -407,12 +409,12 @@ export default props => {
 
 
                     <div className="loan__lineFiller0">filler</div>
-                    <div className="loan__schoolDiv2">
+                    <div className="loan__schoolDiv">
                         {/* <div className="loan__lineFiller0">filler</div>
                     <div className="loan__lineFiller0">filler</div> */}
                         <div>
-                            <div>
-                                <div className="loan__lineItem2">Monthly Payment:   </div>
+                            <div className="loan__moPayment">
+                                <div className="loan__lineItem2">Payment:   </div>
                        
 
                                 <div className="loan__payment"> ${moPmt}</div>
@@ -424,7 +426,7 @@ export default props => {
                                     calculateLoan()
 
                                 }}
-                                className="btn btn-primary">Compute Loan
+                                className="btn-primary">Compute
                                 </button>
 
                         </div>
@@ -434,7 +436,7 @@ export default props => {
 
                     <div className="loan__lineFiller0">filler</div>
 
-                    <div className="loan__schoolDiv">
+                    <div className="loan__schoolDiv5">
                         <div>
                             <div className="BCA_buttons">
 
@@ -452,7 +454,7 @@ export default props => {
 
 
                                 <div>
-                                    {/* <button className="addLoanInputs__button"
+                                     <button className="addLoanInputs__button"
                                         onClick={() => {
 
                                             // if (loan.cashPaid !== 0 && loan.interest !== 0 && loan.years !== 0) {
@@ -461,12 +463,12 @@ export default props => {
                                                 alert("Something is missing! Enter Interest Rate, Loan Years");
                                             } else {
 
-                                              
+                                                editLoanFactors()
                                             }
 
                                         }}>
-                                        Save Loan
-                                </button> */}
+                                        Edit and Save Loan
+                                </button> 
 
                                 </div>
 

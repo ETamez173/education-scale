@@ -1,5 +1,4 @@
-// import React from "react"
-import React, { useContext } from "react"
+import React, { useContext, useState, useEffect } from "react"
 import "./DegreeSchool.css"
 import { DegreeContext } from "../degree/DegreeProvider";
 import { SchoolContext } from "../school/SchoolProvider"
@@ -19,7 +18,7 @@ export default ({ degreeSchool, loan, degree, school, history }) => {
     {/* Commented out after git resolution issues */ }
     const { addLoan } = useContext(LoanContext)
     const { degreeschools, deleteDegreeSchool, patchDegreeSchool } = useContext(DegreeSchoolContext)
-
+    const [degreeschool, setDegreeSchool] = useState({})
 
 
     const constructNewSchoolOption = () => {
@@ -97,8 +96,8 @@ export default ({ degreeSchool, loan, degree, school, history }) => {
                 <div className="degreeSchool__nameSchool">{degreeSchool.school.schoolName}</div> */}
 
 
-                <div className="degreeSchool__nameCareer">{(degreeSchool.annualCost.toLocaleString('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0 }))}</div>
-                <div className="degreeSchool__nameCareer">{(degreeSchool.totalCost.toLocaleString('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0 }))}</div>
+                <div className="degreeSchool__cost">{(degreeSchool.annualCost.toLocaleString('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0 }))}</div>
+                <div className="degreeSchool__totCost">{(degreeSchool.totalCost.toLocaleString('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0 }))}</div>
                 {/* <div className="degreeSchool__totalCost">${degreeschool.degree.totalCost}</div> */}
 
 

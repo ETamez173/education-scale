@@ -1,6 +1,6 @@
 import React, { useContext } from "react"
 import { DegreeContext } from "../degree/DegreeProvider"
-import CareerOption from "./CareerOption"
+import CareerOption from "./CareerOptionx"
 // import Degree from "./Degree"
 import "./CareerOption.css"
 

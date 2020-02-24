@@ -16,18 +16,17 @@ export default (props) => {
         <>
 
 
-            <h2>My School Options Shortlist</h2>
-            <h2>aka SchoolOptionList.js</h2>
-            <h2>clicking Run Benefit Analysis creates new loan object</h2>
-            <h2>using MySchoolOption.js</h2>
+            <h1>My School Options Shortlist</h1>
+            
 
             <div className="schoolOptionsList">
             <div className="tableSchoolOption">
                 <section className="tableSchoolOption__section">  
                     <div className="schoolOptionsList__ed_voc">Degree</div>
                     <div className="schoolOptionsList__schoolProgram"> School/ Program</div>
-                    <div className="schoolOptionsList__avgYrlyCosts">Average Yearly Costs</div>
+                    {/* <div className="schoolOptionsList__avgYrlyCosts">Average Yearly Costs</div> */}
                     <div className="schoolOptionsList__avgTotCosts">Average Total Costs</div>
+                    <div className="schoolOptionsList__avgTotCosts">Action</div>
                 </section>
             </div>
             </div>
@@ -38,8 +37,11 @@ export default (props) => {
                     {
 
                         loans.map(loan => {
+                            const ActiveUser = localStorage.getItem("education_customer")
+                            console.log(ActiveUser)
 
-                            if (loan.finWorkBenchStep === "false" && loan.benefitCostAnalysis === "false") {
+                            // This code checks to see who the active user is and only renders the loan objects that belong to that user
+                            if (loan.finWorkBenchStep === "false" && loan.benefitCostAnalysis === "false" && parseInt(ActiveUser) === loan.userId ) {
                                 // console.log(myschooloption.benefitCostAnalysis)
                                 return <MySchoolOption key={loan.id} loan={loan} />
                             }

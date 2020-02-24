@@ -9,11 +9,11 @@ export default (props) => {
     return (
         <>
             {/* <h1>Degrees and Annual Earning Figures</h1> */}
-            <h1>Research Degrees and Annual Earning Figures</h1>
+            <h1>Research Degrees and Earnings</h1>
 
 
 
-            <h1>Degrees</h1>
+            <h1></h1>
             {/* When the button is clicked, check if the user is authenticated. */}
             <button onClick={() => props.history.push("/degrees/create")}>
                 Add New Degree

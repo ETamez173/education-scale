@@ -4,9 +4,9 @@
 
 import React, { useContext } from "react"
 import "./Loans.css"
-import { LoanContext } from "../loan/LoanProvider"
+import { LoanContext } from "./LoanProvider"
 import { DegreeContext } from "../degree/DegreeProvider"
-import { FinWorkBenchContext } from "../loan/FinWorkBenchProvider"
+import { FinWorkBenchContext } from "./FinWorkBenchProvider"
 import { DegreeSchoolContext } from "../degreeschool/DegreeSchoolProvider"
 import { MySchoolOptionContext } from "../myschooloption/MySchoolOptionProvider"
 // import DegreeSchool from "../degreeschool/DegreeSchool"

@@ -7,7 +7,7 @@ h1, h2, h3, h4 {
     
 }
 
-.BCA_buttons {
+.BCA_buttonss {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -15,6 +15,13 @@ h1, h2, h3, h4 {
     /* padding: 1%; */
 /* background: yellow; */
 /* max-height: 80px; */
+}
+
+.runBenefitCostAnalysisStep1__button {
+
+    word-wrap: break-word;
+    border-radius: 10px; 
+    background-color: lemonchiffon; 
 }
 
 
@@ -27,7 +34,7 @@ h1, h2, h3, h4 {
     padding: 1%;
     /* background-color: goldenrod; */
     margin:1%;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     font-family:  Arial, Helvetica, sans-serif;
     /* padding: 20px 10px 20px 10px; */
     border-radius: 3px; 
@@ -56,7 +63,7 @@ h1, h2, h3, h4 {
         /* flex-basis: 20%; */
         padding: 1%;
         margin:1%;
-        border: 1px solid black;
+        /* border: 1px solid black; */
         font-family:  Arial, Helvetica, sans-serif;
         /* padding: 20px 10px 20px 10px; */
         font-size: 1.25em;
@@ -103,13 +110,10 @@ h1, h2, h3, h4 {
 
 
 
-.SCO__educationName, .SCO__schoolName,
-/* .SCO__loanAmount, */
-/* .SCO__loanCashPaid,  */
-/* .SCO__loanGrantsAndOther, */
+.SCO__educationName, 
 .SCO__loanLength,
 .SCO__loanRate
-/* .SCO__loanPmt */
+
 
   {
 
@@ -117,7 +121,7 @@ h1, h2, h3, h4 {
     flex-wrap: wrap;
     flex-direction: row;
     margin:1%;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     font-family:  Arial, Helvetica, sans-serif;
     font-size: 1em;
     /* padding: 20px 10px 20px 10px; */
@@ -129,16 +133,79 @@ h1, h2, h3, h4 {
     align-content: center;
     max-height: 90px;
 
+
+    background-color: darkblue;
+color: white;
+
 }
 
 
+.SCO__schoolTotCost {
+
+
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+
+    margin:1%;
+    /* border: 1px solid black; */
+    font-family:  Arial, Helvetica, sans-serif;
+    font-size: 1em;
+    /* padding: 20px 10px 20px 10px; */
+    border-radius: 3px; 
+
+    min-width: 120px;
+    max-width: 120px;
+    word-wrap: break-word;
+    align-content: center;
+
+    background-color:darkred;
+    color: white;
+
+
+}
+
+ .SCO__schoolName
+
+
+  {
+
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin:1%;
+    /* border: 1px solid black; */
+    font-family:  Arial, Helvetica, sans-serif;
+    font-size: 1em;
+    /* padding: 20px 10px 20px 10px; */
+    border-radius: 3px; 
+    min-width: 120px;
+    max-width: 120px;
+    word-wrap: break-word;
+    /* align-items: center; */
+    align-content: center;
+    max-height: 90px;
+
+
+    background-color: darkcyan;
+    color: white;
+
+}
+
+
+.deleteSchoolSearchItem__button  {
+    word-wrap: break-word;
+    border-radius: 10px; 
+    background-color: lemonchiffon;
+
+}
 
 .runBCA__button, .deleteMyMCO__button {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
     margin:1%;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     font-family:  Arial, Helvetica, sans-serif;
     font-size: 1em;
     /* padding: 20px 10px 20px 10px; */
@@ -164,7 +231,7 @@ margin : auto;
     padding: 1%;
     /* background-color: goldenrod; */
     margin:1%;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     font-family:  Arial, Helvetica, sans-serif;
     /* padding: 20px 10px 20px 10px; */
     border-radius: 3px; 
@@ -183,7 +250,7 @@ margin : auto;
         padding: 1%;
         /* background-color: goldenrod; */
         margin:1%;
-        border: 1px solid black;
+        /* border: 1px solid black; */
         font-family:  Arial, Helvetica, sans-serif;
         /* padding: 20px 10px 20px 10px; */
         border-radius: 3px; 
@@ -203,7 +270,7 @@ margin : auto;
     padding: 1%;
     /* background-color: goldenrod; */
     margin:1%;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     font-family:  Arial, Helvetica, sans-serif;
     /* padding: 20px 10px 20px 10px; */
     border-radius: 3px; 

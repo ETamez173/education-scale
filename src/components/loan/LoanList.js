@@ -12,12 +12,12 @@ export default (props) => {
     return (
         <>
 
-            <h1>My Benefit Cost Analysis</h1>
+            {/* <h1>My Benefit Cost Analysis</h1> */}
             
 
 
 
-            <h2>Finance Workbench</h2>
+            <h1>Finance Workbench</h1>
 
 
             <div className="tableMyCBA__List">
@@ -45,9 +45,9 @@ export default (props) => {
                 {
                     // loans.map(finWorkBench => {s
                     loans.map(loan => {
-                    
+                        const ActiveUser = localStorage.getItem("education_customer")
 
-                        if (loan.finWorkBenchStep === "true" &&  loan.benefitCostAnalysis === "false" ) {
+                        if (loan.finWorkBenchStep === "true" &&  loan.benefitCostAnalysis === "false" && parseInt(ActiveUser) === loan.userId) {
                             // console.log( loan.finWorkBenchStep)
                             // console.log( loan.benefitCostAnalysis)
                             return <FinWorkBench key={loan.id} loan={loan} />
@@ -60,7 +60,7 @@ export default (props) => {
 
 
 
-            <h2>Benefit Cost Analysis</h2>
+            <h1>Benefit Cost Analysis</h1>
     
 
             <div className="tableBCA">
@@ -86,9 +86,9 @@ export default (props) => {
                 {
                     loans.map(loan => {
 
+                        const ActiveUser = localStorage.getItem("education_customer")
 
-
-                        if (loan.finWorkBenchStep === "true" && loan.benefitCostAnalysis === "true" ) {
+                        if (loan.finWorkBenchStep === "true" && loan.benefitCostAnalysis === "true" && parseInt(ActiveUser) === loan.userId) {
 
                             // console.log(loan.finWorkBenchStep)
 

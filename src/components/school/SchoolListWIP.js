@@ -15,20 +15,21 @@ export default (props) => {
     const { schools } = useContext(SchoolContext)
     const { degrees } = useContext(DegreeContext)
     const { degreeSchools } = useContext(DegreeSchoolContext)
-    const { mycareeroptions } = useContext(MyCareerOptionContext)
+    const { mycareeroptions, moveToSearchMyCareerOption, addMyCareerOption, getMyCareerOption, deleteMyCareerOption } = useContext(MyCareerOptionContext)
 
+    const mycareerptionDegreeId = mycareeroptions.degreeId
+    //    const myCareerOptions = ""
+    console.log(mycareerptionDegreeId)
 
+    const mcoSearch = mycareeroptions.schoolSearch
+    console.log(mcoSearch)
 
     return (
         <>
 
             <h1>Search Schools By Degree And Cost</h1>
 
-            {/* When the button is clicked, check if the user is authenticated. */}
-            <button onClick={() => props.history.push("/degrees/create")}>
-                
-            </button>
-            
+
             <div className="searchSchoolList">
                 <div className="tableSearchSchool">
                     <section className="tableSearchSchool__section">
@@ -47,34 +48,44 @@ export default (props) => {
                 <div className="tableDegreeSchool__listItem_center">
 
                     {
+
+                        
                         degreeSchools.map(ds => {
                             // console.log(mycareeroptions, "career options here")
+                          
+
                             const findSchoolSOfferingDegree = schools.filter(
                                 (school) => {
-
+                            
                                     console.log(mycareeroptions.degreeId)
                                     console.log(mycareeroptions.schoolSearch)
-
-                                    // if (ds.degreeId !== mycareeroptions.degreeId) {
-                                    if (ds.degreeId === mycareeroptions.degreeId) {
-                                        console.log("This one DOES have a DEGREE Id match!")
-
+                                    if (ds.degreeId === mycareeroptions.degreeId && mycareeroptions.schoolSearch === true) {
+                                        console.log(mycareeroptions.degreeId)
+                                        console.log(mycareeroptions.schoolSearch)
                                     }
-
                                 }
-
                             )
+
                             {
 
-                                const foundMatchSchoolsForDegree = mycareeroptions.find(fndMSFD => fndMSFD.degreeId === ds.degreeId && fndMSFD.searchSchool !== true)
+                                const founddMatchSchoolsForDegree = mycareeroptions.find(fndMSFD => fndMSFD.degreeId === ds.degreeId)
                                 // console.log(founddMatchSchoolsForDegree)
-                                // console.log(foundMatchSchoolsForDegree.searchSchool)
 
                                 // if (founddMatchSchoolsForDegree !== undefined) {
-                                if (foundMatchSchoolsForDegree !== undefined) {
-                                    // if (foundMatchSchoolsForDegree !== undefined && ds.schoolSearch === true) {
+                                const ActiveUser = localStorage.getItem("education_customer")
+                                const MCO = mycareeroptions.schoolSearch
+                                // console.log(MCO)
+                                // console.log(mycareeroptions.schoolSearch)
+                                console.log(ds.degree.userId)
 
-                                    console.log("This one DOES have a (degree and school) match for mycareeroptions!")
+
+
+                                if (founddMatchSchoolsForDegree !== undefined && ds.degree.userId === ActiveUser) {
+                                    // if (founddMatchSchoolsForDegree !== undefined && mycareeroptions.schoolSearch === true && ds.degree.userId === ActiveUser) {
+                                    console.log(ds.degree.userId)
+                                    // console.log(ActiveUser)
+                                    // if (founddMatchSchoolsForDegree !== undefined && ds.schoolSearch === true) {
+                                    console.log("This one has a degree match for the mycareeroptions!")
 
                                     return <DegreeSchool key={ds.id}
                                         schools={findSchoolSOfferingDegree}
@@ -82,9 +93,9 @@ export default (props) => {
                                     // console.log(mycareeroptions, "career options here")
                                     // console.log(mycareeroptions.schoolSearch)
                                 }
-                                else if (foundMatchSchoolsForDegree === undefined) {
-                                    // console.log("This one DOESNT have a (degree and school) match for mycareeroptions!")
-
+                                else if (founddMatchSchoolsForDegree === undefined) {
+                                    // console.log("This one is a doesnt match the degree!")
+                                    console.log("This one DOES NOT have a degree match for the mycareeroptions!")
                                 }
 
                             }
