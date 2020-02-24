@@ -126,6 +126,13 @@ export default (props) => {
                             < FinWorkBenchProvider>
                                 <MyCareerOptionProvider>
 
+
+                                <Route exact path="/analysis" render={
+                                        props => <FinWorkBenchList {...props} />
+                                    } />
+
+
+
                                     <Route exact path="/analysis" render={
                                         props => <LoanList {...props} />
                                     } />

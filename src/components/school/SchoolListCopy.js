@@ -9,7 +9,7 @@ import DegreeSchool from "../degreeschool/DegreeSchool"
 import "./Schools.css"
 import MyCareerOption from "../mycareeroption/MyCareerOption"
 
-
+// trying to get the filter to use the mycareeroption useriD and it keeps saying undefined
 
 export default (props) => {
     const { schools } = useContext(SchoolContext)
@@ -17,7 +17,9 @@ export default (props) => {
     const { degreeSchools } = useContext(DegreeSchoolContext)
     const { mycareeroptions } = useContext(MyCareerOptionContext)
 
-
+    const ActiveUser = localStorage.getItem("education_customer")
+    const id = mycareeroptions.userId;
+    console.log(mycareeroptions.userId)
 
     return (
         <>
@@ -50,22 +52,13 @@ export default (props) => {
                         
                         degreeSchools.map(ds => {
 
-                          
-                            // console.log(mycareeroptions.degreeId)
-                            if (ds.degreeId !== mycareeroptions.degreeId)  // only works if you say not equal since undefined
-                            
-                            {   
+                            if (ds.degreeId !== mycareeroptions.degreeId) {
                             // console.log(mycareeroptions, "career options here")
-                            // console.log(mycareeroptions.degreeId)
-
-                            const userId = parseInt(localStorage.getItem("education_customer"))
                             const findSchoolSOfferingDegree = schools.filter(
                                 (school) => {
-
-// This filter gets all ALL the 38 objects puts them into  findSchoolSOfferingDegree
-
-                                    // console.log(mycareeroptions.degreeId)
-                                    // console.log(mycareeroptions.schoolSearch)
+                                    console.log(ds.degreeId)
+                                    console.log(mycareeroptions.degreeId)
+                                    console.log(mycareeroptions.schoolSearch)
                                 // }
                                     // if (ds.degreeId !== mycareeroptions.degreeId) {
                                 //  else {   if (ds.degreeId === mycareeroptions.degreeId) {
@@ -73,37 +66,20 @@ export default (props) => {
                                 //         console.log(mycareeroptions.schoolSearch)
                                 //         console.log("This one DOES have a DEGREE Id match!")
 
-
-
-
-
-                                // const userId = parseInt(localStorage.getItem("education_customer"))
-                                const foundMCO = mycareeroptions.find(fndMCO => fndMCO.searchSchool === true  &&  userId === fndMCO.userId)
-                                // const foundMatchSchoolsForDegree = mycareeroptions.find(fndMSFD => fndMSFD.degreeId === ds.degreeId && fndMSFD.searchSchool !== true  && userId === fndMSFD.useriId  )
-                                console.log(foundMCO )
-
-                                const foundMatchSchoolsForDegree = mycareeroptions.find(fndMSFD => fndMSFD.degreeId === ds.degreeId && fndMSFD.searchSchool !== true  )
-                                // const foundMatchSchoolsForDegree = mycareeroptions.find(fndMSFD => fndMSFD.degreeId === ds.degreeId && fndMSFD.searchSchool !== true  && userId === fndMSFD.useriId  )
-                                console.log(foundMatchSchoolsForDegree)
-                                
-                    
-
                                     })
+
+                            
+
                             
                             // {
 
-                               
+                                const foundMatchSchoolsForDegree = mycareeroptions.find(fndMSFD => fndMSFD.degreeId === ds.degreeId && fndMSFD.searchSchool !== true)
+                                // console.log(founddMatchSchoolsForDegree)
+                                // console.log(foundMatchSchoolsForDegree.searchSchool)
 
-                    
-                                const foundMatchSchoolsForDegree = mycareeroptions.find(fndMSFD => fndMSFD.degreeId === ds.degreeId && fndMSFD.searchSchool !== true && userId === fndMSFD.userId )
-                                // const foundMatchSchoolsForDegree = mycareeroptions.find(fndMSFD => fndMSFD.degreeId === ds.degreeId && fndMSFD.searchSchool !== true  && userId === fndMSFD.useriId  )
-                                console.log(foundMatchSchoolsForDegree)
-                            
-                 
-
-
-                                // if (foundMatchSchoolsForDegree !== undefined) {
-                                    if (foundMatchSchoolsForDegree !== undefined && ds.schoolSearch === true) {
+                                // if (founddMatchSchoolsForDegree !== undefined) {
+                                if (foundMatchSchoolsForDegree !== undefined) {
+                                    // if (foundMatchSchoolsForDegree !== undefined && ds.schoolSearch === true) {
 
                                     console.log("This one DOES have a (degree and school) match for mycareeroptions!")
 

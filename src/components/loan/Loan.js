@@ -24,6 +24,9 @@ export default props => {
     const { addLoan, deleteLoan, updateLoan, history } = useContext(LoanContext)
 
     const [loan, setLoan] = useState({})
+    const [note, setNote] = useState()
+
+
 
 
     function round(value, precision) {

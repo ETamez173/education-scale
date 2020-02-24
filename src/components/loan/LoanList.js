@@ -14,17 +14,14 @@ export default (props) => {
 
             {/* <h1>My Benefit Cost Analysis</h1> */}
             
+            {/* <h1>Finance Workbench</h1> */}
 
-
-
-            <h1>Finance Workbench</h1>
-
-
+{/* 
             <div className="tableMyCBA__List">
                 <section className="tableMyCBA__section">
-                    <div className="tableMyCBA__earningsAvg">Degree</div>
+                    <div className="tableMyCBA__earningsAvg">Degree</div> */}
                     {/* <div className="loan__lineFiller0">filler</div> */}
-                    <div className="tableMyCBA__earningsAvg"> School / Program</div>
+                    {/* <div className="tableMyCBA__earningsAvg"> School / Program</div>
                     <div className="tableMyCBA__earningsAvg"> Average Total Costs</div>
                     <div className="tableMyCBA__earningsAvg"> Savings, Scholarships, Grants </div>
                     <div className="tableMyCBA__earningsAvg"> Loans Taken All Years</div>
@@ -34,13 +31,12 @@ export default (props) => {
                     <div className="tableMyCBA__earningsAvg"> Actions</div>
                     {/* <div className="tableMyCBA__earningsHigh">Earnings High</div> */}
                     {/* <div className="tableMyCBA__earningsLow">Earnings Low</div> */}
-
+{/* 
                 </section>
-            </div>
+            </div> */} 
 
 
-
-            <div className="finworkbenchs">
+            {/* <div className="finworkbenchs">
 
                 {
                     // loans.map(finWorkBench => {s
@@ -55,7 +51,7 @@ export default (props) => {
                         }
                     })
                 }
-            </div>
+            </div> */}
 
 
 

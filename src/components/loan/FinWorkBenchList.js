@@ -4,19 +4,18 @@ import Loan from "./Loan"
 import FinWorkBench from "./FinWorkBench"
 import "./Loans.css"
 
-import { FinWorkBenchContext } from "../loan/FinWorkBenchProvider"
+import { FinWorkBenchContext } from "./FinWorkBenchProvider"
 export default (props) => {
     const { loans } = useContext(LoanContext)
     const { finworkbenchs } = useContext(FinWorkBenchContext)
     return (
         <>
 
-            {/* <h1>NOT USING THIS CODE </h1> */}
-            <h1>My Benefit Cost Analysis</h1>
-            <h1>aka FinWorkBenchList.js</h1>
-            {/* <div>TESTING THE RENDER</div> */}
+       
+            {/* <h1>My Benefit Cost Analysis</h1> */}
+         
 
-            <h2>Finance Workbench</h2>
+            <h1>Finance Workbench</h1>
 
 
             <div className="tableMyCBA__List">
@@ -36,60 +35,23 @@ export default (props) => {
             </div>
 
 
-            <div className="finworkbenchs">
-                {
-                    // loans.map(finWorkBench => {
-                        finworkbenchs.map(finworkbench => {
-                        console.log(finworkbench)
-                        // if(loan.benefitCostAnalysis === false ) {
 
-                            // if(mycareeroption.searchSchool !== "true")
-                        if (finworkbench.benefitCostAnalysis === "false") 
-                        console.log(finworkbench)
-                            return <FinWorkBench key={finworkbench.id} finworkbench={finworkbench} />
-                        
+            <div className="finworkbenchs">
+
+                {
+                    // loans.map(finWorkBench => {s
+                    loans.map(loan => {
+                        const ActiveUser = localStorage.getItem("education_customer")
+
+                        if (loan.finWorkBenchStep === "true" &&  loan.benefitCostAnalysis === "false" && parseInt(ActiveUser) === loan.userId) {
+                            // console.log( loan.finWorkBenchStep)
+                            // console.log( loan.benefitCostAnalysis)
+                            return <FinWorkBench key={loan.id} loan={loan} />
+                            // return <FinWorkBench key={finworkbench.id} finworkbench={finworkbench} />
+                        }
                     })
                 }
             </div>
-
-
-            {/* {
-                    mycareeroptions.map(mycareeroption => {
-                        if(mycareeroption.searchSchool !== "true")
-                        return <MyCareerOption key={mycareeroption.id} {...props} mycareeroption={mycareeroption} />
-                    })
-                } */}
-
-            {/* <h2>Benefit Cost Analysis</h2>
-
-            <div className="tableBCA">
-            <section className="tableBCA__section">
-                <div className="tableBCA__nameEarnings">Degree</div>
-                <div className="tableBCA__earningsAvg"> Average Yearly Earnings</div>
-                <div className="tableBCA__earningsAvg"> (B) Benefits Over 20 Years</div>
-                <div className="tableBCA__nameEarnings">School / Program </div>
-                <div className="tableBCA__nameEarnings">(C) Total Costs</div>
-                <div className="tableBCA__nameEarnings">Total Cash Paid</div>
-                <div className="tableBCA__nameEarnings">Total Loan Amounts Paid</div>
-                <div className="tableBCA__nameEarnings">Loans Taken All Years</div>
-                <div className="tableBCA__nameEarnings"> Benefit To Cost Ratio (B)/(C)</div>
-                {/* <div className="tableMCO__earningsHigh">Earnings High</div>
-                <div className="tableMCO__earningsLow">Earnings Low</div> */}
-
-            {/* </section> */}
-            {/* </div> 
-
-
-
-            <div className="loans">
-                {
-                    loans.map(loan => {
-                        return <Loan key={loan.id} loan={loan} />
-                    })
-                }
-            </div> */}
-
-
 
 
         </>

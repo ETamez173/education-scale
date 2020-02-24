@@ -31,11 +31,12 @@ export default props => {
     const [degreeschool, setDegreeSchool] = useState({})
 
     const [moPmt, setMoPmt] = useState()
+    const [note, setNote] = useState()
     /////// using props is key since I used destructured props notation
 
     ////// setLoan(props.loan) 
 
-    console.log(props.loan.id)
+    // console.log(props.loan.id)
 
     const handleControlledInputChange = (event) => {
         /*
