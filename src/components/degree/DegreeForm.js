@@ -6,7 +6,7 @@ import { SchoolContext } from "../school/SchoolProvider"
 export default props => {
     const { schools } = useContext(SchoolContext)
     const { addDegree, degrees, updateDegree, history } = useContext(DegreeContext)
-    const [degree, setDegree] = useState([])
+    const [degree, setDegree] = useState({})
 
     const editMode = props.match.params.hasOwnProperty("degreeId")
 
@@ -60,7 +60,7 @@ export default props => {
                     earningsLow: degree.earningLow,
                     degreeNote: degree.note,
 
-                    // userId: parseInt(localStorage.getItem("education_customer")),
+                    userId: parseInt(localStorage.getItem("education_customer")),
                 })
                     .then(() => props.history.push("/degrees"))
             }
@@ -138,7 +138,7 @@ export default props => {
                     constructNewDegree()
                 }}
                 className="btn btn-primary">
-                {editMode ? "Save Updates" : "Add New Degree"}
+                {editMode ? "Update Degree" : "Add Degree"}
             </button>
         </form>
     )

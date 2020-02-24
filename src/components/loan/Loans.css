@@ -13,17 +13,17 @@ h1, h2, h3, h4 {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    flex-basis: 10%;
-    padding: 1%;
+    flex-basis: 5%;
+    /* padding: 1%; */
     /* background-color: goldenrod; */
-    margin:1%;
+    /* margin:1%; */
     /* border: 1px solid black; */
     font-family:  Arial, Helvetica, sans-serif;
     /* padding: 20px 10px 20px 10px; */
     border-radius: 3px; 
     justify-content: space-around;
     max-width: 95px;
-    min-width: 75px;
+    min-width: 65px;
 
 }
 
@@ -68,7 +68,7 @@ max-height:75vh ;
     font-size: 1.25em;
     border-radius: 3px; 
     justify-content: space-around;
-    max-width: 90vw;
+    max-width: 95vw;
     min-height: 70px;
     align-content: center;
     margin: auto;
@@ -263,11 +263,11 @@ max-width: 100px;
     /* align-items: center; */
     align-content: center;
 
-    background-color: darkcyan;
+    background-color: rgb(51, 107, 29);
     color: white;
 }
 
-.loan__schoolTotCost 
+.loan__schoolTotCostx 
 
 {
 
@@ -326,6 +326,21 @@ max-width: 100px;
 
 }
 
+
+
+.loan__note {
+
+    max-width: 270px;
+    background-color: darkred;
+    color: white;
+    /* scroll-behavior: smooth; */
+
+    overflow: auto;  
+    /* overflow: visible; */
+
+    /* height: 100vh; */
+
+}
 
 
 .loan__principal1:after {
@@ -542,12 +557,12 @@ input[type=number] {
     
 }
 
-.tableMyCBA__sectionx, .loan__sectionx {
+.tableMyCBA__section, .loan__sectionx {
 
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    /* flex-basis: 20%; */
+    flex-basis: 40%;
     padding: 1%;
     /* background-color: goldenrod; */
     margin:1%;
@@ -622,8 +637,8 @@ input[type=number] {
     align-content: center;
     /* max-width: 100px; */
 margin: auto;
-    width: 120px;
-    height: 100px;
+    width: 100px;
+    height: 80px;
     background: lime;
     border-radius: 50%
 

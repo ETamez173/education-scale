@@ -24,8 +24,6 @@ import LoanList from "./loan/LoanList"
 import DegreeSchoolList from "./degreeschool/DegreeSchoolList"
 import { DegreeSchoolProvider } from "./degreeschool/DegreeSchoolProvider"
 
-
-
 import { MySchoolOptionProvider } from "./myschooloption/MySchoolOptionProvider"
 
 import { FinWorkBenchProvider } from "./loan/FinWorkBenchProvider"
@@ -33,14 +31,7 @@ import FinWorkBenchList from "./loan/FinWorkBenchList"
 
 import DegreeForm from "./degree/DegreeForm"
 
-// import LoanForm from "./loan/LoanForm"
 
-// import MyCareerOptionList from "./mycareeroption/MyCareerOptionList"
-// import { MyCareerOptionPovider } from "./mycareeroption/MyCareerOptionProvider";
-
-
-// import { EarningProvider } from "./earning/EarningProvider"
-// import EarningList from "./earning/EarningList"
 
 
 export default (props) => {
@@ -51,7 +42,6 @@ export default (props) => {
                 <DegreeProvider>
                     <MyCareerOptionProvider>
                         <DegreeSchoolProvider>
-
                             < FinWorkBenchProvider>
                                 <Route exact path="/">
                                     <DegreeList />
@@ -63,37 +53,26 @@ export default (props) => {
                                     props => <DegreeForm {...props} />
                                 } />
 
-                                {/* <Route path="/degrees/edit/:degreeId(\d+)" render={
-                                    props => <DegreeForm {...props} />
-                                } /> */}
-
-
-
-                                {/* <Route exact path="/">
-                        <CareerOptionList />
-                    </Route> */}
-                                {/* <Route
-                            path="/tasks/editTasks/:taskId(\d+)"
-                            render={props => <TaskForm {...props} />}
-                        /> */}
-
-                                {/* <Route
-                            path="/search/:mycareeroption.id(\d+)"
-                            render={props => <MyCareerOptionList {...props} />}
-                        /> */}
-
-                                {/* <Route exact path="/">
-                            <SchoolList {...props} />
-                        </Route> */}
 
 
                                 <Route exact path="/">
                                     <MyCareerOptionList {...props} />
                                 </Route>
-                                {/* 
-                        <Route exact path="/">
-                        <SchoolList {...props} />
-                    </Route> */}
+
+{/* 
+                                <Route exact path="/degrees" render={
+                                    props => <DegreeForm {...props} />
+                                } /> */}
+
+                                <Route exact path="/degrees/create" render={
+                                    props => <DegreeForm {...props} />
+                                } />
+
+                                <Route path="/degrees/edit/:degreeId(\d+)" render={
+                                    props => <DegreeForm {...props} />
+                                } />
+
+
                             </FinWorkBenchProvider>
                         </DegreeSchoolProvider>
                     </MyCareerOptionProvider>
@@ -128,8 +107,6 @@ export default (props) => {
                                         <Route path="/mycareerOptions/:degreeId(\d+)" render={
                                             props => <SchoolOptionList {...props} />
                                         } />
-                                    
-
 
 
                                     </FinWorkBenchProvider>
@@ -141,24 +118,14 @@ export default (props) => {
             </SchoolProvider>
 
 
-          
+
             <SchoolProvider>
                 <DegreeSchoolProvider>
                     <MySchoolOptionProvider>
                         <LoanProvider>
                             < FinWorkBenchProvider>
                                 <MyCareerOptionProvider>
-                                    {/* <Route exact path="/analysis" render={
-                            props => <DegreeSchoolList {...props} />
-                        } /> */}
-                                    {/* 
-                            <Route exact path="/analysis" render={
-                                props => <FinWorkBenchList {...props} />
-                            } /> */}
 
-                                    {/* <Route exact path="/analysis/create" render={
-                                props => <LoanForm {...props} />
-                            } /> */}
                                     <Route exact path="/analysis" render={
                                         props => <LoanList {...props} />
                                     } />
@@ -169,7 +136,7 @@ export default (props) => {
                     </MySchoolOptionProvider>
                 </DegreeSchoolProvider>
             </SchoolProvider>
-           
+
 
         </>
     )

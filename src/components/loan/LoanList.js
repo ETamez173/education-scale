@@ -74,6 +74,7 @@ export default (props) => {
                     <div className="tableBCA__nameEarnings">Total Loan Amounts Paid</div>
                     <div className="tableBCA__nameEarnings">Loans Taken All Years</div>
                     <div className="tableBCA__nameEarnings"> Benefit To Cost Ratio (B)/(C)</div>
+                    <div className="tableBCA__nameEarnings"> Notes</div>
                     {/* <div className="tableMCO__earningsHigh">Earnings High</div>
                 <div className="tableMCO__earningsLow">Earnings Low</div> */}
 

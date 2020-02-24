@@ -4,7 +4,7 @@ import Degree from "./Degree"
 import "./Degrees.css"
 
 export default (props) => {
-    const { degrees, addDegree } = useContext(DegreeContext)
+    const { degrees, addDegree, history } = useContext(DegreeContext)
 
     return (
         <>
