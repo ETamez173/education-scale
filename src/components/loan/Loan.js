@@ -145,7 +145,7 @@ export default props => {
                     <fieldset>
                         <div className="form-group">
                             <label htmlFor="treatment">Add /Edit Notes: </label>
-                            <textarea type="text" name="note" className="form-control"
+                            <textarea type="text" name="note" className="form-control2"
                                 proptype="varchar"
                                 value={loan.note}
                                 onChange={handleControlledInputChange}>
@@ -162,11 +162,13 @@ export default props => {
                                 editLoanFactors()
 
                             }}>
-                            Save Changes
+                            Save / Update Note 
                                 </button>
 
                     </div>
 
+<br></br>
+<br></br>
                 </div>
                         <div>
                             <button className="deleteFinWorkBenchItem__button"

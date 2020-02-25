@@ -13,10 +13,9 @@ export default (props) => {
         <>
 
        
-            {/* <h1>My Benefit Cost Analysis</h1> */}
-         
+        
 
-            <h1>Finance Workbench</h1>
+            <h1>Financial Workbench</h1>
 
 
             <div className="tableMyCBA__List">
@@ -24,6 +23,7 @@ export default (props) => {
                     <div className="tableMyCBA__nameCareer">Degree</div>
                     <div className="tableMyCBA__earningsAvg"> School / Program</div>
                     <div className="tableMyCBA__earningsAvg"> Average Total Costs</div>
+                    <div className="tableMyCBA__earningsAvg"> Savings, Scholarships, Grants</div>
                     <div className="tableMyCBA__earningsAvg"> Loans Taken All Years</div>
                     <div className="tableMyCBA__earningsAvg"> Repayment Years</div>
                     <div className="tableMyCBA__earningsAvg"> Interest Rate %</div>

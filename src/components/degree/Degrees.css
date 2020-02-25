@@ -45,6 +45,67 @@
 
 }
 
+
+.degreeForm {
+
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    font-family:  Arial, Helvetica, sans-serif;
+    margin: auto;
+    justify-content: space-around;
+    flex-basis: 20%;
+  align-content: flex-startstart;
+    max-width: 100vw;
+    min-width: 100vw;
+    min-height: 5vw;
+    font-size: 1.5em;
+    color: white;
+}
+
+.form-control {
+
+    flex-wrap: wrap;
+    flex-direction: column;
+    font-family:  Arial, Helvetica, sans-serif;
+    margin: auto;
+    justify-content: space-around;
+    min-width: 35vw;
+    max-width: 40vw;
+    min-height: 5vw;
+    max-height: 5vw;
+color: black;
+
+}
+.degreeForm__imageHolder
+{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    max-width: 100vw;
+    min-width: 100vw;
+    min-height: 70vw;
+    justify-content: space-around;
+    margin: auto
+}
+
+.degreeForm__container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    font-family:  Arial, Helvetica, sans-serif;
+    margin: auto;
+    justify-content: space-around;
+    flex-basis: 20%;
+  /* background-image: url(../images/Classroom_2.JPG); */
+    background-image: url(../images/Classroom_1.JPG);
+    /* background-image: url(SchoolScale_pic1.PNG); */
+
+}
+
+
+
+
  .degreeList {
 
 
@@ -219,8 +280,15 @@ color: white;
 
 }
 
+.addNewDegree__button, .editDegree__button {
+    max-width: 100px;
+    word-wrap: break-word;
+    
+    word-wrap: break-word;
+    border-radius: 10px; 
+    background-color: lemonchiffon;
 
-
+}
 
 .saveToMyCareerOptions__button, .saveToMyMCO__button {
 

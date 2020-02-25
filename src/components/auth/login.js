@@ -55,41 +55,53 @@ const Login = props => {
     return (
         <main className="container--login">
             <section className="login__section">
-                
-                    <form className="form--login" onSubmit={handleLogin}>
-                        <h1>SchoolScale </h1>
-                        <h2>Please sign in</h2>
-                        <div className="form__placement">
+
+                <form className="form--login" onSubmit={handleLogin}>
+                    <h1>SchoolScale </h1>
+                    <h2>Please sign in</h2>
+                    <div className="form__placement">
                         <div className="sign__in">
-                        <fieldset className="email__prompt">
-                            <label htmlFor="inputEmail"> Enter Your Email Address </label>
-                            <input ref={email} type="email"
-                                id="email"
-                                className="form-control"
-                                placeholder="Email address"
-                                required autoFocus />
-                        </fieldset>
-                        <fieldset className="password__prompt">
-                            <label htmlFor="inputPassword"> Password </label>
-                            <input ref={password} type="password"
-                                id="password"
-                                className="form-control"
-                                placeholder="Password"
-                                required />
-                        </fieldset>
-                        <fieldset>
-                            <button className="sign__inButton" type="submit">
-                                Sign in
-                    </button>
-                        </fieldset>
+
+
+
                         </div>
+                        <div className="login__fields" >
+                            <fieldset className="email__prompt">
+                                <div className="label__control">
+                                    <label htmlFor="inputEmail"> Enter Your Email Address </label>
+                                </div>
+                                <input ref={email} type="email"
+                                    id="email"
+                                    className="form-control"
+                                    placeholder="Email address"
+                                    required autoFocus />
+                            </fieldset>
+                            <fieldset className="password__prompt">
+                                <div className="label__control">
+                                    <label htmlFor="inputPassword"> Password </label>
+                                </div>
+                                <input ref={password} type="password"
+                                    id="password"
+                                    className="form-control"
+                                    placeholder="Password"
+                                    required />
+                            </fieldset>
+                            <fieldset>
+                                <div className="label__control">
+                                    <button className="sign__inButton" type="submit">
+                                        Sign in
+                                   </button><br></br>
+                                    <section className="link__register">
+                                        <Link to="/register">Register A New Account</Link>
+                                    </section>
+                                </div>
+                            </fieldset>
                         </div>
-                    </form>
-               
+                    </div>
+                </form>
+
             </section>
-            <section className="link__register">
-                <Link to="/register">Register A New Account</Link>
-            </section>
+
         </main>
     )
 }

@@ -15,7 +15,7 @@ import { MyCareerOptionContext } from "../mycareeroption/MyCareerOptionProvider"
 export default props => {
 
     // export default ({ finworkbench, degreeSchool, loan, degree, school, history }) => {
-    const { addLoan, deleteLoan, updateLoan, getLoans, history  } = useContext(LoanContext)
+    const { addLoan, deleteLoan, updateLoan, getLoans, history } = useContext(LoanContext)
     // const { finworkbenchs, deleteFinWorkBench, addFinWorkBench, addLoan, updateLoan, deleteLoan } = useContext(LoanContext)
     const { finworkbenchs, deleteFinWorkBench, addFinWorkBench } = useContext(FinWorkBenchContext)
     // const { degrees, addDegree, deleteDegree } = useContext(DegreeContext)
@@ -162,7 +162,7 @@ export default props => {
         const totalAmountPaid = null;
         const benefitCostRatio = null;
         const benefitCostAnalysis = null;
-// debugger
+        // debugger
         addLoan({
 
 
@@ -189,7 +189,7 @@ export default props => {
             step: "finworkbench"
 
         })
-        
+
         // .then(getLoans)
 
     }
@@ -198,7 +198,7 @@ export default props => {
 
 
 
-    
+
     const editLoanFactors = () => {
         const loanPmt = moPmt;
         const id = props.loan.id
@@ -289,15 +289,30 @@ export default props => {
 
                 <section className="loan__section">
 
+
+
+                    {/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */}
+
+                    <div className="align__vert">
                     <div className="loan__schoolDiv0">
                         <div className="loan__educationName">{props.loan.educationName}</div>
                     </div>
+                    </div>
+                    {/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */}
+                    {/* <div className="align__vert"></div> */}
 
+                    {/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */}
+                    <div className="align__vert">
                     <div className="loan__schoolDiv0">
                         <div className="loan__schoolName">{props.loan.schoolName}</div>
                     </div>
-
+                    </div>
+                    {/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */}
                     <div className="loan__lineFiller0">filler</div>
+
+
+                    {/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */}
+                    <div className="align__vert">
                     <div className="loan__schoolDiv">
                         <div>
 
@@ -307,33 +322,40 @@ export default props => {
                             </div>
                         </div>
                     </div>
+                    </div>
+                    {/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */}
                     <div className="loan__lineFiller0">filler</div>
 
+                    {/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */}
+                    <div className="align__vert">
                     <div className="loan__schoolDiv">
                         {/* <fieldset> */}
-                        <div className="loan__inputBox">
-                            <div className="form-group">
+                        <div className="loan__inputBox4">
+                            <div className="loan__inputBox">
+                                <div className="form-group">
 
-                                <div className="label__thing">
-                                    <label htmlFor="name" className="label__inputext">Enter Cash</label>
-                                </div>
-                                <div className="input__thing">
-                                    <input type="number" id="cashPaid" name="cashPaid" required autoFocus className="form-control2"
-                                        proptype="number"
-                                        placeholder="Savings"
+                                    <div className="label__thing">
+                                        <label htmlFor="name" className="label__inputextx">Enter Cash</label>
+                                    </div>
+                                    <div className="input__thing">
+                                        <input type="number" id="cashPaid" name="cashPaid" required autoFocus className="form-control3"
+                                            proptype="number"
+                                            placeholder="Savings"
 
-                                        defaultValue={loan.cashPaid}
-                                        onChange={handleControlledInputChange}
-                                    />
+                                            defaultValue={loan.cashPaid}
+                                            onChange={handleControlledInputChange}
+                                        />
+                                    </div>
                                 </div>
                             </div>
                         </div>
                         {/* </fieldset> */}
                     </div>
-
+                    </div>
+                    {/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */}
                     <div className="loan__lineFiller0">filler</div>
                     <div className="loan__lineFiller0">filler</div>
-
+                    <div className="align__vert">
                     <div className="loan__schoolDiv">
                         <div>
                             <div>
@@ -344,10 +366,13 @@ export default props => {
                             </div>
                         </div>
                     </div>
-
-
+                    </div>
+                    {/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */}
 
                     <div className="loan__lineFiller0">filler</div>
+
+                    {/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */}
+                    <div className="align__vert">
                     <div className="loan__schoolDiv">
                         <fieldset>
                             <div className="loan__inputBox4">
@@ -356,7 +381,7 @@ export default props => {
                                         <label htmlFor="name">Enter Years: </label>
                                     </div>
                                     <div className="input__thing">
-                                        <input type="number" id="years" name="years" required autoFocus className="form-control2"
+                                        <input type="number" id="years" name="years" required autoFocus className="form-control3"
                                             proptype="number"
                                             placeholder="# of Years"
                                             defaultValue={loan.years}
@@ -368,8 +393,12 @@ export default props => {
                             </div>
                         </fieldset>
                     </div>
-
+                    </div>
+                    {/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */}
                     <div className="loan__lineFiller0">filler</div>
+
+                    {/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */}
+                    <div className="align__vert">
                     <div className="loan__schoolDiv">
                         <fieldset>
                             <div className="loan__inputBox3">
@@ -378,7 +407,7 @@ export default props => {
                                         <label htmlFor="name">Enter Rate: </label>
                                     </div>
                                     <div className="input__thing">
-                                        <input type="number" id="interest" name="interest" min="1" max="50" required autoFocus className="form-control2"
+                                        <input type="number" id="interest" name="interest" min="1" max="50" required autoFocus className="form-control3"
                                             proptype="number"
                                             placeholder="Interest %"
                                             defaultValue={loan.interest}
@@ -389,9 +418,13 @@ export default props => {
                             </div>
                         </fieldset>
                     </div>
-
+                    </div>
+                    {/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */}
 
                     <div className="loan__lineFiller0">filler</div>
+
+                    {/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */}
+                    <div className="align__vert">
                     <div className="loan__schoolDiv">
                         {/* <div className="loan__lineFiller0">filler</div>
                     <div className="loan__lineFiller0">filler</div> */}
@@ -414,11 +447,12 @@ export default props => {
 
                         </div>
                     </div>
-
-
+                    </div>
+                    {/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */}
 
                     <div className="loan__lineFiller0">filler</div>
-
+                    {/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */}
+                    <div className="align__vert">
                     <div className="loan__schoolDiv5">
                         <div>
                             <div className="BCA_buttons">
@@ -434,7 +468,7 @@ export default props => {
 
                                     <button className="runBenefitCostAnalysis__button"
                                         onClick={() => {
-// debugger
+                                            // debugger
                                             constructBCAobject()
 
                                         }}>Run Benefit Analysis
@@ -466,6 +500,10 @@ export default props => {
                             </div>
                         </div>
                     </div>
+
+                    </div>
+
+                    {/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */}
                 </section>
 
             </section>

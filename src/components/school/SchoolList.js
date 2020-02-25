@@ -49,22 +49,15 @@ export default (props) => {
 
                     {degreeSchools.filter(ds => {
                         //   console.log(co.id)
-
-                        const userId = parseInt(localStorage.getItem("education_customer"))
-                    //   const foundMCOdegreeDSmMatch = mycareeroptions.find(co => co.id === ds.degreeId);
-                      const foundMCOdegreeDSmMatch = mycareeroptions.find(co => co.userId === ds.degreeId);
-                        console.log(foundMCOdegreeDSmMatch)
-                        return 
-                        // !!
+                        return !!mycareeroptions.find(co => co.id === ds.degreeId);
+                      
                     })
                         // filter for only users
 
                         .map(ds => {
-                            const userId = parseInt(localStorage.getItem("education_customer"))
-                            const foundMatchSchoolsForDegree = mycareeroptions.find(fndMSFD => fndMSFD.degree  && fndMSFD.userId === userId )
+                            const foundMatchSchoolsForDegree = mycareeroptions.find(fndMSFD => fndMSFD.degree )
                             console.log(foundMatchSchoolsForDegree)
-
-
+                            // if this appears then you controled Z to the right place
                             return (
 
                                 <DegreeSchool

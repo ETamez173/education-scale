@@ -34,7 +34,7 @@ fieldset {
 .sign__in {
 
    align-content: center; 
-   /* background-color: lightblue; */
+ background-color: lightblue;
    display: flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -86,6 +86,23 @@ fieldset {
     
 }
 
+.link__register {
+    font-size: 1.25em;
+    color:white;
+    /* color: green; */
+}
+
+.label__control {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: center;
+    color:white;
+    font-size: 1.5em;
+
+}
+
+
 
 #email, #password {
 
@@ -95,21 +112,50 @@ fieldset {
 
 .container--login {
     text-align: center;
-    background-color: lightblue;
+  
+    color: silver;
+
+    background-image: url(SchoolScale_pic1.PNG);
+}
+
+
+.login__fieldsx {
+    display: flex;
+    /* flex-wrap: wrap; */
+    flex-direction: column;
+    font-family:  Arial, Helvetica, sans-serif;
+    margin: auto;
+    max-width: 100px;
+    min-width: 100px;
+    min-height: 5vw;
+    max-height: 5vw;
+    
+}
+
+#rootx {
+
 }
 
 .form--login {
 
-    
     background-position-x: center;
-    background-image: url(SchoolScale_pic1.PNG);
-    z-index: 1;
-    min-height: 70rem;
-    min-width: 85rem;
+    /* background-image: url(../images/Classroom_2.JPG); */
+    /* background-image: url(../images/Classroom_1.JPG); */
+  background-image: url(SchoolScale_pic1.PNG);
+
+  background-blend-mode: overlay;
+  background-repeat: no-repeat;
+  
+  font-size: 1em;
+  color: black;
+     
+    /* z-index: 1; */
+    min-height: 70px;
+    min-width: 85px;
     
 
 
-    /* background-color: hsla(0,0%,100%,0.40); */
-    background-blend-mode: overlay;
-    background-repeat: no-repeat;
+    /* background-color: hsla(0,0%,100%,0.40);  */
+    /* background-blend-mode: overlay; */
+    /* background-repeat: no-repeat; */
 }

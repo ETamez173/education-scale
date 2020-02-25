@@ -15,7 +15,7 @@ export default (props) => {
 
             <h1></h1>
             {/* When the button is clicked, check if the user is authenticated. */}
-            <button onClick={() => props.history.push("/degrees/create")}>
+            <button className="addNewDegree__button" onClick={() => props.history.push("/degrees/create")}>
                 Add New Degree
             </button>
             {/* <h2>Career Options and Earnings</h2> */}

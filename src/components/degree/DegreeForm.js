@@ -5,7 +5,7 @@ import { SchoolContext } from "../school/SchoolProvider"
 
 export default props => {
     const { schools } = useContext(SchoolContext)
-    const { addDegree, degrees, updateDegree, history } = useContext(DegreeContext)
+    const { addDegree, degrees, updateDegree, deleteDegree, history } = useContext(DegreeContext)
     const [degree, setDegree] = useState({})
 
     const editMode = props.match.params.hasOwnProperty("degreeId")
@@ -20,10 +20,14 @@ export default props => {
         setDegree(newDegree)
     }
 
+    const degreeId = degrees.id
+    console.log(degreeId)
+
     const setDefaults = () => {
         if (editMode) {
             const degreeId = parseInt(props.match.params.degreeId)
-            const selectedDegree = degrees.find(d => d.id === degreeId) || {}
+            console.log(degreeId)
+            const selectedDegree = degree.find(d => d.id === degreeId) || {}
             setDegree(selectedDegree)
         }
     }
@@ -33,118 +37,124 @@ export default props => {
     }, [degrees])
 
     const constructNewDegree = () => {
-        const schoolId = parseInt(degree.id)
+        // const schoolId = parseInt(degree.id)
         // console.log(schoolId)
 
-        if (schoolId === 0) {
-            window.alert("Please select a school")
+        // if (schoolId === 0) {
+        //     window.alert("Please select a school")
+        // } else {
+        if (editMode) {
+            updateDegree({
+                id: degrees.id,
+                educationName: degree.name,
+                earningsAvg: degree.earningAverage,
+                earningsHigh: degree.earningHigh,
+                earningsLow: degree.earningLow,
+                degreeNote: degree.note,
+                // customerId: parseInt(localStorage.getItem("kennel_customer"))
+                // userId: parseInt(localStorage.getItem("education_customer")),
+            })
+                .then(() => props.history.push("/degrees/edit"))
         } else {
-            if (editMode) {
-                updateDegree({
-                    id: degree.id,
-                    educationName: degree.name,
-                    earningsAvg: degree.earningAverage,
-                    earningsHigh: degree.earningHigh,
-                    earningsLow: degree.earningLow,
-                    degreeNote: degree.note,
-                    // customerId: parseInt(localStorage.getItem("kennel_customer"))
-                    userId: parseInt(localStorage.getItem("education_customer")),
-                })
-                    .then(() => props.history.push("/degrees"))
-            } else {
-                addDegree({
+            addDegree({
 
-                    educationName: degree.name,
-                    earningsAvg: degree.earningsAverage,
-                    earningsHigh: degree.earningsHigh,
-                    earningsLow: degree.earningsLow,
-                    degreeNote: degree.note,
+                educationName: degree.name,
+                earningsAvg: degree.earningsAverage,
+                earningsHigh: degree.earningsHigh,
+                earningsLow: degree.earningsLow,
+                degreeNote: degree.note,
 
-                    // userId: parseInt(localStorage.getItem("education_customer")),
-                })
-                    .then(() => props.history.push("/"))
-            }
+                // userId: parseInt(localStorage.getItem("education_customer")),
+            })
+                .then(() => props.history.push("/"))
         }
-        }
+    }
+    // }
 
     return (
         <form className="degreeForm">
-            <h2 className="degreeForm__title">{editMode ? "Update Degree" : "Add Degree"}</h2>
-            <fieldset>
-                <div className="form-group">
-                    <label htmlFor="name">Degree name: </label>
-                    <input type="text" name="name" required autoFocus className="form-control"
-                        proptype="varchar"
-                        placeholder="Degree name"
-                        defaultValue={degree.name}
-                        onChange={handleControlledInputChange}
-                    />
-                </div>
-            </fieldset>
+             <div className="degreeForm__imageHolder">
+            <div className="degreeForm__container">
+                <h2 className="degreeForm__title">{editMode ? "Update Degree" : "Add Degree"}</h2>
+                <fieldset>
+                    <div className="form-group">
+                        <label htmlFor="name">Degree name: </label>
+                        <input type="text" name="name" required autoFocus className="form-control"
+                            proptype="varchar"
+                            placeholder="Degree Name"
+                            defaultValue={degree.name}
+                            onChange={handleControlledInputChange}
+                        />
+                    </div>
+                </fieldset>
 
-            <fieldset>
-                <div className="form-group">
-                    <label htmlFor="breed">Yearly Earnings Average: </label>
-                    <input type="number" name="earningsAverage" required className="form-control"
-                        proptype="varchar"
-                        placeholder="YearlyAverage"
-                        defaultValue={degree.earningsAverage}
-                        onChange={handleControlledInputChange}
-                    />
-                </div>
-            </fieldset>
-
-
-
-            <fieldset>
-                <div className="form-group">
-                    <label htmlFor="breed">Yearly Earnings High: </label>
-                    <input type="number" name="earningsHigh" required className="form-control"
-                        proptype="varchar"
-                        placeholder="Yearlyhigh"
-                        defaultValue={degree.earningsHigh}
-                        onChange={handleControlledInputChange}
-                    />
-                </div>
-            </fieldset>
-
-            <fieldset>
-                <div className="form-group">
-                    <label htmlFor="breed">Yearly Earnings Low: </label>
-                    <input type="number" name="earningsLow" required className="form-control"
-                        proptype="varchar"
-                        placeholder="Yearlylow"
-                        defaultValue={degree.earningsLow}
-                        onChange={handleControlledInputChange}
-                    />
-                </div>
-            </fieldset>
+                <fieldset>
+                    <div className="form-group">
+                        <label htmlFor="breed">Yearly Earnings Average: </label>
+                        <input type="number" name="earningsAverage" required className="form-control"
+                            proptype="number"
+                            placeholder="Yearly Average"
+                            defaultValue={degree.earningsAverage}
+                            onChange={handleControlledInputChange}
+                        />
+                    </div>
+                </fieldset>
 
 
-         
-            <fieldset>
-                <div className="form-group">
-                    <label htmlFor="treatment">Notes: </label>
-                    <textarea type="text" name="note" className="form-control"
-                        proptype="varchar"
-                        value={degree.note}
-                        onChange={handleControlledInputChange}>
-                    </textarea>
-                </div>
-            </fieldset>
-            <button type="submit"
-                onClick={evt => {
-                    evt.preventDefault()
-                    constructNewDegree()
-                }}
-                className="btn btn-primary">
-                {editMode ? "Update Degree" : "Add Degree"}
-            </button>
-            <button onClick={() => {
-                props.history.push(`/Degrees/edit/${degree.id}`)
-            }}>Edit</button>
+
+                <fieldset>
+                    <div className="form-group">
+                        <label htmlFor="breed">Yearly Earnings High: </label>
+                        <input type="number" name="earningsHigh" required className="form-control"
+                            proptype="number"
+                            placeholder="Yearly High"
+                            defaultValue={degree.earningsHigh}
+                            onChange={handleControlledInputChange}
+                        />
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <div className="form-group">
+                        <label htmlFor="breed">Yearly Earnings Low: </label>
+                        <input type="number" name="earningsLow" required className="form-control"
+                            proptype="number"
+                            placeholder="Yearly Low"
+                            defaultValue={degree.earningsLow}
+                            onChange={handleControlledInputChange}
+                        />
+                    </div>
+                </fieldset>
 
 
+
+                <fieldset>
+                    <div className="form-group">
+                        <label htmlFor="treatment">Notes: </label>
+                        <textarea type="text" name="note" className="form-control"
+                            proptype="varchar"
+                            value={degree.note}
+                            onChange={handleControlledInputChange}>
+                        </textarea>
+                    </div>
+                </fieldset>
+                <button type="submit"
+                    onClick={evt => {
+                        evt.preventDefault()
+                        constructNewDegree()
+                    }}
+                    className="btn btn-primary">
+                    {editMode ? "Save Updates" : "Add Degree"}
+                </button>
+
+                <button className="editDegree__button" type="button" onClick={() => {
+
+                    props.history.push(`/Degrees/edit/${degree.id}`)
+                }}>Edit Degree</button>
+
+            </div>
+            </div>
         </form>
+
     )
 }
