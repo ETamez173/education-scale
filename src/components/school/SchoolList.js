@@ -46,6 +46,40 @@ export default (props) => {
             <div className="tableDegreeSchool__listView">
                 <div className="tableDegreeSchool__listItem_center">
 
+
+                    {degreeSchools.filter(ds => {
+                        //   console.log(co.id)
+
+                        const userId = parseInt(localStorage.getItem("education_customer"))
+                    //   const foundMCOdegreeDSmMatch = mycareeroptions.find(co => co.id === ds.degreeId);
+                      const foundMCOdegreeDSmMatch = mycareeroptions.find(co => co.userId === ds.degreeId);
+                        console.log(foundMCOdegreeDSmMatch)
+                        return 
+                        // !!
+                    })
+                        // filter for only users
+
+                        .map(ds => {
+                            const userId = parseInt(localStorage.getItem("education_customer"))
+                            const foundMatchSchoolsForDegree = mycareeroptions.find(fndMSFD => fndMSFD.degree  && fndMSFD.userId === userId )
+                            console.log(foundMatchSchoolsForDegree)
+
+
+                            return (
+
+                                <DegreeSchool
+                                    key={ds.id}
+                                    school={ds.school}
+                                    degreeSchool={ds}
+                                />
+                            );
+                        })}
+
+                    {/* 
+                    })
+
+                    }
+                    
                     {
 
                         degreeSchools.map(ds => {
@@ -124,7 +158,7 @@ export default (props) => {
                             }
 
                         })
-                    }
+                    } */}
 
                 </div>
             </div>
