@@ -392,7 +392,7 @@ In the project directory, you can run:
 
 ### `npm i`
 
-To install all the dependencies that are req to run this applcation please use the following command  'npm i'
+To install all the dependencies that are required to run this applcation please use the following command  'npm i'
 
 ### `npm start`
 
