@@ -1,3 +1,388 @@
+## Application 
+
+SchoolScale is a single page responsive CRUD web application that helps users weigh school choices quickly and avoid overpaying for education. The app takes users thru a menu of degree / program options they can choose from and presents the users with career earnings research and tuition costs and give them the opportunity to enter savings, grants and scholarship data into the app so they can generate a Benefit/ Cost Ratio Analysis which reveals the long term benefits of each potential Education Plan.
+
+## Wireframe
+
+https://app.moqups.com/qrM1RaKh2X/edit/page/a3891d6b7
+
+
+## ERD
+https://dbdiagram.io/d/5e39d6399e76504e0ef108a1
+
+
+## Install JSON Server
+
+`npm install -g json-server`
+
+Create a database.json file with some data
+
+```
+{
+  "customers": [
+
+  ],
+  "schools": [
+    {
+      "id": 1,
+      "schoolName": "MTSU"
+    },
+    {
+      "id": 2,
+      "schoolName": "Tennesse Tech"
+    },
+    {
+      "id": 3,
+      "schoolName": "Vanderbilt"
+    },
+    {
+      "id": 4,
+      "schoolName": "U of I Chicago"
+    },
+    {
+      "id": 5,
+      "schoolName": "U of I Urbana"
+    },
+    {
+      "id": 6,
+      "schoolName": "Kentucky State"
+    },
+    {
+      "id": 7,
+      "schoolName": "University of OH"
+    },
+    {
+      "id": 8,
+      "schoolName": "Columbia State"
+    },
+    {
+      "id": 9,
+      "schoolName": "Nashville School of Software"
+    },
+    {
+      "id": 10,
+      "schoolName": "Bubbas School of Learning"
+    }
+  ],
+  "degreeschools": [
+    {
+      "id": 1,
+      "schoolId": 1,
+      "degreeId": 1,
+      "studyYears": 4,
+      "annualCost": 12500,
+      "totalCost": 50000,
+      "schoolSearch": false
+    },
+    {
+      "id": 3,
+      "schoolId": 3,
+      "degreeId": 1,
+      "studyYears": 4,
+      "annualCost": 25000,
+      "totalCost": 100000,
+      "schoolSearch": false
+    },
+    {
+      "id": 4,
+      "schoolId": 4,
+      "degreeId": 1,
+      "studyYears": 4,
+      "annualCost": 20000,
+      "totalCost": 80000,
+      "schoolSearch": false
+    },
+    {
+      "id": 5,
+      "schoolId": 5,
+      "degreeId": 1,
+      "studyYears": 4,
+      "annualCost": 12000,
+      "totalCost": 48000,
+      "schoolSearch": false
+    },
+    {
+      "id": 6,
+      "schoolId": 6,
+      "degreeId": 1,
+      "studyYears": 4,
+      "annualCost": 8000,
+      "totalCost": 32000,
+      "schoolSearch": false
+    },
+    {
+      "id": 7,
+      "schoolId": 7,
+      "degreeId": 1,
+      "studyYears": 4,
+      "annualCost": 10000,
+      "totalCost": 4000,
+      "schoolSearch": false
+    },
+    {
+      "id": 8,
+      "schoolId": 8,
+      "degreeId": 1,
+      "studyYears": 4,
+      "annualCost": 6500,
+      "totalCost": 26000,
+      "schoolSearch": false
+    },
+    {
+      "id": 9,
+      "schoolId": 10,
+      "degreeId": 1,
+      "studyYears": 4,
+      "annualCost": 1200,
+      "totalCost": 4800,
+      "schoolSearch": false
+    },
+    {
+      "id": 10,
+      "schoolId": 1,
+      "degreeId": 5,
+      "studyYears": 4,
+      "annualCost": 8500,
+      "totalCost": 34000,
+      "schoolSearch": false
+    },
+    {
+      "id": 11,
+      "schoolId": 4,
+      "degreeId": 5,
+      "studyYears": 4,
+      "annualCost": 15000,
+      "totalCost": 60000,
+      "schoolSearch": false
+    },
+    {
+      "id": 13,
+      "schoolId": 1,
+      "degreeId": 3,
+      "studyYears": 4,
+      "annualCost": 9500,
+      "totalCost": 38000,
+      "schoolSearch": false
+    },
+    {
+      "id": 14,
+      "schoolId": 2,
+      "degreeId": 3,
+      "studyYears": 4,
+      "annualCost": 13000,
+      "totalCost": 52000,
+      "schoolSearch": false
+    },
+    {
+      "id": 15,
+      "schoolId": 3,
+      "degreeId": 3,
+      "studyYears": 4,
+      "annualCost": 15000,
+      "totalCost": 60000,
+      "schoolSearch": false
+    },
+    {
+      "id": 16,
+      "schoolId": 4,
+      "degreeId": 3,
+      "studyYears": 4,
+      "annualCost": 16000,
+      "totalCost": 64000,
+      "schoolSearch": false
+    },
+    {
+      "id": 17,
+      "schoolId": 5,
+      "degreeId": 3,
+      "studyYears": 4,
+      "annualCost": 7500,
+      "totalCost": 30000,
+      "schoolSearch": false
+    },
+    {
+      "id": 18,
+      "schoolId": 6,
+      "degreeId": 3,
+      "studyYears": 4,
+      "annualCost": 9000,
+      "totalCost": 36000,
+      "schoolSearch": false
+    },
+    {
+      "id": 19,
+      "schoolId": 7,
+      "degreeId": 3,
+      "studyYears": 4,
+      "annualCost": 7000,
+      "totalCost": 28000,
+      "schoolSearch": false
+    },
+    {
+      "id": 20,
+      "schoolId": 8,
+      "degreeId": 3,
+      "studyYears": 4,
+      "annualCost": 800,
+      "totalCost": 3200,
+      "schoolSearch": false
+    },
+    {
+      "id": 21,
+      "schoolId": 1,
+      "degreeId": 4,
+      "studyYears": 4,
+      "annualCost": 10000,
+      "totalCost": 40000,
+      "schoolSearch": false
+    },
+    {
+      "id": 22,
+      "schoolId": 2,
+      "degreeId": 4,
+      "studyYears": 4,
+      "annualCost": 12500,
+      "totalCost": 50000,
+      "schoolSearch": false
+    },
+    {
+      "id": 23,
+      "schoolId": 3,
+      "degreeId": 4,
+      "studyYears": 4,
+      "annualCost": 15000,
+      "totalCost": 60000,
+      "schoolSearch": false
+    },
+    {
+      "id": 24,
+      "schoolId": 4,
+      "degreeId": 4,
+      "studyYears": 4,
+      "annualCost": 17000,
+      "totalCost": 68000,
+      "schoolSearch": false
+    },
+    {
+      "id": 25,
+      "schoolId": 5,
+      "degreeId": 4,
+      "studyYears": 4,
+      "annualCost": 9000,
+      "totalCost": 36000,
+      "schoolSearch": false
+    },
+    {
+      "id": 26,
+      "schoolId": 6,
+      "degreeId": 4,
+      "studyYears": 4,
+      "annualCost": 8750,
+      "totalCost": 35000,
+      "schoolSearch": false
+    },
+    {
+      "id": 27,
+      "schoolId": 7,
+      "degreeId": 4,
+      "studyYears": 4,
+      "annualCost": 4000,
+      "totalCost": 16000,
+      "schoolSearch": false
+    },
+    {
+      "id": 28,
+      "schoolId": 8,
+      "degreeId": 4,
+      "studyYears": 4,
+      "annualCost": 900,
+      "totalCost": 3600,
+      "schoolSearch": false
+    }
+  ],
+  "degrees": [
+    {
+      "id": 1,
+      "educationName": "Electical Engineer",
+      "earningsAvg": 90000,
+      "earningsHigh": 98000,
+      "earningsLow": 84000,
+      "userId": 1
+    },
+    {
+      "id": 2,
+      "educationName": "Chemical Engineer",
+      "earningsAvg": 90000,
+      "earningsHigh": 98000,
+      "earningsLow": 84000,
+      "userId": 1
+    },
+    {
+      "id": 3,
+      "educationName": "Registered Nurse",
+      "earningsAvg": 60000,
+      "earningsHigh": 73000,
+      "earningsLow": 55000,
+      "userId": 1
+    },
+    {
+      "id": 4,
+      "educationName": "Computer Science",
+      "earningsAvg": 95000,
+      "earningsHigh": 105000,
+      "earningsLow": 80000,
+      "userId": 1
+    },
+    {
+      "id": 5,
+      "educationName": "Liberal Arts",
+      "earningsAvg": 30000,
+      "earningsHigh": 33000,
+      "earningsLow": 24000,
+      "userId": 1
+    },
+    {
+      "id": 6,
+      "educationName": "Full Stack Software Developer",
+      "earningsAvg": 95000,
+      "earningsHigh": 105000,
+      "earningsLow": 80000,
+      "userId": 1
+    },
+    {
+      "id": 7,
+      "educationName": "Front-End Web Desinger/Developer",
+      "earningsAvg": 95000,
+      "earningsHigh": 105000,
+      "earningsLow": 80000,
+      "userId": 1
+    },
+    {
+      "id": 8,
+      "educationName": "Data Science",
+      "earningsAvg": 95000,
+      "earningsHigh": 105000,
+      "earningsLow": 80000,
+      "userId": 1
+    },
+    {
+      "id": 9,
+      "educationName": "Data Analytics",
+      "earningsAvg": 95000,
+      "earningsHigh": 105000,
+      "earningsLow": 80000,
+      "userId": 1
+    }
+  ],
+  "mycareeroptions": [
+   
+  ],
+  "loans": [
+   
+  ]
+}
+```
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
@@ -12,57 +397,6 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
